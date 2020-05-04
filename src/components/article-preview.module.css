@@ -2,6 +2,14 @@
   margin-top: 0;
   margin-bottom: 0;
   font-size: 21px;
+  text-shadow: 1px 1px 0 #EAEAEA;
+}
+
+.previewTitle:before {
+  content: "§";
+  margin-right: 5px;
+  color: #CCC;
+  text-shadow: none;
 }
 
 .previewTitleLink {
