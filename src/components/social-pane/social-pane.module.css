@@ -1,0 +1,29 @@
+.socialPane {
+    display: inline-flex;
+    margin: 30px 0 30px -10px;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.socialPaneItem {
+    margin: 0 10px;
+}
+
+.socialPaneItem:first-child {
+    margin-left: 0;
+}
+
+.socialPaneItemLink {
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color .2s ease-in-out;
+}
+
+.socialPaneItemLink:hover,
+.socialPaneItemLink:active {
+    background-color: #ffc8e9;
+    border-radius: 4px;
+} 

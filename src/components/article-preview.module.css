@@ -14,6 +14,13 @@
 
 .previewTitleLink {
   text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom-color .2s ease-in-out;
+}
+
+.previewTitleLink:hover,
+.previewTitleLink:active {
+  border-bottom: 2px solid #ffc8e9;
 }
 
 .articleMeta {
