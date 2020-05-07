@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import base from './base.css'
-import Container from './container'
-import Navigation from './navigation'
+
+import PageHeader from './page-header'
 import SocialPane from './social-pane'
 
 class Template extends React.Component {
@@ -16,13 +16,11 @@ class Template extends React.Component {
     }
 
     return (
-      <Container>
-        <div className="wrapper">
-          <Navigation />
-          {children}
-          <SocialPane />
-        </div>
-      </Container>
+      <div className="wrapper">
+        <PageHeader />
+        {children}
+        <SocialPane />
+      </div>
     )
   }
 }

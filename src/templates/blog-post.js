@@ -3,9 +3,11 @@ import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
-import Layout from '../components/layout'
 
-import styles from './blog-post.module.css';
+import Layout from '../components/layout'
+import ArticleHeader from '../components/article-header'
+
+import styles from './blog-post.module.css'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -14,20 +16,15 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <div style={{ background: '#fff' }}>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
-          <div className={styles.article}> 
-            <h1 className="section-headline">{post.title}</h1>
-            <p className="section-date"
-            >
-              {post.publishDate}
-            </p>
-            <div className={styles.articleContent}
-              dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
-              }}
-            />
-          </div>
+        <Helmet title={`${post.title} | ${siteTitle}`} />
+        <div className={styles.article}>
+          <ArticleHeader article={post} />
+          <div
+            className={styles.articleContent}
+            dangerouslySetInnerHTML={{
+              __html: post.body.childMarkdownRemark.html,
+            }}
+          />
         </div>
       </Layout>
     )
@@ -45,7 +42,9 @@ export const pageQuery = graphql`
     }
     contentfulBlogPost(slug: { eq: $slug }) {
       title
+      slug
       publishDate(formatString: "MMMM Do, YYYY")
+      tags
       heroImage {
         fluid(maxWidth: 640, background: "rgb:000000") {
           ...GatsbyContentfulFluid_tracedSVG

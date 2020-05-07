@@ -1,1 +1,1 @@
-export { SocialPane as default } from './social-pane';
+export { SocialPane as default } from './social-pane'

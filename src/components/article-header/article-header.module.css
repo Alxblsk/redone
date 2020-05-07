@@ -1,0 +1,52 @@
+.articleHeader {
+
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 21px;
+    text-shadow: 1px 1px 0 #EAEAEA;
+  }
+  
+  .title:before {
+    content: "§";
+    margin-right: 5px;
+    color: #CCC;
+    text-shadow: none;
+  }
+  
+  .titleLink {
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color .2s ease-in-out;
+  }
+  
+  .titleLink:hover,
+  .titleLink:active {
+    border-bottom: 2px solid #ffc8e9;
+  }
+  
+  .meta {
+    margin: 0 0 10px;
+    font-size: 12px;
+    line-height: 2;
+  }
+  
+  .date {
+    font-size: 12px;
+  }
+  
+  .tag {
+    color: #A0A0A0;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 5px;
+    line-height: 1;
+    font-size: 10px;
+  }
+  
+  .tag:before {
+    content: "#";
+  }
+  
