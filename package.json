@@ -29,6 +29,7 @@
     "eslint-plugin-react": "^7.19.0",
     "gatsby": "^2.20.25",
     "gh-pages": "^2.2.0",
+    "husky": "^4.2.5",
     "inquirer": "^7.1.0",
     "prettier": "^2.0.4",
     "rimraf": "^3.0.2",
@@ -45,6 +46,11 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Alxblsk/redone.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run format && npm run lint"
+    }
   },
   "scripts": {
     "dev": "npm run develop",
