@@ -6,6 +6,8 @@ import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 
+import styles from './blog.module.css'
+
 class BlogIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -14,14 +16,12 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-        <ul className="article-list">
-          {posts.map(({ node }) => {
-            return (
-              <li key={node.slug}>
-                <ArticlePreview article={node} />
-              </li>
-            )
-          })}
+        <ul className={styles.articleList}>
+          {posts.map(({ node }) => (
+            <li className={styles.articleListItem} key={node.slug}>
+              <ArticlePreview article={node} />
+            </li>
+          ))}
         </ul>
       </Layout>
     )
@@ -44,11 +44,6 @@ export const pageQuery = graphql`
           slug
           publishDate(formatString: "MMMM Do, YYYY")
           tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
           description {
             childMarkdownRemark {
               html

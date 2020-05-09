@@ -18,7 +18,7 @@ class BlogPostTemplate extends React.Component {
       <Layout location={this.props.location}>
         <Helmet title={`${post.title} | ${siteTitle}`} />
         <div className={styles.article}>
-          <ArticleHeader article={post} />
+          <ArticleHeader article={post} disableLink />
           <div
             className={styles.articleContent}
             dangerouslySetInnerHTML={{
@@ -46,7 +46,7 @@ export const pageQuery = graphql`
       publishDate(formatString: "MMMM Do, YYYY")
       tags
       heroImage {
-        fluid(maxWidth: 640, background: "rgb:000000") {
+        fluid(maxWidth: 640, background: "rgb:FFFFFF") {
           ...GatsbyContentfulFluid_tracedSVG
         }
       }

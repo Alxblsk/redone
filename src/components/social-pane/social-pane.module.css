@@ -24,6 +24,7 @@
 
 .socialPaneItemLink:hover,
 .socialPaneItemLink:active {
+    color: currentColor;
     background-color: #ffc8e9;
     border-radius: 4px;
 } 

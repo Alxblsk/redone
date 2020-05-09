@@ -1,13 +1,5 @@
-@font-face {
-  font-family: "Avenir";
-  font-weight: 400;
-  font-style: normal;
-  src: url("/avenir-400.woff2") format("woff2");
-  font-display: swap;
-}
-
 body {
-  font-family: Tahoma, Arial, Helvetica, sans-serif;
+  font-family: Tahoma, Helvetica, Arial, sans-serif;
   font-size: 1em;
   line-height: 1.65;
   color: #373F49;
@@ -33,6 +25,13 @@ h3 {
 
 a {
   color: currentColor;
+  transition: text-decoration-color, color 0.2s ease-in-out;
+}
+
+a:hover,
+a:active {
+  color: #d0037e;
+  text-decoration-color: #ffc8e9;
 }
 
 .wrapper {
@@ -41,48 +40,4 @@ a {
   
   margin: 10px auto 0;
   padding: 0 0 5vmin;
-}
-
-.section-headline {
-  margin: 0;
-  text-shadow: 1px 1px 0 #EAEAEA;
-}
-
-.section-headline:before {
-  content: "§";
-  margin-right: 5px;
-  color: #CCC;
-  text-shadow: none;
-}
-
-.section-date {
-  margin: 0 0 10px;
-  font-size: 12px;
-  line-height: 2;
-}
-
-/**
- * article grid
- */
-.article-list {
-  margin: 30px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.article-list  > li {
-  margin-bottom: 30px;
-}
-
-/**
- *
- */
-.list-inline {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.list-inline li {
-  display: inline-block;
 }
