@@ -25,7 +25,7 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Contentful starter',
+    title: 'RE•DONE | Blog by Aliaksei Belski',
     disqusName: process.env.GATSBY_DISQUS_NAME
   },
   pathPrefix: '/gatsby-contentful-starter',
