@@ -1,7 +1,6 @@
 import { graphql } from 'gatsby'
 import Home from './blog'
 
-
 export default Home;
 export const pageQuery = graphql`
   query HomeQuery {

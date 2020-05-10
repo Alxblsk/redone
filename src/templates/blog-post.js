@@ -19,7 +19,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <Helmet title={`${post.title} | ${siteTitle}`} />
+        <Helmet title={`${post.title} | ${siteTitle}`} htmlAttributes={{"lang": "en"}} />
         <div className={styles.article}>
           <ArticleHeader article={post} disableLink />
           <Img
