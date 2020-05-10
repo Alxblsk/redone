@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
+import { DiscussionEmbed } from 'disqus-react'
+
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 
@@ -13,6 +15,7 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
+    const disqusName = get(this.props, 'data.site.siteMetadata.disqusName')
 
     return (
       <Layout location={this.props.location}>
@@ -20,10 +23,10 @@ class BlogPostTemplate extends React.Component {
         <div className={styles.article}>
           <ArticleHeader article={post} disableLink />
           <Img
-              alt={post.title}
-              title={post.title}
-              fluid={post.heroImage.fluid}
-            />
+            alt={post.title}
+            title={post.title}
+            fluid={post.heroImage.fluid}
+          />
           <div
             className={styles.articleContent}
             dangerouslySetInnerHTML={{
@@ -31,6 +34,10 @@ class BlogPostTemplate extends React.Component {
             }}
           />
         </div>
+        <DiscussionEmbed
+          shortname={disqusName}
+          config={{ identifier: post.slug, title: post.title }}
+        />
       </Layout>
     )
   }
@@ -43,6 +50,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        disqusName
       }
     }
     contentfulBlogPost(slug: { eq: $slug }) {

@@ -26,6 +26,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Contentful starter',
+    disqusName: process.env.GATSBY_DISQUS_NAME
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
