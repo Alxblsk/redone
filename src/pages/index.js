@@ -1,4 +1,5 @@
-export { default } from './blog';
+import { graphql } from 'gatsby'
+export { default } from './blog'
 
 export const pageQuery = graphql`
   query HomeQuery {

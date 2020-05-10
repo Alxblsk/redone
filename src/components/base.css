@@ -34,6 +34,12 @@ a:active {
   text-decoration-color: #ffc8e9;
 }
 
+code {
+  background: #eaeaea;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
 .wrapper {
   width: calc(100% - 10vmin);
   max-width: 640px;

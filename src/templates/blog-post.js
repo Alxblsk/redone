@@ -19,6 +19,11 @@ class BlogPostTemplate extends React.Component {
         <Helmet title={`${post.title} | ${siteTitle}`} />
         <div className={styles.article}>
           <ArticleHeader article={post} disableLink />
+          <Img
+              alt={post.title}
+              title={post.title}
+              fluid={post.heroImage.fluid}
+            />
           <div
             className={styles.articleContent}
             dangerouslySetInnerHTML={{
