@@ -56,6 +56,7 @@ export const pageQuery = graphql`
     contentfulBlogPost(slug: { eq: $slug }) {
       title
       slug
+      tags
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 640, background: "rgb:FFFFFF") {
