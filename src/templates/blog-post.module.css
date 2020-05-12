@@ -2,10 +2,6 @@
   margin-top: 30px;
 }
 
-.articleContent > p:first-of-type {
-  font-size: 16px;
-}
-
 .articleContent > p,
 .articleContent ul {
   font-size: 14px;
