@@ -14,19 +14,25 @@ import styles from './blog-post.module.css'
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
+    const heroImage = get(post, 'heroImage.fluid', null)
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const disqusName = get(this.props, 'data.site.siteMetadata.disqusName')
 
     return (
       <Layout location={this.props.location}>
-        <Helmet title={`${post.title} | ${siteTitle}`} htmlAttributes={{"lang": "en"}} />
+        <Helmet
+          title={`${post.title} | ${siteTitle}`}
+          htmlAttributes={{ lang: 'en' }}
+        />
         <div className={styles.article}>
           <ArticleHeader article={post} disableLink />
-          <Img
-            alt={post.title}
-            title={post.title}
-            fluid={post.heroImage.fluid}
-          />
+          {heroImage && (
+            <Img
+              alt={post.title}
+              title={post.title}
+              fluid={post.heroImage.fluid}
+            />
+          )}
           <div
             className={styles.articleContent}
             dangerouslySetInnerHTML={{
