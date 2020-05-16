@@ -1,15 +1,33 @@
-import { Helmet } from 'react-helmet'
-import React, { Fragment } from 'react'
+import React, { useEffect } from 'react'
 
-// Of course ejecting unnecessary script usually is a good idea
-// But in this case resource is cached anyways, so it's not an issue
+const COMMENTO_SCRIPT_ID = 'commento-script'
+const COMMENTO_SRC = 'https://cdn.commento.io/js/commento.js'
+
+const getCommentoScript = () => {
+  return document.getElementById(COMMENTO_SCRIPT_ID)
+}
+
 export const Commento = () => {
-  return (
-    <Fragment>
-      <div id="commento" />
-      <Helmet>
-        <script defer src="https://cdn.commento.io/js/commento.js" />
-      </Helmet>
-    </Fragment>
-  )
+  useEffect(() => {
+    let commentoElement = getCommentoScript()
+
+    if (!commentoElement) {
+      commentoElement = document.createElement('script')
+
+      commentoElement.id = COMMENTO_SCRIPT_ID
+      commentoElement.src = COMMENTO_SRC
+      commentoElement.defer = true
+      commentoElement.setAttribute('data-no-fonts', true)
+
+      document.body.appendChild(commentoElement)
+    }
+
+    return () => {
+      if (commentoElement) {
+        commentoElement.outerHTML = ''
+      }
+    }
+  }, [])
+
+  return <div id="commento" />
 }
