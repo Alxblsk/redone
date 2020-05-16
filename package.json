@@ -56,7 +56,7 @@
   },
   "scripts": {
     "dev": "npm run develop",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -p 4400",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'bin/*.js'",
