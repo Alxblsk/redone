@@ -60,6 +60,9 @@ export const pageQuery = graphql`
       slug
       tags
       contentful_id
+      sys {
+        revision
+      }
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 640, background: "rgb:FFFFFF") {
