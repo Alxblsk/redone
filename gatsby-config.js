@@ -43,5 +43,8 @@ module.exports = {
         trackingId: process.env.GOOGLE_ANALYTICS_TRACKING_ID
       },
     },
+    {
+      resolve: `gatsby-plugin-minify-classnames`,
+    }
   ],
 }

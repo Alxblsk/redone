@@ -6039,6 +6039,13 @@ gatsby-plugin-google-analytics@^2.3.1:
     "@babel/runtime" "^7.9.6"
     minimatch "3.0.4"
 
+gatsby-plugin-minify-classnames@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-minify-classnames/-/gatsby-plugin-minify-classnames-0.2.0.tgz#5e2c36d53993337c9a900f37a5ad3dc2549c9955"
+  integrity sha512-U8KC24vuKsolqmvTwlx/nUQ1KJIQi4t1ur4+KApcbU65zEXWBRqbVhWdYorP1/k/O4GbWv4gy9JoEOmAmZltbw==
+  dependencies:
+    incstr "^1.2.3"
+
 gatsby-plugin-page-creator@^2.2.3:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-2.2.3.tgz#a6e8ef426d2bf447c002976ec9b48ad82ca20760"
@@ -7514,6 +7521,11 @@ imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
+
+incstr@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/incstr/-/incstr-1.2.3.tgz#8f105bbec9bebe5fa777e52b3f516cee071c67cf"
+  integrity sha512-ySi29Lzdc3QnB1LzZgRf5kl59m5tPucNagrAyJJ9rWz4+Pa6IxAHSNyUHYvEvaj6QPwWAY2/thi3Rxt45qi3HQ==
 
 indent-string@^2.1.0:
   version "2.1.0"
