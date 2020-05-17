@@ -41,9 +41,14 @@ code {
 }
 
 .wrapper {
+  display: flex;
+  flex-direction: column;
   width: calc(100% - 10vmin);
   max-width: 640px;
-  
-  margin: 10px auto 0;
-  padding: 0 0 5vmin;
+  min-height: 100vh;
+  margin: 0 auto;
+}
+
+.layout-content {
+  flex-grow: 1;
 }
