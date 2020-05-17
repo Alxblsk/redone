@@ -4,6 +4,7 @@ import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 
 import Layout from '../components/layout'
+import NotFound from '../components/not-found'
 
 
 class NotFoundPage extends React.Component {
@@ -13,7 +14,7 @@ class NotFoundPage extends React.Component {
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} htmlAttributes={{"lang": "en"}} />
-        <h3>Sorry, this page is not found</h3>
+        <NotFound />
       </Layout>
     )
   }
@@ -22,7 +23,7 @@ class NotFoundPage extends React.Component {
 export default NotFoundPage
 
 export const pageQuery = graphql`
-  query NotFoundPagexQuery {
+  query NotFoundPageQuery {
     site {
       siteMetadata {
         title
