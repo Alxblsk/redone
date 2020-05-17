@@ -14,6 +14,7 @@ import styles from './blog-post.module.css'
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, 'data.contentfulBlogPost')
+    const postId = get(post, 'contentful_id', null)
     const heroImage = get(post, 'heroImage.fluid', null)
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
@@ -39,7 +40,7 @@ class BlogPostTemplate extends React.Component {
             }}
           />
         </div>
-        <Commento />
+        <Commento id={postId} />
       </Layout>
     )
   }
@@ -58,6 +59,7 @@ export const pageQuery = graphql`
       title
       slug
       tags
+      contentful_id
       publishDate(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 640, background: "rgb:FFFFFF") {

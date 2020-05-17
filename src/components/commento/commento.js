@@ -7,7 +7,7 @@ const getCommentoScript = () => {
   return document.getElementById(COMMENTO_SCRIPT_ID)
 }
 
-export const Commento = () => {
+export const Commento = ({ id }) => {
   useEffect(() => {
     let commentoElement = getCommentoScript()
 
@@ -17,7 +17,8 @@ export const Commento = () => {
       commentoElement.id = COMMENTO_SCRIPT_ID
       commentoElement.src = COMMENTO_SRC
       commentoElement.defer = true
-      commentoElement.setAttribute('data-no-fonts', true)
+      commentoElement.dataset.noFonts = true;
+      commentoElement.dataset.pageId = id;
 
       document.body.appendChild(commentoElement)
     }
