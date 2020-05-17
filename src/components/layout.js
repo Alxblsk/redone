@@ -1,14 +1,13 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import base from './base.css'
 
 import PageHeader from './page-header'
 import SocialPane from './social-pane'
 
+import './base.css'
+
 class Template extends React.Component {
   render() {
-    const { location, children } = this.props
-    let header
+    const { children } = this.props
 
     let rootPath = `/`
     if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {

@@ -10,6 +10,7 @@ import ArticleHeader from '../components/article-header'
 import Commento from '../components/commento'
 
 import styles from './blog-post.module.css'
+import './prism-nord-theme.css'
 
 class BlogPostTemplate extends React.Component {
   render() {

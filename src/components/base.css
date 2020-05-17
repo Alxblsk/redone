@@ -1,9 +1,9 @@
 body {
   font-family: Tahoma, Helvetica, Arial, sans-serif;
-  font-size: 1em;
+  font-size: 14px;
   line-height: 1.65;
-  color: #373F49;
-  background: #FFF;
+  color: #373f49;
+  background: #fff;
   margin: 0;
 }
 
@@ -12,15 +12,24 @@ img {
   width: 100%;
 }
 
-h1 {
-  font-size: 21px;
-  font-weight: 400;
-}
-
+h1,
 h2,
 h3 {
-  font-size: 18px;
   font-weight: 400;
+  letter-spacing: 0.25px;
+  text-shadow: 0.5px 0 0 #eaeaea;
+}
+
+h1 {
+  font-size: 21px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 15px;
 }
 
 a {
@@ -34,10 +43,51 @@ a:active {
   text-decoration-color: #ffc8e9;
 }
 
-code {
+code:not([class]) {
   background: #eaeaea;
   padding: 2px 5px;
   border-radius: 3px;
+}
+
+blockquote {
+  margin: 0;
+  padding-left: 15px;
+  font-size: 18px;
+  border-left: 2px solid #d0037e;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+blockquote em {
+  font-size: 14px;
+}
+
+blockquote em:before {
+  content: '— ';
+}
+
+table {
+  table-layout: fixed;
+  border: 1px solid #dadada;
+  border-collapse: collapse;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+table th {
+  background-color: #eee;
+}
+
+table th,
+table td {
+  border: 1px solid #dadada;
+  padding: 5px 20px;
+}
+
+hr {
+  margin: 30px 0;
 }
 
 .wrapper {

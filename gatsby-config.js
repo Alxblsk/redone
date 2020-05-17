@@ -45,6 +45,21 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-minify-classnames`,
-    }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              inlineCodeMarker: null,
+              showLineNumbers: false,
+              noInlineHighlight: true,
+            },
+          },
+        ],
+      },
+    },
   ],
 }

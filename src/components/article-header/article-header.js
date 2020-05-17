@@ -10,7 +10,7 @@ export const ArticleHeader = ({ article, disableLink }) => {
   
   return (
     <div className={classNames(styles.articleHeader, isNeverPublished && styles.draft)}>
-      <h3 className={styles.title}>
+      <h1 className={styles.title}>
         {disableLink ? (
           article.title
         ) : (
@@ -18,7 +18,7 @@ export const ArticleHeader = ({ article, disableLink }) => {
             {article.title}
           </Link>
         )}
-      </h3>
+      </h1>
       <p className={styles.meta}>
         <span className={styles.date}>{article.publishDate}</span>
         {(article.tags || []).map((tag) => (
