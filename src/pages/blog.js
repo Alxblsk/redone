@@ -15,7 +15,9 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <Helmet title={siteTitle} htmlAttributes={{"lang": "en"}} />
+        <Helmet title={siteTitle} htmlAttributes={{ lang: 'en' }}>
+          <link rel="preload" href="https://cdn.commento.io"></link>
+        </Helmet>
         <ul className={styles.articleList}>
           {posts.map(({ node }) => (
             <li className={styles.articleListItem} key={node.slug}>

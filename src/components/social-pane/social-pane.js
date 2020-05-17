@@ -9,6 +9,7 @@ export const SocialPane = () => {
           className={styles.socialPaneItemLink}
           href="https://twitter.com/Alxblsk"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -26,6 +27,7 @@ export const SocialPane = () => {
           className={styles.socialPaneItemLink}
           href="https://www.linkedin.com/in/abelski/"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -43,6 +45,7 @@ export const SocialPane = () => {
           className={styles.socialPaneItemLink}
           href="https://github.com/Alxblsk"
           target="_blank"
+          rel="noopener noreferrer"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

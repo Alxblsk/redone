@@ -23,7 +23,9 @@ class BlogPostTemplate extends React.Component {
         <Helmet
           title={`${post.title} | ${siteTitle}`}
           htmlAttributes={{ lang: 'en' }}
-        />
+        >
+          <link rel="preconnect" href="https://cdn.commento.io"></link>
+        </Helmet>
         <div className={styles.article}>
           <ArticleHeader article={post} disableLink />
           {heroImage && (
