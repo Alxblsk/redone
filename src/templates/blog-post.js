@@ -31,17 +31,17 @@ class BlogPostTemplate extends React.Component {
           htmlAttributes={{ lang: "en", prefix: "og: http://ogp.me/ns#" }}
         >
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:creator" content="@alxblsk" />
+          <meta name="twitter:creator" content={`@${siteMeta.username}`} />
+          {heroImage && <meta name="twitter:image" content={heroImage.src} />}
 
           <meta property="og:title" content={`${post.title}`} />
           <meta property="og:type" content="article" />
           <meta property="og:url" content={postUrl} />
           {heroImage && <meta property="og:image" content={heroImage.src} />}
           <meta property="og:description" content={postDescription} />
-          <meta property="og:locale" content="en_US" />
-          <meta property="profile:first_name" content="Aliaksei" />
-          <meta property="profile:last_name" content="Belski" />
-          <meta property="profile:username" content="alxblsk" />
+          <meta property="profile:first_name" content={siteMeta.firstName} />
+          <meta property="profile:last_name" content={siteMeta.lastName} />
+          <meta property="profile:username" content={siteMeta.username} />
 
           <link rel="canonical" href={postUrl}></link>
           <link rel="preconnect" href="https://cdn.commento.io"></link>
@@ -76,7 +76,10 @@ export const pageQuery = graphql`
       siteMetadata {
         title,
         siteUrl,
-        blogDirectory
+        blogDirectory,
+        username,
+        firstName,
+        lastName
       }
     }
     contentfulBlogPost(slug: { eq: $slug }) {

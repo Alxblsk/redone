@@ -28,7 +28,10 @@ module.exports = {
     title: 'Blog by Aliaksei Belski',
     description: 'Personal blog of Aliaksei Belski, a front-end developer from Minsk, Belarus',
     siteUrl: 'https://alxblsk.com',
-    blogDirectory: 'blog'
+    blogDirectory: 'blog',
+    username: 'alxblsk',
+    firstName: 'Aliaksei',
+    lastName: 'Belski'
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
