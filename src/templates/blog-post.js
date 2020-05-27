@@ -28,7 +28,7 @@ class BlogPostTemplate extends React.Component {
           <link rel="preconnect" href="https://cdn.commento.io"></link>
         </Helmet>
         <div className={styles.article}>
-          <ArticleHeader article={post} disableLink />
+          <ArticleHeader article={post} isDetails />
           {heroImage && (
             <Img
               alt={post.title}
@@ -67,6 +67,7 @@ export const pageQuery = graphql`
         revision
       }
       publishDate(formatString: "MMMM Do, YYYY")
+      updatedAt(formatString: "MMMM Do, YYYY")
       heroImage {
         fluid(maxWidth: 640, background: "rgb:FFFFFF") {
           ...GatsbyContentfulFluid_tracedSVG

@@ -19,6 +19,7 @@ export const pageQuery = graphql`
             revision
           }
           publishDate(formatString: "MMMM Do, YYYY")
+          updatedAt(formatString: "MMMM Do, YYYY")
           description {
             childMarkdownRemark {
               html

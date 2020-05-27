@@ -39,6 +39,12 @@
   font-size: 12px;
 }
 
+.highlightDate {
+  background-color: #efefef;
+  padding: 2px;
+  border-radius: 2px;
+}
+
 .tag {
   color: #a0a0a0;
   text-decoration: none;
