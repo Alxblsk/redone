@@ -14,17 +14,36 @@ import './prism-nord-theme.css'
 
 class BlogPostTemplate extends React.Component {
   render() {
+    const siteMeta = get(this.props, 'data.site.siteMetadata')
+
     const post = get(this.props, 'data.contentfulBlogPost')
     const postId = get(post, 'contentful_id', null)
+    const postDescription = get(post, 'description.description', null)
+    const postUrl = `${siteMeta.siteUrl}/${siteMeta.blogDirectory}/${post.slug}/`;
+
     const heroImage = get(post, 'heroImage.fluid', null)
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
 
     return (
       <Layout location={this.props.location}>
         <Helmet
-          title={`${post.title} | ${siteTitle}`}
-          htmlAttributes={{ lang: 'en' }}
+          title={`${post.title} | ${siteMeta.title}`}
+          description={postDescription}
+          htmlAttributes={{ lang: "en", prefix: "og: http://ogp.me/ns#" }}
         >
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:creator" content="@alxblsk" />
+
+          <meta property="og:title" content={`${post.title}`} />
+          <meta property="og:type" content="article" />
+          <meta property="og:url" content={postUrl} />
+          {heroImage && <meta property="og:image" content={heroImage.src} />}
+          <meta property="og:description" content={postDescription} />
+          <meta property="og:locale" content="en_US" />
+          <meta property="profile:first_name" content="Aliaksei" />
+          <meta property="profile:last_name" content="Belski" />
+          <meta property="profile:username" content="alxblsk" />
+
+          <link rel="canonical" href={postUrl}></link>
           <link rel="preconnect" href="https://cdn.commento.io"></link>
         </Helmet>
         <div className={styles.article}>
@@ -33,7 +52,7 @@ class BlogPostTemplate extends React.Component {
             <Img
               alt={post.title}
               title={post.title}
-              fluid={post.heroImage.fluid}
+              fluid={heroImage}
             />
           )}
           <div
@@ -55,7 +74,9 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
-        title
+        title,
+        siteUrl,
+        blogDirectory
       }
     }
     contentfulBlogPost(slug: { eq: $slug }) {
@@ -65,6 +86,9 @@ export const pageQuery = graphql`
       contentful_id
       sys {
         revision
+      }
+      description {
+        description
       }
       publishDate(formatString: "MMMM Do, YYYY")
       updatedAt(formatString: "MMMM Do, YYYY")

@@ -25,7 +25,10 @@ if (!spaceId || !accessToken) {
 
 module.exports = {
   siteMetadata: {
-    title: 'Blog by Aliaksei Belski'
+    title: 'Blog by Aliaksei Belski',
+    description: 'Personal blog of Aliaksei Belski, a front-end developer from Minsk, Belarus',
+    siteUrl: 'https://alxblsk.com',
+    blogDirectory: 'blog'
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
