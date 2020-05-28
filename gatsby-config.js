@@ -84,11 +84,11 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) => {
-              return  allContentfulBlogPost.nodes.map(node => {
+              return allContentfulBlogPost.nodes.map(node => {
                 const meta = site.siteMetadata;
                 const url = `${meta.siteUrl}/${meta.blogDirectory}/${node.slug}/`;
 
-                return Object.assign({}, {
+                const result = {
                   title: node.title,
                   description: node.description.description,
                   date: node.publishDate,
@@ -96,7 +96,18 @@ module.exports = {
                   guid: node.id,
                   custom_elements: [{ "content:encoded": node.body.childMarkdownRemark.html }],
                   author: `${meta.firstName} ${meta.lastName}`
-                })
+                };
+
+                let enclosure;
+
+                if (node.heroImage) {
+                  enclosure = {
+                    url: node.heroImage.fixed.src,
+                    type: node.heroImage.file.contentType
+                  }
+                }
+
+                return Object.assign({}, result, { enclosure: enclosure })
               })
             },
             query: `
@@ -115,6 +126,14 @@ module.exports = {
                     id
                     title
                     publishDate
+                    heroImage {
+                      fixed {
+                        src
+                      }
+                      file {
+                        contentType
+                      }
+                    }
                   }
                 }
               }
