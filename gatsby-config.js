@@ -122,6 +122,7 @@ module.exports = {
             output: "/rss.xml",
             title: "Blog by Aliaksei Belski",
             match: "^/blog/",
+            image_url: 'https://alxblsk.com/rss.jpg'
           },
         ],
       },
