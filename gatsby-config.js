@@ -22,7 +22,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'Blog by Aliaksei Belski',
-    description: 'Personal blog written Aliaksei Belski, a front-end developer from Minsk, Belarus',
+    description: 'Personal blog written by Aliaksei Belski, a front-end developer from Minsk, Belarus',
     siteUrl: 'https://alxblsk.com',
     blogDirectory: 'blog',
     username: 'alxblsk',
