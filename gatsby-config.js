@@ -22,7 +22,7 @@ if (!spaceId || !accessToken) {
 module.exports = {
   siteMetadata: {
     title: 'Blog by Aliaksei Belski',
-    description: 'Personal blog of Aliaksei Belski, a front-end developer from Minsk, Belarus',
+    description: 'Personal blog written Aliaksei Belski, a front-end developer from Minsk, Belarus',
     siteUrl: 'https://alxblsk.com',
     blogDirectory: 'blog',
     username: 'alxblsk',
@@ -73,7 +73,10 @@ module.exports = {
                 title
                 description
                 siteUrl
+                site_url: siteUrl
                 blogDirectory
+                firstName
+                lastName
               }
             }
           }
@@ -82,7 +85,9 @@ module.exports = {
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) => {
               return  allContentfulBlogPost.nodes.map(node => {
-                const url = `${site.siteMetadata.siteUrl}/${site.siteMetadata.blogDirectory}/${node.slug}/`
+                const meta = site.siteMetadata;
+                const url = `${meta.siteUrl}/${meta.blogDirectory}/${node.slug}/`;
+
                 return Object.assign({}, {
                   title: node.title,
                   description: node.description.description,
@@ -90,6 +95,7 @@ module.exports = {
                   url,
                   guid: node.id,
                   custom_elements: [{ "content:encoded": node.body.childMarkdownRemark.html }],
+                  author: `${meta.firstName} ${meta.lastName}`
                 })
               })
             },
@@ -114,7 +120,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "Blog by Aliaksei Belski | RSS Feed",
+            title: "Blog by Aliaksei Belski",
             match: "^/blog/",
           },
         ],
