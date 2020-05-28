@@ -7,10 +7,6 @@ const contentfulConfig = {
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 }
 
-// if you want to use the preview API please define
-// CONTENTFUL_HOST in your environment config
-// the `host` property should map to `preview.contentful.com`
-// https://www.contentful.com/developers/docs/references/content-preview-api/#/reference/spaces/space/get-a-space/console/js
 if (process.env.CONTENTFUL_HOST) {
   contentfulConfig.host = process.env.CONTENTFUL_HOST
 }
@@ -63,6 +59,63 @@ module.exports = {
               showLineNumbers: false,
               noInlineHighlight: true,
             },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                blogDirectory
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulBlogPost } }) => {
+              return  allContentfulBlogPost.nodes.map(node => {
+                const url = `${site.siteMetadata.siteUrl}/${site.siteMetadata.blogDirectory}/${node.slug}/`
+                return Object.assign({}, {
+                  title: node.title,
+                  description: node.description.description,
+                  date: node.publishDate,
+                  url,
+                  guid: node.id,
+                  custom_elements: [{ "content:encoded": node.body.childMarkdownRemark.html }],
+                })
+              })
+            },
+            query: `
+              {
+                allContentfulBlogPost {
+                  nodes {
+                    description {
+                      description
+                    }
+                    body {
+                      childMarkdownRemark {
+                        html
+                      }
+                    }
+                    slug
+                    id
+                    title
+                    publishDate
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Blog by Aliaksei Belski | RSS Feed",
+            match: "^/blog/",
           },
         ],
       },
