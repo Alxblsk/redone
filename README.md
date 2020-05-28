@@ -1,30 +1,20 @@
-## Features
+## Why Redone
 
-* Simple content model and structure. Easy to adjust to your needs.
-* Contentful integration using our [Sync API](https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/synchronization/initial-synchronization-of-entries-of-a-specific-content-type)
-* Using our [Delivery API](https://www.contentful.com/developers/docs/references/content-delivery-api/).
-* Responsive/adaptive images via [gatsby-image](https://www.gatsbyjs.org/packages/gatsby-image/)
+This website is an answer to my procrastination multiplied with a willingness to write. I created personal blogs for years but always removed them after some time. I hope this time it won't happen but it seems like `Redone` is my motto for life.
 
-## Crucial Commands
+## Under the hood
 
-This project comes with a few handy commands for linting and code fixing. The most important ones are the ones to develop and ship code. You can find the most important commands below.
+Gatsby Cloud and Contentful inside. every change is seamlessly deployed in production via Netlify. Works just fine. JAM in action.
 
-### `yarn run dev`
+## Plan
 
-Run in the project locally.
+Currently, a blog is the only part of the website. However, with the flexibility of Gatsby to create customized pages, it should not be impossible to add new sections, not related to the blog itself.
 
-### `yarn run build`
+While MVP is already done and currently running, there are still some ideas on how to expand functionality.
 
-Run a production build into `./public`. The result is ready to be put on any static hosting you prefer.
-
-### `yarn run deploy`
-
-Run a production build into `./public` and publish the site to GitHub pages.
-
-### `yarn run cleanup-repository`
-
-Removes all dependencies, scripts and data from the installation script.
-
-## Other resources
-
-- Tutorial video series ["Building a blazing fast website with GatsbyJS and Contentful"](https://www.youtube.com/watch?v=Ek4o40w1tH4&list=PL8KiuH6vpACV-F7jXribe4YveGBhBeG9A) by @Khaledgarbaya
+- [x] Create a minimal blog
+- [x] Write a first general-purpose post
+- [x] White a first technical post
+- [ ] Write 10 posts
+- [ ] Write a series of posts
+- [ ] Publish one-page javascript applications made by me
