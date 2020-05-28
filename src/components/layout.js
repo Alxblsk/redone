@@ -17,9 +17,7 @@ class Template extends React.Component {
     return (
       <div className="wrapper">
         <PageHeader />
-        <div className="layout-content">
-          {children}
-        </div>
+        <div className="layout-content">{children}</div>
         <SocialPane />
       </div>
     )

@@ -1,14 +1,14 @@
 import { graphql } from 'gatsby'
 import Home from './blog'
 
-export default Home;
+export default Home
 export const pageQuery = graphql`
   query HomeQuery {
     site {
       siteMetadata {
-        title,
-        description,
-        siteUrl,
+        title
+        description
+        siteUrl
         blogDirectory
       }
     }

@@ -12,11 +12,15 @@ class BlogIndex extends React.Component {
   render() {
     const siteMeta = get(this.props, 'data.site.siteMetadata')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const blogUrl = `${siteMeta.siteUrl}/${siteMeta.blogDirectory}/`;
+    const blogUrl = `${siteMeta.siteUrl}/${siteMeta.blogDirectory}/`
 
     return (
       <Layout location={this.props.location}>
-        <Helmet title={siteMeta.title} description={siteMeta.description} htmlAttributes={{ lang: 'en' }}>
+        <Helmet
+          title={siteMeta.title}
+          description={siteMeta.description}
+          htmlAttributes={{ lang: 'en' }}
+        >
           <link rel="preload" href="https://cdn.commento.io"></link>
           <link rel="canonical" href={blogUrl}></link>
         </Helmet>
@@ -38,9 +42,9 @@ export const pageQuery = graphql`
   query BlogIndexQuery {
     site {
       siteMetadata {
-        title,
-        description,
-        siteUrl,
+        title
+        description
+        siteUrl
         blogDirectory
       }
     }

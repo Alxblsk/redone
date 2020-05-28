@@ -17,8 +17,8 @@ export const Commento = ({ id }) => {
       commentoElement.id = COMMENTO_SCRIPT_ID
       commentoElement.src = COMMENTO_SRC
       commentoElement.defer = true
-      commentoElement.dataset.noFonts = true;
-      commentoElement.dataset.pageId = id;
+      commentoElement.dataset.noFonts = true
+      commentoElement.dataset.pageId = id
 
       document.body.appendChild(commentoElement)
     }
