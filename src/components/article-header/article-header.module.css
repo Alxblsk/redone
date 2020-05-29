@@ -4,7 +4,8 @@
 
 .title {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 5px;
+  line-height: 1.25;
 }
 
 .title:before {
@@ -30,9 +31,13 @@
 }
 
 .meta {
-  margin: 0 0 10px;
+  margin: 5px 0 10px;
   font-size: 12px;
-  line-height: 2;
+  line-height: 1.5;
+}
+
+.dates {
+  margin-right: 5px;
 }
 
 .date {
@@ -45,6 +50,10 @@
   border-radius: 2px;
 }
 
+.tags {
+  display: inline-block;
+}
+
 .tag {
   color: #a0a0a0;
   text-decoration: none;
@@ -52,6 +61,14 @@
   margin: 0 5px;
   line-height: 1;
   font-size: 10px;
+}
+
+.tag:first-child {
+  margin-left: 0;
+}
+
+.tag-last-child {
+  margin-right: 0;
 }
 
 .tag:before {

@@ -5,14 +5,6 @@
     list-style-type: none;
 }
 
-.socialPaneItem {
-    margin: 0 10px;
-}
-
-.socialPaneItem:first-child {
-    margin-left: 0;
-}
-
 .socialPaneItemLink {
     padding: 5px 10px;
     display: flex;

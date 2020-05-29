@@ -27,21 +27,25 @@ export const ArticleHeader = ({ article, isDetails }) => {
         )}
       </h1>
       <p className={styles.meta}>
-        <span className={styles.date}>
-          Published:{' '}
-          <span className={styles.highlightDate}>{article.publishDate}</span>
-        </span>
-        {isUpdated && isDetails ? (
+        <span className={styles.dates}>
           <span className={styles.date}>
-            ,&nbsp;Updated:{' '}
-            <span className={styles.highlightDate}>{article.updatedAt}</span>
+            Published:{' '}
+            <span className={styles.highlightDate}>{article.publishDate}</span>
           </span>
-        ) : null}
-        {(article.tags || []).map((tag) => (
-          <span className={styles.tag} key={tag}>
-            {tag}
-          </span>
-        ))}
+          {isUpdated && isDetails ? (
+            <span className={styles.date}>
+              ,&nbsp;Updated:{' '}
+              <span className={styles.highlightDate}>{article.updatedAt}</span>
+            </span>
+          ) : null}
+        </span>
+        <span className={styles.tags}>
+          {(article.tags || []).map((tag) => (
+            <span className={styles.tag} key={tag}>
+              {tag}
+            </span>
+          ))}
+        </span>
       </p>
     </div>
   )
