@@ -32,6 +32,11 @@ h3 {
   font-size: 15px;
 }
 
+ul,
+ol {
+  padding-left: 30px;
+}
+
 a {
   color: currentColor;
   transition: text-decoration-color, color 0.2s ease-in-out;
