@@ -8,12 +8,13 @@
 }
 
 .rdHeaderLogo {
-  width: 29px;
+  width: 40px;
 }
 
 .rdHeaderTitleWrapper {
   width: 100%;
   margin-top: 5px;
+  white-space: nowrap;
 }
 
 .rdHeaderTitle {

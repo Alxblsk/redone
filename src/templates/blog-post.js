@@ -24,7 +24,9 @@ class BlogPostTemplate extends React.Component {
         <div className={styles.article}>
           <ArticleHeader article={post} isDetails />
           {heroImage && (
-            <Img alt={post.title} title={post.title} fluid={heroImage} />
+            <div className={styles.heroImage}>
+              <Img alt={post.title} title={post.title} fluid={heroImage} />
+            </div>
           )}
           <div
             className={styles.articleContent}
