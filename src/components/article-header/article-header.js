@@ -21,7 +21,7 @@ export const ArticleHeader = ({ article, isDetails }) => {
         {isDetails ? (
           article.title
         ) : (
-          <Link to={`/blog/${article.slug}`} className={styles.titleLink}>
+          <Link to={`/blog/${article.slug}/`} className={styles.titleLink}>
             {article.title}
           </Link>
         )}
