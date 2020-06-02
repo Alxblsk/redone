@@ -28,6 +28,8 @@ export const BlogPostMeta = function({ post, meta }) {
 
         <link rel="canonical" href={postUrl}></link>
         <link rel="preconnect" href="https://cdn.commento.io"></link>
+
+        <link rel="alternate" type="application/rss+xml" title={meta.title} href="/rss.xml" />
       </Helmet>
     )
 }
