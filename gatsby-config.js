@@ -25,6 +25,7 @@ module.exports = {
     description: 'Personal blog written by Aliaksei Belski, a front-end developer from Minsk, Belarus',
     siteUrl: 'https://alxblsk.com',
     blogDirectory: 'blog',
+    howToDirectory: 'how-to',
     username: 'alxblsk',
     firstName: 'Aliaksei',
     lastName: 'Belski'

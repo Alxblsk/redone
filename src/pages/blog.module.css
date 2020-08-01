@@ -1,5 +1,5 @@
 .articleList {
-  margin: 20px 0 0;
+  margin: 30px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -11,7 +11,7 @@
 .articleListItem::after {
   content: '';
   display: flex;
-  background: linear-gradient(270deg, rgba(44,222,241,1) 0%, rgba(44,222,241,1) 10%, rgba(208,3,126,1) 90%, rgba(208,3,126,1) 100%);
+  background: #999;
   box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1);
   width: 250px;
   height: 2px;

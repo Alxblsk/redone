@@ -8,11 +8,11 @@ import ArticlePreview from '../components/article-preview'
 
 import styles from './blog.module.css'
 
-class BlogIndex extends React.Component {
+class HowToIndex extends React.Component {
   render() {
     const siteMeta = get(this.props, 'data.site.siteMetadata')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const blogUrl = `${siteMeta.siteUrl}/${siteMeta.blogDirectory}/`
+    const posts = get(this, 'props.data.allContentfulHowToPost.edges')
+    const howToUrl = `${siteMeta.siteUrl}/${siteMeta.howToDirectory}/`
 
     return (
       <Layout location={this.props.location}>
@@ -22,12 +22,12 @@ class BlogIndex extends React.Component {
           htmlAttributes={{ lang: 'en' }}
         >
           <link rel="preload" href="https://cdn.commento.io"></link>
-          <link rel="canonical" href={blogUrl}></link>
+          <link rel="canonical" href={howToUrl}></link>
         </Helmet>
         <ul className={styles.articleList}>
           {posts.map(({ node }) => (
             <li className={styles.articleListItem} key={node.slug}>
-              <ArticlePreview article={node} directory={siteMeta.blogDirectory} />
+              <ArticlePreview article={node} directory={siteMeta.howToDirectory} />
             </li>
           ))}
         </ul>
@@ -36,19 +36,19 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default HowToIndex
 
 export const pageQuery = graphql`
-  query BlogIndexQuery {
+  query HowToIndexQuery {
     site {
       siteMetadata {
         title
         description
         siteUrl
-        blogDirectory
+        howToDirectory
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulHowToPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {
           title

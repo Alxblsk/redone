@@ -1,48 +1,80 @@
-.rdHeader {
+.header {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  justify-content: space-between;
   height: 40px;
   box-sizing: border-box;
   background-color: white;
 }
 
-.rdHeaderLogo {
+.headerLogoWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.headerLogo {
   width: 40px;
 }
 
-.rdHeaderTitleWrapper {
+.headerTitleWrapper {
   width: 100%;
-  margin-top: 5px;
   white-space: nowrap;
 }
 
-.rdHeaderTitle {
+.headerTitle {
   display: inline-block;
   font-size: 18px;
-  line-height: 30px;
+  line-height: 1;
   text-transform: uppercase;
   font-weight: 600;
 }
 
-.rdHeaderLink {
+.headerLink {
   margin-left: 15px;
   letter-spacing: 1px;
   text-decoration: none;
   transition: all 0.2s ease-in-out;
 }
 
-.rdHeaderLink:hover,
-.rdHeaderLink:active {
+.headerLink:hover,
+.headerLink:active {
   color: currentColor;
   letter-spacing: 2px;
   text-shadow: 2px 0 0 #2cdef188, -2px 0 0 #d0037e88;
 }
 
-.rdHeaderDescription {
+.headerDescription {
   margin-left: 15px;
   font-size: 12px;
+  line-height: 1;
   font-weight: 300;
   transform: translateY(-1px);
-  letter-spacing: 0.25px
+  letter-spacing: 0.25px;
+}
+
+.nav {
+  display: inline-flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 30px;
+}
+
+.navItem {
+  margin-left: 10px;
+  padding: 0 10px;
+  line-height: 30px;
+  color: #373f49;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.navItem:hover,
+.navItem:active {
+  color: #FFF;
+  background-color: #373f49;
+  text-decoration: none;
 }

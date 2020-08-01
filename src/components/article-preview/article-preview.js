@@ -3,9 +3,9 @@ import React from 'react'
 import ArticleHeader from '../article-header'
 import styles from './article-preview.module.css'
 
-export const ArticlePreview = ({ article }) => (
+export const ArticlePreview = ({ article, directory }) => (
   <div className={styles.preview}>
-    <ArticleHeader article={article} />
+    <ArticleHeader article={article} directory={directory} />
     <div
       className={styles.articlePreview}
       dangerouslySetInnerHTML={{

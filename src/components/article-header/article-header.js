@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 
 import styles from './article-header.module.css'
 
-export const ArticleHeader = ({ article, isDetails }) => {
+export const ArticleHeader = ({ article, isDetails, directory }) => {
   const isNeverPublished = !get(article, 'sys.revision', 0)
   const isUpdated =
     article.updatedAt && article.publishDate !== article.updatedAt
@@ -21,7 +21,7 @@ export const ArticleHeader = ({ article, isDetails }) => {
         {isDetails ? (
           article.title
         ) : (
-          <Link to={`/blog/${article.slug}/`} className={styles.titleLink}>
+          <Link to={`/${directory}/${article.slug}/`} className={styles.titleLink}>
             {article.title}
           </Link>
         )}
