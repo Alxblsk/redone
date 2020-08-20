@@ -42,7 +42,7 @@ module.exports = {
       options: {
         exclude: [
           '/blog/test-blog-post/', 
-          '/blog/test-how-to-post/'
+          '/how-to/test-how-to-post/'
         ]
       },
     },
