@@ -64,6 +64,11 @@ export const pageQuery = graphql`
               html
             }
           }
+          heroImage {
+            fluid(maxWidth: 640, background: "rgb:FFFFFF") {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
         }
       }
     }

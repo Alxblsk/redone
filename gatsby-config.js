@@ -40,7 +40,10 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/blog/test-blog-post/']
+        exclude: [
+          '/blog/test-blog-post/', 
+          '/blog/test-how-to-post/'
+        ]
       },
     },
     {

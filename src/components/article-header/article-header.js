@@ -2,13 +2,15 @@ import React from 'react'
 import classNames from 'classnames'
 import get from 'lodash/get'
 import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 
 import styles from './article-header.module.css'
 
 export const ArticleHeader = ({ article, isDetails, directory }) => {
   const isNeverPublished = !get(article, 'sys.revision', 0)
-  const isUpdated =
-    article.updatedAt && article.publishDate !== article.updatedAt
+  const isUpdated = article.updatedAt && article.publishDate !== article.updatedAt
+  const heroImage = get(article, 'heroImage.fluid', null)
+  const howToSection = directory === 'how-to';
 
   return (
     <div
@@ -17,7 +19,7 @@ export const ArticleHeader = ({ article, isDetails, directory }) => {
         isNeverPublished && styles.draft
       )}
     >
-      <h1 className={styles.title}>
+      <h1 className={`${styles.title} ${howToSection ? styles.howto : ''}`}>
         {isDetails ? (
           article.title
         ) : (
@@ -47,6 +49,11 @@ export const ArticleHeader = ({ article, isDetails, directory }) => {
           ))}
         </span>
       </p>
+      {heroImage && howToSection && (
+        <div className={styles.heroImage}>
+          <Img alt={article.title} title={article.title} fluid={heroImage} />
+        </div>
+      )}
     </div>
   )
 }

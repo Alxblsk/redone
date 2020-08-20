@@ -15,6 +15,10 @@
   text-shadow: none;
 }
 
+.title.howto:before {
+  content: '✲';
+}
+
 .draft .title:before {
   color: #f56d6d;
 }

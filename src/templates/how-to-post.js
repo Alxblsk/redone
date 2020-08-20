@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import get from 'lodash/get'
-import Img from 'gatsby-image'
 
 import Layout from '../components/layout'
 import ArticleHeader from '../components/article-header'
@@ -17,18 +16,11 @@ class HowToPostTemplate extends React.Component {
     const siteMeta = get(this.props, 'data.site.siteMetadata')
     const post = get(this.props, 'data.contentfulHowToPost')
     const postId = get(post, 'contentful_id', null)
-    const heroImage = get(post, 'heroImage.fluid', null)
 
-    debugger;
     return (
       <Layout location={this.props.location}>
         <div className={styles.article}>
           <ArticleHeader article={post} directory={siteMeta.howToDirectory} isDetails />
-          {heroImage && (
-            <div className={styles.heroImage}>
-              <Img alt={post.title} title={post.title} fluid={heroImage} />
-            </div>
-          )}
           <div
             className={styles.articleContent}
             dangerouslySetInnerHTML={{
