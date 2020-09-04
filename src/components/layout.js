@@ -7,7 +7,7 @@ import './base.css'
 
 class Template extends React.Component {
   render() {
-    const { children } = this.props
+    const { children, location } = this.props
 
     let rootPath = `/`
     if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
@@ -16,7 +16,7 @@ class Template extends React.Component {
 
     return (
       <div className="wrapper">
-        <PageHeader />
+        <PageHeader location={location} />
         <div className="layout-content">{children}</div>
         <SocialPane />
       </div>

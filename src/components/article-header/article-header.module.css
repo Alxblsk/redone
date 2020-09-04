@@ -78,3 +78,7 @@
 .tag:before {
   content: '#';
 }
+
+.heroImage {
+  margin: 20px 0; 
+}

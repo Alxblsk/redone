@@ -73,6 +73,7 @@
   cursor: pointer;
 }
 
+.navItem.active,
 .navItem:hover,
 .navItem:active {
   color: #FFF;
