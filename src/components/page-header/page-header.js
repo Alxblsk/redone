@@ -20,6 +20,7 @@ const PageNav = ({ pathname }) => {
       {
         Object.keys(linksMap).map(linkUrl => (
           <Link
+            key={linkUrl}
             to={linkUrl}
             className={classNames(styles.navItem, pathname.startsWith(linkUrl) && styles.active)}
           >

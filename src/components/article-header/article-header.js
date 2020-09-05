@@ -19,7 +19,7 @@ export const ArticleHeader = ({ article, isDetails, directory }) => {
         isNeverPublished && styles.draft
       )}
     >
-      <h1 className={`${styles.title} ${howToSection ? styles.howto : ''}`}>
+      <h2 className={`${styles.title} ${howToSection ? styles.howto : ''}`}>
         {isDetails ? (
           article.title
         ) : (
@@ -27,7 +27,7 @@ export const ArticleHeader = ({ article, isDetails, directory }) => {
             {article.title}
           </Link>
         )}
-      </h1>
+      </h2>
       <p className={styles.meta}>
         <span className={styles.dates}>
           <span className={styles.date}>

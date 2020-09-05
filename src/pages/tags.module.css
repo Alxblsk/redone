@@ -1,0 +1,12 @@
+.tagsGroup:first-child .title {
+    margin-top: 0;
+}
+
+.tagItem {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.tagItem:first-child {
+    margin-left: 0;
+}

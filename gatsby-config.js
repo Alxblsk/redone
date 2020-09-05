@@ -26,6 +26,7 @@ module.exports = {
     siteUrl: 'https://alxblsk.com',
     blogDirectory: 'blog',
     howToDirectory: 'how-to',
+    tagsDirectory: 'tags',
     username: 'alxblsk',
     firstName: 'Aliaksei',
     lastName: 'Belski'
