@@ -1,5 +1,5 @@
-.tagsGroup:first-child .title {
-    margin-top: 0;
+.tagsGroup {
+    margin-bottom: 30px;
 }
 
 .tagItem {

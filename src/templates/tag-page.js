@@ -26,12 +26,12 @@ const Tag = ({ data, pageContext, location }) => {
                 <link rel="canonical" href={tagUrl}></link>
             </Helmet>
             <div>
-                <h2>Articles found by tag "{pageContext.tag}"</h2>
+                <h2 className="h1">Articles found by tag "{pageContext.tag}"</h2>
                 <ul>
                     {(tags[0].nodes || []).map(article => {
                         const pageType = checkType(get(article, 'internal.type'));
                         return (
-                            <li><Link to={`/${pageType}/${article.slug}/`}>{article.title}</Link></li>
+                            <li key={article.slug}><Link to={`/${pageType}/${article.slug}/`}>{article.title}</Link></li>
                         )
                     })}
                 </ul>

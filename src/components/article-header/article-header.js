@@ -20,7 +20,7 @@ export const ArticleHeader = ({ article, isDetails, directory }) => {
         isNeverPublished && styles.draft
       )}
     >
-      <h2 className={`${styles.title} ${howToSection ? styles.howto : ''}`}>
+      <h2 className={`h1 ${styles.title} ${howToSection ? styles.howto : ''}`}>
         {isDetails ? (
           article.title
         ) : (

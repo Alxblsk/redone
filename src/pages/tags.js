@@ -11,7 +11,7 @@ import styles from './tags.module.css'
 const TagsLayout = ({ title, tags, tagsUrl }) => {
   return (
     <div className={styles.tagsGroup}>
-      <h2 className={styles.title}>{title}</h2>
+      <h2 className={`h1 ${styles.title}`}>{title}</h2>
       <div className={styles.tagsList}>
         {
           (tags || []).map(tag => {
