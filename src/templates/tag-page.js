@@ -31,7 +31,7 @@ const Tag = ({ data, pageContext, location }) => {
                     {(tags[0].nodes || []).map(article => {
                         const pageType = checkType(get(article, 'internal.type'));
                         return (
-                            <li><Link to={`/${pageType}/${article.slug}`}>{article.title}</Link></li>
+                            <li><Link to={`/${pageType}/${article.slug}/`}>{article.title}</Link></li>
                         )
                     })}
                 </ul>

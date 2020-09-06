@@ -5,6 +5,7 @@ import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import styles from './article-header.module.css'
+import { kebabCase } from 'lodash'
 
 export const ArticleHeader = ({ article, isDetails, directory }) => {
   const isNeverPublished = !get(article, 'sys.revision', 0)
@@ -43,9 +44,9 @@ export const ArticleHeader = ({ article, isDetails, directory }) => {
         </span>
         <span className={styles.tags}>
           {(article.tags || []).map((tag) => (
-            <span className={styles.tag} key={tag}>
+            <Link className={styles.tag} key={tag} to={`/tags/${kebabCase(tag)}/`}>
               {tag}
-            </span>
+            </Link>
           ))}
         </span>
       </p>
