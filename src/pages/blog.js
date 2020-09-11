@@ -63,7 +63,6 @@ class BlogIndex extends React.Component {
           description={siteMeta.description}
           htmlAttributes={{ lang: 'en-US' }}
         >
-          <link rel="preload" href="https://cdn.commento.io"></link>
           <link rel="canonical" href={blogUrl}></link>
         </Helmet>
         <ul className={styles.articleList}>

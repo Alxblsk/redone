@@ -2,7 +2,7 @@ import React from 'react'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 
-export const BlogPostMeta = function({ post, meta }) {
+export const BlogPostMeta = function({ post, meta, lang }) {
     const heroImage = get(post, 'heroImage.fluid', null)
     const postDescription = get(post, 'description.description', null)
     const postUrl = `${meta.siteUrl}/${meta.blogDirectory}/${post.slug}/`
@@ -11,7 +11,7 @@ export const BlogPostMeta = function({ post, meta }) {
         <Helmet
         title={`${post.title} | ${meta.title}`}
         description={postDescription}
-        htmlAttributes={{ lang: 'en', prefix: 'og: http://ogp.me/ns#' }}
+        htmlAttributes={{ lang, prefix: 'og: http://ogp.me/ns#' }}
       >
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:creator" content={`@${meta.username}`} />

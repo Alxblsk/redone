@@ -7,7 +7,6 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import ArticleHeader from '../components/article-header'
 import { BlogPostSchema, BlogPostMeta } from '../components/seo'
-import Commento from '../components/commento'
 
 import styles from './blog-post.module.css'
 import './prism-nord-theme.css'
@@ -16,8 +15,8 @@ class BlogPostTemplate extends React.Component {
   render() {
     const siteMeta = get(this.props, 'data.site.siteMetadata')
     const post = get(this.props, 'data.contentfulBlogPost')
-    const postId = get(post, 'contentful_id', null)
-    const heroImage = get(post, 'heroImage.fluid', null)
+    const heroImage = get(post, 'heroImage.fluid', null);
+    const lang = get(this.props, 'pageContext.lang', post.nodeLocale);
 
     return (
       <Layout location={this.props.location}>
@@ -35,8 +34,7 @@ class BlogPostTemplate extends React.Component {
             }}
           />
         </div>
-        <Commento id={postId} />
-        <BlogPostMeta post={post} meta={siteMeta} />
+        <BlogPostMeta post={post} meta={siteMeta} lang={lang} />
         <BlogPostSchema post={post} meta={siteMeta} />
       </Layout>
     )

@@ -19,9 +19,8 @@ class HowToIndex extends React.Component {
         <Helmet
           title={siteMeta.title}
           description={siteMeta.description}
-          htmlAttributes={{ lang: 'en' }}
+          htmlAttributes={{ lang: 'en-US' }}
         >
-          <link rel="preload" href="https://cdn.commento.io"></link>
           <link rel="canonical" href={howToUrl}></link>
         </Helmet>
         <ul className={styles.articleList}>

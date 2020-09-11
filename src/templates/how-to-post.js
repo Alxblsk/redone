@@ -6,7 +6,6 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 import ArticleHeader from '../components/article-header'
 import { BlogPostSchema, BlogPostMeta } from '../components/seo'
-import Commento from '../components/commento'
 
 import styles from './blog-post.module.css'
 import './prism-nord-theme.css'
@@ -15,7 +14,6 @@ class HowToPostTemplate extends React.Component {
   render() {
     const siteMeta = get(this.props, 'data.site.siteMetadata')
     const post = get(this.props, 'data.contentfulHowToPost')
-    const postId = get(post, 'contentful_id', null)
 
     return (
       <Layout location={this.props.location}>
@@ -28,7 +26,6 @@ class HowToPostTemplate extends React.Component {
             }}
           />
         </div>
-        <Commento id={postId} />
         <BlogPostMeta post={post} meta={siteMeta} />
         <BlogPostSchema post={post} meta={siteMeta} />
       </Layout>
