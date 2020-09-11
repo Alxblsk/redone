@@ -1,5 +1,5 @@
 const Promise = require('bluebird')
-const path = require('path')
+const path = require('path');
 const kebabCase = require('lodash').kebabCase;
 
 exports.createPages = ({ graphql, actions }) => {
@@ -13,11 +13,15 @@ exports.createPages = ({ graphql, actions }) => {
         graphql(
           `
             {
-              allContentfulBlogPost {
+              allContentfulBlogPostGlobal {
                 edges {
                   node {
-                    title
-                    slug
+                    id
+                    localized {
+                      title
+                      slug
+                      node_locale
+                    }
                   }
                 }
               }
@@ -29,15 +33,21 @@ exports.createPages = ({ graphql, actions }) => {
             reject(result.errors)
           }
   
-          const posts = result.data.allContentfulBlogPost.edges
+          const posts = result.data.allContentfulBlogPostGlobal.edges
+          console.log('posts!', JSON.stringify(posts));
           posts.forEach((post, index) => {
-            createPage({
-              path: `/blog/${post.node.slug}/`,
-              component: blogPost,
-              context: {
-                slug: post.node.slug
-              },
-            })
+            console.log('node!!', JSON.stringify(post.node));
+            const node = post.node.localized;
+            if (node) {
+              createPage({
+                path: `/blog/${node.slug}/`,
+                component: blogPost,
+                context: {
+                  lang: node.node_locale,
+                  slug: node.slug
+                },
+              })
+            }
           })
         })
       )

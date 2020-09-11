@@ -62,6 +62,7 @@ export const pageQuery = graphql`
       slug
       tags
       contentful_id
+      node_locale
       sys {
         revision
       }

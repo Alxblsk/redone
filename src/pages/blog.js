@@ -1,35 +1,76 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
+import classNames from 'classnames';
 
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
 
 import styles from './blog.module.css'
 
+const LANGUAGE_MAP = {
+  'en-US': 'En',
+  'ru-RU': 'Ру'
+}
+
+function getAvailableLocales(posts) {
+  return posts.map(post => post.node.localized.node_locale);
+}
+
+function Article({ posts, directory }) {
+  const locales = getAvailableLocales(posts);
+  const [lang, setLang] = useState(locales.includes('en-US') ? 'en-US' : locales[0]);
+  return (
+    <li className={styles.articleListItem}>
+      <div className={styles.articleListItemLangs}>
+        {
+          locales.map(locale => (
+            <button type="button" className={classNames(styles.articleListLanguageSwitch, locale === lang && styles.activeLang)} key={locale} onClick={() => setLang(locale)}>{LANGUAGE_MAP[locale]}</button>
+          ))
+        }
+      </div>
+      <ul className={styles.articleLocalizedGroup} data-selected-lang={lang}>
+        {
+          posts.map((post) => {
+            const node = post.node.localized;
+            return node ? (
+              <li className={styles.articleLocalizedItem} key={node.slug} lang={node.node_locale}>
+                <ArticlePreview article={node} directory={directory} />
+              </li>
+            ) : null;
+          })
+        }
+      </ul>
+    </li>
+  )
+}
+
 class BlogIndex extends React.Component {
   render() {
     const siteMeta = get(this.props, 'data.site.siteMetadata')
-    const posts = get(this, 'props.data.allContentfulBlogPost.edges')
-    const blogUrl = `${siteMeta.siteUrl}/${siteMeta.blogDirectory}/`
+    const blogUrl = `${siteMeta.siteUrl}/${siteMeta.blogDirectory}/`;
+
+    const groups = get(this.props, 'data.allContentfulBlogPostGlobal.group')
 
     return (
       <Layout location={this.props.location}>
         <Helmet
           title={siteMeta.title}
           description={siteMeta.description}
-          htmlAttributes={{ lang: 'en' }}
+          htmlAttributes={{ lang: 'en-US' }}
         >
           <link rel="preload" href="https://cdn.commento.io"></link>
           <link rel="canonical" href={blogUrl}></link>
         </Helmet>
         <ul className={styles.articleList}>
-          {posts.map(({ node }) => (
-            <li className={styles.articleListItem} key={node.slug}>
-              <ArticlePreview article={node} directory={siteMeta.blogDirectory} />
-            </li>
-          ))}
+          {
+            groups.map(group => {
+              const posts = group.edges;
+
+              return <Article posts={posts} directory={siteMeta.blogDirectory} key={group.fieldValue} />
+            })
+          }
         </ul>
       </Layout>
     )
@@ -48,20 +89,27 @@ export const pageQuery = graphql`
         blogDirectory
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          tags
-          sys {
-            revision
-          }
-          publishDate(formatString: "MMMM Do, YYYY")
-          updatedAt(formatString: "MMMM Do, YYYY")
-          description {
-            childMarkdownRemark {
-              html
+    allContentfulBlogPostGlobal(sort: {fields: [createdAt], order: DESC}, filter: {localized: {title: {regex: "/[a-zA-zа-яА-Я]{1,}.+/gi"}}}) {
+      group(field: contentful_id) {
+        fieldValue
+        edges {
+          node {
+            id
+            localized {
+              title
+              slug
+              tags
+              sys {
+                revision
+              }
+              publishDate(formatString: "MMMM Do, YYYY")
+              updatedAt(formatString: "MMMM Do, YYYY")
+              description {
+                childMarkdownRemark {
+                  html
+                }
+              }
+              node_locale
             }
           }
         }
