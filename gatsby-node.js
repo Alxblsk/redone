@@ -34,9 +34,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
   
           const posts = result.data.allContentfulBlogPostGlobal.edges
-          console.log('posts!', JSON.stringify(posts));
           posts.forEach((post, index) => {
-            console.log('node!!', JSON.stringify(post.node));
             const node = post.node.localized;
             if (node) {
               createPage({

@@ -112,7 +112,7 @@ module.exports = {
 
                 let enclosure;
 
-                if (node.heroImage) {
+                if (node.heroImage && node.heroImage.fixed) {
                   enclosure = {
                     url: node.heroImage.fixed.src,
                     type: node.heroImage.file.contentType
