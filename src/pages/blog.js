@@ -18,6 +18,10 @@ function getAvailableLocales(posts) {
   return posts.map(post => post.node.localized.node_locale);
 }
 
+function sortPosts(groups) {
+  return groups.sort(group => -(new Date(group.fieldValue)));
+}
+
 function Article({ posts, directory }) {
   const locales = getAvailableLocales(posts);
   const [lang, setLang] = useState(locales.includes('en-US') ? 'en-US' : locales[0]);
@@ -50,8 +54,7 @@ class BlogIndex extends React.Component {
   render() {
     const siteMeta = get(this.props, 'data.site.siteMetadata')
     const blogUrl = `${siteMeta.siteUrl}/${siteMeta.blogDirectory}/`;
-
-    const groups = get(this.props, 'data.allContentfulBlogPostGlobal.group')
+    const groups = sortPosts(get(this.props, 'data.allContentfulBlogPostGlobal.group', []));
 
     return (
       <Layout location={this.props.location}>
@@ -67,7 +70,6 @@ class BlogIndex extends React.Component {
           {
             groups.map(group => {
               const posts = group.edges;
-
               return <Article posts={posts} directory={siteMeta.blogDirectory} key={group.fieldValue} />
             })
           }
@@ -89,8 +91,8 @@ export const pageQuery = graphql`
         blogDirectory
       }
     }
-    allContentfulBlogPostGlobal(sort: {fields: [createdAt], order: DESC}, filter: {localized: {title: {regex: "/[a-zA-zа-яА-Я]{1,}.+/gi"}}}) {
-      group(field: contentful_id) {
+    allContentfulBlogPostGlobal(filter: {localized: {title: {regex: "/^[a-zа-я0-9]/i"}}}) {
+      group(field: createdAt) {
         fieldValue
         edges {
           node {

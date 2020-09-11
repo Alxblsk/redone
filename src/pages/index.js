@@ -12,43 +12,27 @@ export const pageQuery = graphql`
         blogDirectory
       }
     }
-    allContentfulBlogPostGlobal(filter: {node_locale: {eq: "en-US"}}, sort: {fields: [localized___publishDate], order: DESC}) {
-      edges {
-        node {
-          id
-          localized {
-            title
-            slug
-            tags
-            sys {
-              revision
-            }
-            publishDate(formatString: "MMMM Do, YYYY")
-            updatedAt(formatString: "MMMM Do, YYYY")
-            description {
-              childMarkdownRemark {
-                html
+    allContentfulBlogPostGlobal(filter: {localized: {title: {regex: "/^[a-zа-я0-9]/i"}}}) {
+      group(field: createdAt) {
+        fieldValue
+        edges {
+          node {
+            id
+            localized {
+              title
+              slug
+              tags
+              sys {
+                revision
               }
-            }
-            node_locale
-          }
-        }
-      }
-    }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          tags
-          sys {
-            revision
-          }
-          publishDate(formatString: "MMMM Do, YYYY")
-          updatedAt(formatString: "MMMM Do, YYYY")
-          description {
-            childMarkdownRemark {
-              html
+              publishDate(formatString: "MMMM Do, YYYY")
+              updatedAt(formatString: "MMMM Do, YYYY")
+              description {
+                childMarkdownRemark {
+                  html
+                }
+              }
+              node_locale
             }
           }
         }

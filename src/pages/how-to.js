@@ -48,7 +48,7 @@ export const pageQuery = graphql`
         howToDirectory
       }
     }
-    allContentfulHowToPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulHowToPost(sort: {fields: [publishDate], order: DESC}, filter: {node_locale: {eq: "en-US"}}) {
       edges {
         node {
           title
