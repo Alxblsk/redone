@@ -20,11 +20,8 @@ const Tag = ({ data, pageContext, location }) => {
 
   return (
     <Layout location={location}>
-      <Helmet
-        title={siteMeta.title}
-        description={siteMeta.description}
-        htmlAttributes={{ lang: 'en' }}
-      >
+      <Helmet title={siteMeta.title} htmlAttributes={{ lang: 'en' }}>
+        <meta name="description" content={siteMeta.description} />
         <link rel="canonical" href={tagUrl}></link>
       </Helmet>
       <div>

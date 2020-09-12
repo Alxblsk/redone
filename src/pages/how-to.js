@@ -16,11 +16,8 @@ class HowToIndex extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <Helmet
-          title={siteMeta.title}
-          description={siteMeta.description}
-          htmlAttributes={{ lang: 'en-US' }}
-        >
+        <Helmet title={siteMeta.title} htmlAttributes={{ lang: 'en-US' }}>
+          <meta name="description" content={siteMeta.description} />
           <link rel="canonical" href={howToUrl}></link>
         </Helmet>
         <ul className={styles.articleList}>

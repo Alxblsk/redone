@@ -37,11 +37,8 @@ const Tags = (props) => {
 
   return (
     <Layout location={props.location}>
-      <Helmet
-        title={siteMeta.title}
-        description={siteMeta.description}
-        htmlAttributes={{ lang: 'en' }}
-      >
+      <Helmet title={siteMeta.title} htmlAttributes={{ lang: 'en-US' }}>
+        <meta name="description" content={siteMeta.description} />
         <link rel="canonical" href={tagsUrl}></link>
       </Helmet>
       <TagsLayout
