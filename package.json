@@ -35,7 +35,7 @@
     "dotenv": "^8.2.0",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
-    "gatsby": "^2.20.25",
+    "gatsby": "^2.24.54",
     "gh-pages": "^2.2.0",
     "husky": "^4.2.5",
     "prettier": "^2.0.4",
