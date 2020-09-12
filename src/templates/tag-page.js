@@ -53,7 +53,7 @@ export const pageQuery = graphql`
             tagsDirectory
         }
         }
-        howToTags: allContentfulHowToPost {
+        howToTags: allContentfulHowToPost(filter: {node_locale: {eq: "en-US"}}) {
         group(field: tags) {
             field
             fieldValue
@@ -66,7 +66,7 @@ export const pageQuery = graphql`
             }
         }
         }
-        blogTags: allContentfulBlogPost {
+        blogTags: allContentfulBlogPost(filter: {node_locale: {eq: "en-US"}}) {
         group(field: tags) {
             field
             fieldValue
