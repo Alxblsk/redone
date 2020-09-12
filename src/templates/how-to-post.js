@@ -1,24 +1,28 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import get from 'lodash/get'
+import get from 'lodash/get';
 
-import Layout from '../components/layout'
-import ArticleHeader from '../components/article-header'
-import { BlogPostSchema, BlogPostMeta } from '../components/seo'
+import Layout from '../components/layout';
+import ArticleHeader from '../components/article-header';
+import { BlogPostSchema, BlogPostMeta } from '../components/seo';
 
-import styles from './blog-post.module.css'
-import './prism-nord-theme.css'
+import styles from './blog-post.module.css';
+import './prism-nord-theme.css';
 
 class HowToPostTemplate extends React.Component {
   render() {
-    const siteMeta = get(this.props, 'data.site.siteMetadata')
-    const post = get(this.props, 'data.contentfulHowToPost')
+    const siteMeta = get(this.props, 'data.site.siteMetadata');
+    const post = get(this.props, 'data.contentfulHowToPost');
 
     return (
       <Layout location={this.props.location}>
         <div className={styles.article}>
-          <ArticleHeader article={post} directory={siteMeta.howToDirectory} isDetails />
+          <ArticleHeader
+            article={post}
+            directory={siteMeta.howToDirectory}
+            isDetails
+          />
           <div
             className={styles.articleContent}
             dangerouslySetInnerHTML={{
@@ -29,11 +33,11 @@ class HowToPostTemplate extends React.Component {
         <BlogPostMeta post={post} meta={siteMeta} />
         <BlogPostSchema post={post} meta={siteMeta} />
       </Layout>
-    )
+    );
   }
 }
 
-export default HowToPostTemplate
+export default HowToPostTemplate;
 
 export const pageQuery = graphql`
   query HowToPostBySlug($slug: String!) {
@@ -75,4 +79,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

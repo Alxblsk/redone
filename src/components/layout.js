@@ -1,17 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-import PageHeader from './page-header'
-import SocialPane from './social-pane'
+import PageHeader from './page-header';
+import SocialPane from './social-pane';
 
-import './base.css'
+import './base.css';
 
 class Template extends React.Component {
   render() {
-    const { children, location } = this.props
+    const { children, location } = this.props;
 
-    let rootPath = `/`
+    let rootPath = `/`;
     if (typeof __PREFIX_PATHS__ !== `undefined` && __PREFIX_PATHS__) {
-      rootPath = __PATH_PREFIX__ + `/`
+      rootPath = __PATH_PREFIX__ + `/`;
     }
 
     return (
@@ -20,8 +20,8 @@ class Template extends React.Component {
         <div className="layout-content">{children}</div>
         <SocialPane />
       </div>
-    )
+    );
   }
 }
 
-export default Template
+export default Template;

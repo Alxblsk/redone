@@ -1,27 +1,31 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import get from 'lodash/get'
-import Img from 'gatsby-image'
+import get from 'lodash/get';
+import Img from 'gatsby-image';
 
-import Layout from '../components/layout'
-import ArticleHeader from '../components/article-header'
-import { BlogPostSchema, BlogPostMeta } from '../components/seo'
+import Layout from '../components/layout';
+import ArticleHeader from '../components/article-header';
+import { BlogPostSchema, BlogPostMeta } from '../components/seo';
 
-import styles from './blog-post.module.css'
-import './prism-nord-theme.css'
+import styles from './blog-post.module.css';
+import './prism-nord-theme.css';
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const siteMeta = get(this.props, 'data.site.siteMetadata')
-    const post = get(this.props, 'data.contentfulBlogPost')
+    const siteMeta = get(this.props, 'data.site.siteMetadata');
+    const post = get(this.props, 'data.contentfulBlogPost');
     const heroImage = get(post, 'heroImage.fluid', null);
     const lang = get(this.props, 'pageContext.lang', post.nodeLocale);
 
     return (
       <Layout location={this.props.location}>
         <div className={styles.article}>
-          <ArticleHeader article={post} directory={siteMeta.blogDirectory} isDetails />
+          <ArticleHeader
+            article={post}
+            directory={siteMeta.blogDirectory}
+            isDetails
+          />
           {heroImage && (
             <div className={styles.heroImage}>
               <Img alt={post.title} title={post.title} fluid={heroImage} />
@@ -37,11 +41,11 @@ class BlogPostTemplate extends React.Component {
         <BlogPostMeta post={post} meta={siteMeta} lang={lang} />
         <BlogPostSchema post={post} meta={siteMeta} />
       </Layout>
-    )
+    );
   }
 }
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -84,4 +88,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

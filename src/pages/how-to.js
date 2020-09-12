@@ -1,18 +1,18 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
-import { Helmet } from 'react-helmet'
+import React from 'react';
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
+import { Helmet } from 'react-helmet';
 
-import Layout from '../components/layout'
-import ArticlePreview from '../components/article-preview'
+import Layout from '../components/layout';
+import ArticlePreview from '../components/article-preview';
 
-import styles from './blog.module.css'
+import styles from './blog.module.css';
 
 class HowToIndex extends React.Component {
   render() {
-    const siteMeta = get(this.props, 'data.site.siteMetadata')
-    const posts = get(this, 'props.data.allContentfulHowToPost.edges')
-    const howToUrl = `${siteMeta.siteUrl}/${siteMeta.howToDirectory}/`
+    const siteMeta = get(this.props, 'data.site.siteMetadata');
+    const posts = get(this, 'props.data.allContentfulHowToPost.edges');
+    const howToUrl = `${siteMeta.siteUrl}/${siteMeta.howToDirectory}/`;
 
     return (
       <Layout location={this.props.location}>
@@ -26,16 +26,19 @@ class HowToIndex extends React.Component {
         <ul className={styles.articleList}>
           {posts.map(({ node }) => (
             <li className={styles.articleListItem} key={node.slug}>
-              <ArticlePreview article={node} directory={siteMeta.howToDirectory} />
+              <ArticlePreview
+                article={node}
+                directory={siteMeta.howToDirectory}
+              />
             </li>
           ))}
         </ul>
       </Layout>
-    )
+    );
   }
 }
 
-export default HowToIndex
+export default HowToIndex;
 
 export const pageQuery = graphql`
   query HowToIndexQuery {
@@ -47,7 +50,10 @@ export const pageQuery = graphql`
         howToDirectory
       }
     }
-    allContentfulHowToPost(sort: {fields: [publishDate], order: DESC}, filter: {node_locale: {eq: "en-US"}}) {
+    allContentfulHowToPost(
+      sort: { fields: [publishDate], order: DESC }
+      filter: { node_locale: { eq: "en-US" } }
+    ) {
       edges {
         node {
           title
@@ -72,4 +78,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

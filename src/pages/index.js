@@ -1,7 +1,7 @@
-import { graphql } from 'gatsby'
-import Home from './blog'
+import { graphql } from 'gatsby';
+import Home from './blog';
 
-export default Home
+export default Home;
 export const pageQuery = graphql`
   query HomeQuery {
     site {
@@ -12,7 +12,9 @@ export const pageQuery = graphql`
         blogDirectory
       }
     }
-    allContentfulBlogPostGlobal(filter: {localized: {title: {regex: "/^[a-zа-я0-9]/i"}}}) {
+    allContentfulBlogPostGlobal(
+      filter: { localized: { title: { regex: "/^[a-zа-я0-9]/i" } } }
+    ) {
       group(field: postDate) {
         fieldValue
         edges {
@@ -39,4 +41,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

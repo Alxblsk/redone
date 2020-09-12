@@ -1,36 +1,36 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 import classNames from 'classnames';
-import logo from '../../../static/photo.png'
-import styles from './page-header.module.css'
+import logo from '../../../static/photo.png';
+import styles from './page-header.module.css';
 
 const BLOG_URL = '/blog/';
 const HOWTO_URL = '/how-to/';
 
-
 const logoTitle = 'Alxblsk.com Logo';
 const linksMap = {
   [BLOG_URL]: 'Blog',
-  [HOWTO_URL]: 'How to'
-}
+  [HOWTO_URL]: 'How to',
+};
 
 const PageNav = ({ pathname }) => {
   return (
     <nav className={styles.nav}>
-      {
-        Object.keys(linksMap).map(linkUrl => (
-          <Link
-            key={linkUrl}
-            to={linkUrl}
-            className={classNames(styles.navItem, pathname.startsWith(linkUrl) && styles.active)}
-          >
-            {linksMap[linkUrl]}
-          </Link>
-        ))
-      }
+      {Object.keys(linksMap).map((linkUrl) => (
+        <Link
+          key={linkUrl}
+          to={linkUrl}
+          className={classNames(
+            styles.navItem,
+            pathname.startsWith(linkUrl) && styles.active
+          )}
+        >
+          {linksMap[linkUrl]}
+        </Link>
+      ))}
     </nav>
-  )
-}
+  );
+};
 
 export const PageHeader = ({ location }) => {
   const { pathname } = location;
@@ -38,12 +38,14 @@ export const PageHeader = ({ location }) => {
   return (
     <div className={styles.header}>
       <div className={styles.headerLogoWrapper}>
-        <img
-          src={logo}
-          className={styles.headerLogo}
-          alt={logoTitle}
-          title={logoTitle}
-        />
+        <Link to="/">
+          <img
+            src={logo}
+            className={styles.headerLogo}
+            alt={logoTitle}
+            title={logoTitle}
+          />
+        </Link>
         <div className={styles.headerTitleWrapper}>
           <Link to="/" className={styles.headerLink}>
             <span className={styles.headerTitle}>RE•DONE</span>
@@ -55,6 +57,5 @@ export const PageHeader = ({ location }) => {
       </div>
       <PageNav pathname={pathname} />
     </div>
-  )
-
-}
+  );
+};
