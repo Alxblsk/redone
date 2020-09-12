@@ -6,7 +6,7 @@ export const BlogPostMeta = function ({ post, meta, lang }) {
   const heroImage = get(post, 'heroImage.fluid', null);
   const postDescription = get(post, 'description.description', null);
   const postUrl = `${meta.siteUrl}/${meta.blogDirectory}/${post.slug}/`;
-  debugger;
+
   return (
     <Helmet
       title={`${post.title} | ${meta.title}`}
