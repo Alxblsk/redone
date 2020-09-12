@@ -19,7 +19,7 @@ function getAvailableLocales(posts) {
 }
 
 function sortPosts(groups) {
-  return groups.sort(group => -(new Date(group.fieldValue)));
+  return groups.sort((a, b) => (new Date(b.fieldValue)).getTime() - (new Date(a.fieldValue)).getTime());
 }
 
 function Article({ posts, directory }) {
@@ -91,7 +91,7 @@ export const pageQuery = graphql`
       }
     }
     allContentfulBlogPostGlobal(filter: {localized: {title: {regex: "/^[a-zа-я0-9]/i"}}}) {
-      group(field: createdAt) {
+      group(field: postDate) {
         fieldValue
         edges {
           node {

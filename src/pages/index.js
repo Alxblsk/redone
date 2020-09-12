@@ -13,7 +13,7 @@ export const pageQuery = graphql`
       }
     }
     allContentfulBlogPostGlobal(filter: {localized: {title: {regex: "/^[a-zа-я0-9]/i"}}}) {
-      group(field: createdAt) {
+      group(field: postDate) {
         fieldValue
         edges {
           node {
