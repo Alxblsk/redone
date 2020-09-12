@@ -14,7 +14,8 @@ class HowToPostTemplate extends React.Component {
   render() {
     const siteMeta = get(this.props, 'data.site.siteMetadata');
     const post = get(this.props, 'data.contentfulHowToPost');
-
+    const lang = get(this.props, 'pageContext.lang', post.nodeLocale);
+    debugger;
     return (
       <Layout location={this.props.location}>
         <div className={styles.article}>
@@ -30,7 +31,7 @@ class HowToPostTemplate extends React.Component {
             }}
           />
         </div>
-        <BlogPostMeta post={post} meta={siteMeta} />
+        <BlogPostMeta post={post} meta={siteMeta} lang={lang} directory={siteMeta.howToDirectory}/>
         <BlogPostSchema post={post} meta={siteMeta} />
       </Layout>
     );

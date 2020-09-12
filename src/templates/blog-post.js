@@ -38,7 +38,7 @@ class BlogPostTemplate extends React.Component {
             }}
           />
         </div>
-        <BlogPostMeta post={post} meta={siteMeta} lang={lang} />
+        <BlogPostMeta post={post} meta={siteMeta} lang={lang} directory={siteMeta.blogDirectory}  />
         <BlogPostSchema post={post} meta={siteMeta} />
       </Layout>
     );
