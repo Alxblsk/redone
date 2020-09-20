@@ -15,7 +15,7 @@ class HowToPostTemplate extends React.Component {
     const siteMeta = get(this.props, 'data.site.siteMetadata');
     const post = get(this.props, 'data.contentfulHowToPost');
     const lang = get(this.props, 'pageContext.lang', post.nodeLocale);
-    debugger;
+
     return (
       <Layout location={this.props.location}>
         <div className={styles.article}>
