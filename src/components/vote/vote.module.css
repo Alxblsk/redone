@@ -1,0 +1,82 @@
+.vote {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    margin: 30px 0 0;
+}
+
+.buttonCopy {
+    display: block;
+    padding-left: 8px;
+}
+
+.voteLike,
+.voteDislike,
+.voteShare {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    padding: 7px 8px;
+    vertical-align: top;
+    background-color: #F4F4F4;
+    border: 0 none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.voteLike {
+    margin-right: 8px;
+}
+
+.voteLike:hover {
+    background-color: #FFC8E9;
+}
+
+.voteLike:hover .voteIcon {
+    fill: #9C23A7;
+    stroke: #9C23A7;
+}
+
+.voteDislike {
+    margin-right: 8px;
+}
+
+.voteDislike:hover {
+    background-color: #FFE9C8;
+}
+
+.voteDislike:hover .voteIcon {
+    fill: #A75B23;
+}
+
+.voteShare .buttonCopy {
+    visibility: hidden;
+    opacity: 0;
+    width: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.voteShare:hover .buttonCopy {
+    visibility: visible;
+    opacity: 1;
+    width: 80px;
+    transition: width .1s ease-in-out;
+}
+
+.voteShare:hover {
+    background-color: #E0FFC8;
+} 
+
+.voteShare:hover .voteIcon {
+    fill: #34BA05;
+} 
+
+.voteLike:hover .voteIcon,
+.voteDislike:hover .voteIcon,
+.voteShare:hover .voteIcon {
+    fill-opacity: 1;
+    transition: all .1s ease-in-out;
+}

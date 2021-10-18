@@ -4,9 +4,12 @@ import { graphql } from 'gatsby';
 import get from 'lodash/get';
 import Img from 'gatsby-image';
 
+import { getArticleUrl } from '../utils/url';
+
 import Layout from '../components/layout';
 import ArticleHeader from '../components/article-header';
 import { BlogPostSchema, BlogPostMeta } from '../components/seo';
+import Vote from '../components/vote';
 
 import styles from './blog-post.module.css';
 import './prism-nord-theme.css';
@@ -17,6 +20,7 @@ class BlogPostTemplate extends React.Component {
     const post = get(this.props, 'data.contentfulBlogPost');
     const heroImage = get(post, 'heroImage.fluid', null);
     const lang = get(this.props, 'pageContext.lang', post.nodeLocale);
+    const postId = get(post, 'contentful_id', null)
 
     return (
       <Layout location={this.props.location}>
@@ -37,6 +41,7 @@ class BlogPostTemplate extends React.Component {
               __html: post.body.childMarkdownRemark.html,
             }}
           />
+          <Vote id={postId} url={getArticleUrl(post, siteMeta)} />
         </div>
         <BlogPostMeta post={post} meta={siteMeta} lang={lang} directory={siteMeta.blogDirectory}  />
         <BlogPostSchema post={post} meta={siteMeta} />

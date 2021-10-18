@@ -11,3 +11,7 @@ export const getPageDirectory = (metadata) => (contentfulPageType) => {
       return '';
   }
 };
+
+export const getArticleUrl = (page, meta) => {
+  return `${meta.siteUrl}/${meta.blogDirectory}/${page.slug}/`;
+}

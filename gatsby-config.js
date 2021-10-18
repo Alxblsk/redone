@@ -1,3 +1,5 @@
+const { createProxyMiddleware } = require("http-proxy-middleware")
+
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
@@ -20,10 +22,21 @@ if (!spaceId || !accessToken) {
 }
 
 module.exports = {
+  developMiddleware: app => {
+    app.use(
+      "/api/v1",
+      createProxyMiddleware({
+        target: process.env.REDONE_VOTE_HOST + process.env.REDONE_VOTE_PREFIX,
+        headers: {
+          Authorization: `Basic ${process.env.REDONE_VOTE_AUTH}`
+        }
+      })
+    )
+  },
   siteMetadata: {
     title: 'Blog by Aliaksei Belski',
-    description: 'Personal blog written by Aliaksei Belski, a front-end developer from Minsk, Belarus',
-    siteUrl: 'https://alxblsk.com',
+    description: 'Personal blog written by Aliaksei Belski, a front-end developer from Los Angeles',
+    siteUrl: 'https://belski.dev',
     blogDirectory: 'blog',
     howToDirectory: 'how-to',
     tagsDirectory: 'tags',
@@ -153,7 +166,7 @@ module.exports = {
             output: "/rss.xml",
             title: "Blog by Aliaksei Belski",
             match: "^/blog/",
-            image_url: 'https://alxblsk.com/rss.jpg'
+            image_url: 'https://belski.page/rss.jpg'
           },
         ],
       },

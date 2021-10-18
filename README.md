@@ -14,7 +14,7 @@ While MVP is already done and currently running, there are still some ideas on h
 - [x] Write 10 posts
 - [x] Write a series of posts
 - [x] Introduce i18n (Russian translations)
-- [ ] Replace comments with emoji-like votes + propose a discussion in Twitter
+- [x] Replace comments with emoji-like votes + propose a discussion in Twitter
 - [ ] Propose a wide screen layout
 - [ ] Introduce "About Me" sidebar
 - [ ] Publish one-page javascript applications made by me
