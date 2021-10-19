@@ -153,12 +153,12 @@ const exec = util.promisify(child_process.exec);
 
 exports.onPreBuild = async (gatsbyNodeHelpers) => {
   const { reporter } = gatsbyNodeHelpers;
-
+  console.log('internals', gatsbyNodeHelpers);
   const reportOut = (report) => {
     const { stderr, stdout } = report;
     if (stderr) reporter.error(stderr);
     if (stdout) reporter.info(stdout);
   };
 
-  reportOut(await exec("ls"));
+  reportOut(await exec("yarn netlify-build"));
 };
