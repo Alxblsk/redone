@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/13e8dd59-ba53-4d3b-8c93-5949eb5837fa/deploy-status)](https://app.netlify.com/sites/redone/deploys)
+
 ## Why Redone
 
 This website is an answer to my procrastination multiplied with a willingness to write. I created personal blogs for years but always removed them after some time. I hope this time it won't happen, but it seems like `Redone` is my motto for life.

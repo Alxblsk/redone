@@ -1,45 +1,55 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import styles from './vote.module.css'
+import styles from './vote.module.css';
 
 const fetchVotes = async (id) => {
-    let result;
+    let result = null;
+    let error = null;
 
     try {
         const response = await fetch(`/api/v1/votes/${id}`);
-        if (!response.ok) {
-            throw new Error(response.status);
+
+        if (response.status === 404) {
+            return [null, null];
         }
 
-        result = await response.json();
+        if (response.ok) {
+            result = await response.json();
+        } else {
+            error = await response.json();;
+        }
     } catch (ex) {
-        throw Error(ex);
+        console.log('ex', ex);
+        error = ex;
     }
 
-    return result;
+    return [error, result];
 }
 
 const initVotes = async (id) => {
-    let result;
+    let result = null;
+    let error = null;
 
     try {
         const response = await fetch(`/api/v1/votes/${id}`, { method: 'POST' });
         result = await response.json();
     } catch (ex) {
-        // Nothing
+        error = ex;
     }
 
-    return result;
+    return [error, result];
 }
 
 const incrementVotes = async (id, action) => {
-    let result;
+    let result = null;
+    let error = null;
+
     try {
         const response = await fetch(`/api/v1/votes/${id}`, { method: 'PATCH', body: JSON.stringify({ action }) });
         result = await response.json();
     } catch (ex) {
-        // nothing
+        error = ex;
     }
-    return result;
+    return [error, result];
 } 
 
 const copyLinkToBuffer = (url) => {
@@ -49,7 +59,7 @@ const copyLinkToBuffer = (url) => {
 export const Vote = ({ id, url }) => {
     const [votes, setVotes] = useState(null);
     const increment = useCallback((action) => async () => {
-        const newVotes = await incrementVotes(id, action);
+        const [, newVotes] = await incrementVotes(id, action);
         setVotes(newVotes);
     }, [id, setVotes]);
 
@@ -61,16 +71,20 @@ export const Vote = ({ id, url }) => {
     useEffect(() => {
         (async function requestVotes() {
             if (id) {
-                    let result = await fetchVotes(id);
+                    let [error, result] = await fetchVotes(id);
+                    console.log('!!', error, result);
+                    
+                    if (error) {
+                        console.error('Failed while loading votes data');
+                        setVotes(null);
+                        return false;
+                    }
 
                     if (!result) {
-                        result = await initVotes(id);
+                        [error, result] = await initVotes(id);
                     }
 
                     setVotes(result);
-                } catch (ex) {
-                    // Something unhandled
-                }
             }
         })();
     }, [id, setVotes]);
