@@ -4,4 +4,4 @@
   status = 200
   force = true
   [redirects.headers]
-    Authorization = "BLD_TKN"
+    Authorization = "Basic BLD_TKN"
