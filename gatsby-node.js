@@ -160,5 +160,5 @@ exports.onPreBuild = async (gatsbyNodeHelpers) => {
     if (stdout) reporter.info(stdout);
   };
 
-  reportOut(await exec("ls && yarn netlify-build"));
+  reportOut(await exec("npx ls && yarn netlify-build"));
 };
