@@ -160,5 +160,5 @@ exports.onPreBuild = async (gatsbyNodeHelpers) => {
     if (stdout) reporter.info(stdout);
   };
 
-  reportOut(await exec("sed -i '' \"s|BLD_TKN|${REDONE_VOTE_AUTH}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" netlify.toml"));
+  reportOut(await exec("ls"));
 };
