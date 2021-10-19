@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/api/v1"
-  to = "BLD_HSTBLD_PRFX"
+  to = "BLD_HST/prod"
   status = 200
   force = true
   [redirects.headers]
