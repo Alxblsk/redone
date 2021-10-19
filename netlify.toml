@@ -5,6 +5,3 @@
   force = true
   [redirects.headers]
     Authorization = "BLD_TKN"
-
-[build]
-  command = "sed -i \"s|BLD_TKN|${REDONE_VOTE_AUTH}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|PRFX|${REDONE_VOTE_PREFIX}|g\" netlify.toml && yarn build"
