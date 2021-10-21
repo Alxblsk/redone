@@ -3,5 +3,4 @@
   to = "BLD_HST/prod/api/v1/:splat"
   status = 200
   force = true
-  [redirects.headers]
-    Authorization = "Basic BLD_TKN"
+  headers = {x-api-key = "BLD_TKN"}

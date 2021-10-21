@@ -28,7 +28,7 @@ module.exports = {
       createProxyMiddleware({
         target: process.env.REDONE_VOTE_HOST + process.env.REDONE_VOTE_PREFIX,
         headers: {
-          Authorization: `Basic ${process.env.REDONE_VOTE_AUTH}`
+          'x-api-key': process.env.API_WRITE_KEY
         }
       })
     )
