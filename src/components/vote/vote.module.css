@@ -23,32 +23,58 @@
     border-radius: 4px;
     cursor: pointer;
     transition: all .2s ease-in-out;
+    font-size: 12px;
+    color: #333;
 }
+
+.voteLike[disabled],
+.voteDislike[disabled],
+.voteShare[disabled] {
+    color: #BBB;
+}
+
+/* LIKE */
 
 .voteLike {
     margin-right: 8px;
 }
 
-.voteLike:hover {
+.voteLike:not([disabled]).voted {
+    background-color: #ffc8e983;   
+}
+
+.voteLike:not([disabled]):hover,
+.voteLike:not([disabled]):hover.voted {
     background-color: #FFC8E9;
 }
 
-.voteLike:hover .voteIcon {
+.voteLike:not([disabled]):hover .voteIcon,
+.voteLike.voted .voteIcon {
     fill: #9C23A7;
     stroke: #9C23A7;
 }
+
+/* Dislike */
 
 .voteDislike {
     margin-right: 8px;
 }
 
-.voteDislike:hover {
+.voteDislike:not([disabled]).voted {
+    background-color: #ffe9c885;
+}
+
+.voteDislike:not([disabled]):hover,
+.voteDislike:not([disabled]):hover.voted  {
     background-color: #FFE9C8;
 }
 
-.voteDislike:hover .voteIcon {
+.voteDislike:not([disabled]):hover .voteIcon,
+.voteDislike.voted .voteIcon {
     fill: #A75B23;
 }
+
+/* Share */
 
 .voteShare .buttonCopy {
     visibility: hidden;
@@ -62,21 +88,42 @@
 .voteShare:hover .buttonCopy {
     visibility: visible;
     opacity: 1;
-    width: 80px;
+    width: 56px;
+    text-align: left;
+    padding-left: 8px;
     transition: width .1s ease-in-out;
 }
 
-.voteShare:hover {
+.voteShare.voted {
+    background-color: #e0ffc88f;
+} 
+
+.voteShare:hover,
+.voteShare:hover.voted {
     background-color: #E0FFC8;
 } 
 
-.voteShare:hover .voteIcon {
+.voteShare:hover .voteIcon,
+.voteShare.voted .voteIcon {
     fill: #34BA05;
 } 
 
-.voteLike:hover .voteIcon,
-.voteDislike:hover .voteIcon,
-.voteShare:hover .voteIcon {
+/* Common */
+
+.voteLike:not([disabled]):hover .voteIcon,
+.voteDislike:not([disabled]):hover .voteIcon,
+.voteShare:not([disabled]):hover .voteIcon {
     fill-opacity: 1;
     transition: all .1s ease-in-out;
+}
+
+.voteLike[disabled],
+.voteDislike[disabled] {
+    cursor: not-allowed;
+}
+
+.voteLike[disabled] .voteIcon,
+.voteDislike[disabled] .voteIcon {
+    opacity: 0.2;
+    transition: all .2s ease-in-out;
 }
