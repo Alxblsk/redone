@@ -19,7 +19,6 @@ const fetchVotes = async (id) => {
             error = await response.json();;
         }
     } catch (ex) {
-        console.log('ex', ex);
         error = ex;
     }
 
@@ -70,13 +69,10 @@ const readVoteStore = (id) => {
 
 const writeVoteStore = (id, voteType) => {
     const votes = readVoteStore(id);
-    console.log('VOTES!!!', votes);
     const voteValue = votes && votes[voteType] || 0;
 
     try {
-        console.log('votes', votes, voteType, voteValue)
         const newValue = { ...votes, [voteType]: voteValue + 1};
-        console.log('newValue', newValue);
         localStorage.setItem(`a_${id}_v1`, JSON.stringify(newValue))
     } catch(ex) {
         console.warn(`localstorage doesn't allow to store ${voteType} data`, ex);

@@ -153,7 +153,7 @@ const exec = util.promisify(child_process.exec);
 
 exports.onPreBuild = async (gatsbyNodeHelpers) => {
   const { reporter } = gatsbyNodeHelpers;
-  console.log('internals', gatsbyNodeHelpers);
+
   const reportOut = (report) => {
     const { stderr, stdout } = report;
     if (stderr) reporter.error(stderr);
