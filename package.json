@@ -2,9 +2,6 @@
   "name": "alxblsk-redone",
   "description": "Personal blog",
   "version": "1.0.1",
-  "contributors": [
-    "Aliaksei Belski <mr.belski@gmail.com>"
-  ],
   "dependencies": {
     "classnames": "^2.3.1",
     "contentful": "^7.14.4",
@@ -19,8 +16,9 @@
     "gatsby-plugin-typescript": "^2.4.3",
     "gatsby-remark-prismjs": "^3.5.1",
     "gatsby-source-contentful": "^2.2.9",
-    "gatsby-transformer-remark": "^2.8.8",
+    "gatsby-transformer-remark": "^4.0.0",
     "gatsby-transformer-sharp": "^2.4.6",
+    "joi": "^17.9.2",
     "lodash": "^4.17.15",
     "prismjs": "^1.20.0",
     "react": "^16.13.1",
@@ -28,7 +26,14 @@
     "react-helmet": "^6.0.0",
     "react-schemaorg": "^1.0.2",
     "schema-dts": "^0.6.0",
-    "sharp": "^0.25.2"
+    "sharp": "^0.32.0"
+  },
+  "resolutions": {
+    "sharp": "^0.32.0"
+  },
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "node": ">=16.0.0 <17.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -43,7 +48,7 @@
     "rimraf": "^3.0.2",
     "yargs-parser": "^18.1.3"
   },
-  "homepage": "https://alxblsk.com",
+  "homepage": "https://belski.dev",
   "keywords": [
     "gatsby",
     "contentful",
@@ -74,5 +79,10 @@
     "start": "npm run develop",
     "heroku-postbuild": "gatsby build",
     "netlify-build": "sed -i \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
+  },
+  "dependenciesMeta": {
+    "gatsby-transformer-remark@6.9.0": {
+      "unplugged": true
+    }
   }
 }
