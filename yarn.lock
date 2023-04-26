@@ -3403,7 +3403,7 @@ __metadata:
     dotenv: "npm:^8.2.0"
     eslint: "npm:^6.8.0"
     eslint-plugin-react: "npm:^7.19.0"
-    gatsby: "npm:^2.24.54"
+    gatsby: "npm:^2.32.11"
     gatsby-image: "npm:^2.3.4"
     gatsby-plugin-feed: "npm:^2.5.3"
     gatsby-plugin-google-analytics: "npm:^2.3.1"
@@ -9206,7 +9206,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby@npm:^2.24.54":
+"gatsby@npm:^2.32.11":
   version: 2.32.13
   resolution: "gatsby@npm:2.32.13"
   dependencies:
