@@ -31,6 +31,9 @@
   "resolutions": {
     "sharp": "^0.32.1"
   },
+  "alias": {
+    "@hapi/joi": "joi"
+  },
   "engines": {
     "npm": ">=9.0.0",
     "node": ">=18.0.0"
