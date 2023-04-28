@@ -65,7 +65,6 @@
     }
   },
   "scripts": {
-    "preinstall": "NODE_OPTIONS=\"--require $(pwd)/.pnp.cjs\" yarn set version 3.5.0",
     "dev": "npm run develop",
     "develop": "gatsby develop -p 4400",
     "clean": "gatsby clean",
@@ -76,7 +75,5 @@
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
     "start": "npm run develop",
     "netlify-build": "sed -i \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
-  },
-  "packageManager": "yarn@3.5.0",
-  "preferUnplugged": true
+  }
 }
