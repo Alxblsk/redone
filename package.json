@@ -31,11 +31,10 @@
   },
   "resolutions": {
     "@hapi/joi": "https://github.com/hapijs/joi",
-    "sharp": "^0.32.1",
-    "gatsby-plugin-gatsby-cloud": "^5.9.0"
+    "sharp": "^0.32.1"
   },
   "engines": {
-    "npm": ">=9.0.0",
+    "npm": ">=8.0.0",
     "node": ">=16.0.0",
     "yarn": "1.x"
   },
