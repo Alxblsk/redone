@@ -46,10 +46,6 @@ module.exports = {
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
-    {
-      resolve: `gatsby-plugin-gatsby-cloud`,
-      options: { }
-    },
     'gatsby-plugin-typescript',
     'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
