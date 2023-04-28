@@ -124,12 +124,12 @@ module.exports = {
 
                 let enclosure;
 
-                if (node.heroImage && node.heroImage.fixed) {
-                  enclosure = {
-                    url: node.heroImage.fixed.src,
-                    type: node.heroImage.file.contentType
-                  }
-                }
+                // if (node.heroImage && node.heroImage.fixed) {
+                //   enclosure = {
+                //     url: node.heroImage.fixed.src,
+                //     type: node.heroImage.file.contentType
+                //   }
+                // }
 
                 return Object.assign({}, result, { enclosure: enclosure })
               })
@@ -152,9 +152,6 @@ module.exports = {
                     publishDate
                     heroImage {
                       gatsbyImageData
-                      fixed {
-                        src
-                      }
                       file {
                         contentType
                       }

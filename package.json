@@ -72,7 +72,7 @@
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'bin/*.js'",
-    "build": "gatsby build",
+    "build": "yarn gatsby build",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
     "start": "npm run develop",
     "netlify-build": "sed -i \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
