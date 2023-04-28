@@ -82,9 +82,6 @@ export const pageQuery = graphql`
       nodeLocale: node_locale
       heroImage {
         gatsbyImageData
-        fluid(maxWidth: 640, background: "rgb:FFFFFF") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
       }
       body {
         childMarkdownRemark {
