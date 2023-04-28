@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import get from 'lodash/get';
-import Img from 'gatsby-image';
+import { getImage, GatsbyImage } from 'gatsby-plugin-image'
 
 import { getArticleUrl } from '../utils/url';
 
@@ -11,14 +11,14 @@ import ArticleHeader from '../components/article-header';
 import { BlogPostSchema, BlogPostMeta } from '../components/seo';
 import Vote from '../components/vote';
 
-import { article as articleRoot, heroImage } from './blog-post.module.css';
+import { article as articleRoot, heroImage as heroImageClass } from './blog-post.module.css';
 import './prism-nord-theme.css';
 
 class BlogPostTemplate extends React.Component {
   render() {
     const siteMeta = get(this.props, 'data.site.siteMetadata');
     const post = get(this.props, 'data.contentfulBlogPost');
-    const heroImage = get(post, 'heroImage.fluid', null);
+    const heroImage = getImage(get(post, 'heroImage.gatsbyImageData', null));
     const lang = get(this.props, 'pageContext.lang', post.nodeLocale);
     const postId = get(post, 'contentful_id', null)
 
@@ -31,8 +31,8 @@ class BlogPostTemplate extends React.Component {
             isDetails
           />
           {heroImage && (
-            <div className={heroImage}>
-              <Img alt={post.title} title={post.title} fluid={heroImage} />
+            <div className={heroImageClass}>
+              <GatsbyImage alt={post.title} title={post.title} image={heroImage} />
             </div>
           )}
           <div
@@ -81,6 +81,7 @@ export const pageQuery = graphql`
       updatedAtUts: updatedAt
       nodeLocale: node_locale
       heroImage {
+        gatsbyImageData
         fluid(maxWidth: 640, background: "rgb:FFFFFF") {
           ...GatsbyContentfulFluid_tracedSVG
         }

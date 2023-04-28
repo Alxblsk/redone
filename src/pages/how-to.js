@@ -67,6 +67,7 @@ export const pageQuery = graphql`
             }
           }
           heroImage {
+            gatsbyImageData
             fluid(maxWidth: 640, background: "rgb:FFFFFF") {
               ...GatsbyContentfulFluid_tracedSVG
             }

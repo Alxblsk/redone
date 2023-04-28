@@ -53,7 +53,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: [
+        excludes: [
           '/blog/test-blog-post/', 
           '/how-to/test-how-to-post/'
         ]
@@ -151,6 +151,7 @@ module.exports = {
                     title
                     publishDate
                     heroImage {
+                      gatsbyImageData
                       fixed {
                         src
                       }

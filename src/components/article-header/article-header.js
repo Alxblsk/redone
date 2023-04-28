@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import get from 'lodash/get'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import { articleHeader, meta, dates, date, highlightDate, tags, tag, heroImage as heroImageClass, title, titleLink, howto, draft } from './article-header.module.css'
 import { kebabCase } from 'lodash'
@@ -10,7 +10,7 @@ import { kebabCase } from 'lodash'
 export const ArticleHeader = ({ article, isDetails, directory }) => {
   const isNeverPublished = !get(article, 'sys.revision', 0)
   const isUpdated = article.updatedAt && article.publishDate !== article.updatedAt
-  const heroImage = get(article, 'heroImage.fluid', null)
+  const heroImage = get(article, 'heroImage.gatsbyImageData', null)
   const howToSection = directory === 'how-to';
 
   return (
@@ -52,7 +52,7 @@ export const ArticleHeader = ({ article, isDetails, directory }) => {
       </p>
       {heroImage && howToSection && (
         <div className={heroImageClass}>
-          <Img alt={article.title} title={article.title} fluid={heroImage} />
+          <GatsbyImage alt={article.title} title={article.title} image={heroImage} />
         </div>
       )}
     </div>
