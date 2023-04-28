@@ -67,6 +67,7 @@
     }
   },
   "scripts": {
+    "preinstall": "yarn set version berry",
     "dev": "npm run develop",
     "develop": "gatsby develop -p 4400",
     "clean": "gatsby clean",
@@ -78,5 +79,5 @@
     "start": "npm run develop",
     "netlify-build": "sed -i \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
   },
-  "packageManager": "yarn@3.2.0"
+  "packageManager": "yarn@3.5.0"
 }
