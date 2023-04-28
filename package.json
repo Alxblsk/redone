@@ -26,6 +26,9 @@
     "schema-dts": "^1.1.2",
     "sharp": "^0.32.1"
   },
+  "optionalDependencies": {
+    "encoding": "^0.1.13"
+  },
   "resolutions": {
     "@hapi/joi": "https://github.com/hapijs/joi",
     "sharp": "^0.32.1",
@@ -33,7 +36,8 @@
   },
   "engines": {
     "npm": ">=9.0.0",
-    "node": ">=18.0.0"
+    "node": ">=18.0.0",
+    "yarn": "1.x"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
