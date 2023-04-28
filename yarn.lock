@@ -3652,7 +3652,6 @@ __metadata:
     gatsby-plugin-react-helmet: ^6.9.0
     gatsby-plugin-sharp: ^5.9.0
     gatsby-plugin-sitemap: ^6.9.0
-    gatsby-plugin-typescript: ^5.9.0
     gatsby-remark-prismjs: ^7.9.0
     gatsby-source-contentful: ^8.9.1
     gatsby-transformer-remark: ^6.9.0
