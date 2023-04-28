@@ -3671,9 +3671,6 @@ __metadata:
     schema-dts: "npm:^1.1.2"
     sharp: "npm:^0.32.1"
     yargs-parser: "npm:^21.1.1"
-  dependenciesMeta:
-    gatsby-transformer-remark@6.9.0:
-      unplugged: true
   languageName: unknown
   linkType: soft
 

@@ -11082,14 +11082,14 @@ const RAW_RUNTIME_STATE =
     ]],\
     ["gatsby-transformer-remark", [\
       ["npm:6.9.0", {\
-        "packageLocation": "./.yarn/unplugged/gatsby-transformer-remark-virtual-1e0430496c/node_modules/gatsby-transformer-remark/",\
+        "packageLocation": "../../../.yarn/berry/cache/gatsby-transformer-remark-npm-6.9.0-b91941f91c-9.zip/node_modules/gatsby-transformer-remark/",\
         "packageDependencies": [\
           ["gatsby-transformer-remark", "npm:6.9.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
       ["virtual:59e374a04f596a092a4a1dc3057ddf1940e9109017a7b00af8e301e2029be38490ed79d60860364607e609b3343696ab9f842d61a4d8384f2f9a44fd2e14768c#npm:6.9.0", {\
-        "packageLocation": "./.yarn/unplugged/gatsby-transformer-remark-virtual-1e0430496c/node_modules/gatsby-transformer-remark/",\
+        "packageLocation": "./.yarn/__virtual__/gatsby-transformer-remark-virtual-1e0430496c/4/.yarn/berry/cache/gatsby-transformer-remark-npm-6.9.0-b91941f91c-9.zip/node_modules/gatsby-transformer-remark/",\
         "packageDependencies": [\
           ["gatsby-transformer-remark", "virtual:59e374a04f596a092a4a1dc3057ddf1940e9109017a7b00af8e301e2029be38490ed79d60860364607e609b3343696ab9f842d61a4d8384f2f9a44fd2e14768c#npm:6.9.0"],\
           ["@babel/runtime", "npm:7.21.0"],\

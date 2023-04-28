@@ -78,9 +78,5 @@
     "start": "npm run develop",
     "netlify-build": "sed -i \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
   },
-  "dependenciesMeta": {
-    "gatsby-transformer-remark@6.9.0": {
-      "unplugged": true
-    }
-  }
+  "packageManager": "yarn@3.2.0"
 }
