@@ -78,5 +78,40 @@
     "netlify-build": "sed -i \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
   },
   "packageManager": "yarn@3.5.0",
-  "preferUnplugged": true
+  "preferUnplugged": true,
+  "dependenciesMeta": {
+    "gatsby-plugin-feed@5.9.0": {
+      "unplugged": true
+    },
+    "gatsby-plugin-google-analytics@5.9.0": {
+      "unplugged": true
+    },
+    "gatsby-plugin-image@3.9.0": {
+      "unplugged": true
+    },
+    "gatsby-plugin-minify-classnames@5.0.0": {
+      "unplugged": true
+    },
+    "gatsby-plugin-react-helmet@6.9.0": {
+      "unplugged": true
+    },
+    "gatsby-plugin-sharp@5.9.0": {
+      "unplugged": true
+    },
+    "gatsby-plugin-sitemap@6.9.0": {
+      "unplugged": true
+    },
+    "gatsby-remark-prismjs@7.9.0": {
+      "unplugged": true
+    },
+    "gatsby-source-contentful@8.9.1": {
+      "unplugged": true
+    },
+    "gatsby-transformer-remark@6.9.0": {
+      "unplugged": true
+    },
+    "gatsby-transformer-sharp@5.9.0": {
+      "unplugged": true
+    }
+  }
 }
