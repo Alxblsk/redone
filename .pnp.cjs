@@ -48,7 +48,6 @@ const RAW_RUNTIME_STATE =
           ["gatsby-transformer-sharp", "virtual:59e374a04f596a092a4a1dc3057ddf1940e9109017a7b00af8e301e2029be38490ed79d60860364607e609b3343696ab9f842d61a4d8384f2f9a44fd2e14768c#npm:5.9.0"],\
           ["http-proxy-middleware", "virtual:59e374a04f596a092a4a1dc3057ddf1940e9109017a7b00af8e301e2029be38490ed79d60860364607e609b3343696ab9f842d61a4d8384f2f9a44fd2e14768c#npm:2.0.6"],\
           ["husky", "npm:8.0.3"],\
-          ["joi", "npm:17.9.2"],\
           ["lodash", "npm:4.17.21"],\
           ["prettier", "npm:2.8.8"],\
           ["prismjs", "npm:1.29.0"],\
@@ -3267,28 +3266,29 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@hapi/address", [\
-      ["npm:2.1.4", {\
-        "packageLocation": "../../../.yarn/berry/cache/@hapi-address-npm-2.1.4-8548124531-9.zip/node_modules/@hapi/address/",\
+      ["npm:5.1.1", {\
+        "packageLocation": "../../../.yarn/berry/cache/@hapi-address-npm-5.1.1-2944e6ed9b-9.zip/node_modules/@hapi/address/",\
         "packageDependencies": [\
-          ["@hapi/address", "npm:2.1.4"]\
+          ["@hapi/address", "npm:5.1.1"],\
+          ["@hapi/hoek", "npm:11.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
-    ["@hapi/bourne", [\
-      ["npm:1.3.2", {\
-        "packageLocation": "../../../.yarn/berry/cache/@hapi-bourne-npm-1.3.2-5729bbf3c8-9.zip/node_modules/@hapi/bourne/",\
+    ["@hapi/formula", [\
+      ["npm:3.0.2", {\
+        "packageLocation": "../../../.yarn/berry/cache/@hapi-formula-npm-3.0.2-70d8fffc4e-9.zip/node_modules/@hapi/formula/",\
         "packageDependencies": [\
-          ["@hapi/bourne", "npm:1.3.2"]\
+          ["@hapi/formula", "npm:3.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@hapi/hoek", [\
-      ["npm:8.5.1", {\
-        "packageLocation": "../../../.yarn/berry/cache/@hapi-hoek-npm-8.5.1-8e6025c279-9.zip/node_modules/@hapi/hoek/",\
+      ["npm:11.0.2", {\
+        "packageLocation": "../../../.yarn/berry/cache/@hapi-hoek-npm-11.0.2-2d185d47c6-9.zip/node_modules/@hapi/hoek/",\
         "packageDependencies": [\
-          ["@hapi/hoek", "npm:8.5.1"]\
+          ["@hapi/hoek", "npm:11.0.2"]\
         ],\
         "linkType": "HARD"\
       }],\
@@ -3301,32 +3301,52 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@hapi/joi", [\
-      ["npm:15.1.1", {\
-        "packageLocation": "../../../.yarn/berry/cache/@hapi-joi-npm-15.1.1-e67714cf3f-9.zip/node_modules/@hapi/joi/",\
+      ["https://github.com/hapijs/joi.git#commit=7ead57a9f8180895e110f010b425ae411451bd08", {\
+        "packageLocation": "../../../.yarn/berry/cache/@hapi-joi-https-4a066fda99-9.zip/node_modules/@hapi/joi/",\
         "packageDependencies": [\
-          ["@hapi/joi", "npm:15.1.1"],\
-          ["@hapi/address", "npm:2.1.4"],\
-          ["@hapi/bourne", "npm:1.3.2"],\
-          ["@hapi/hoek", "npm:8.5.1"],\
-          ["@hapi/topo", "npm:3.1.6"]\
+          ["@hapi/joi", "https://github.com/hapijs/joi.git#commit=7ead57a9f8180895e110f010b425ae411451bd08"],\
+          ["@hapi/address", "npm:5.1.1"],\
+          ["@hapi/formula", "npm:3.0.2"],\
+          ["@hapi/hoek", "npm:11.0.2"],\
+          ["@hapi/pinpoint", "npm:2.0.1"],\
+          ["@hapi/tlds", "npm:1.0.1"],\
+          ["@hapi/topo", "npm:6.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@hapi/pinpoint", [\
+      ["npm:2.0.1", {\
+        "packageLocation": "../../../.yarn/berry/cache/@hapi-pinpoint-npm-2.0.1-4da9d8fcbc-9.zip/node_modules/@hapi/pinpoint/",\
+        "packageDependencies": [\
+          ["@hapi/pinpoint", "npm:2.0.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@hapi/tlds", [\
+      ["npm:1.0.1", {\
+        "packageLocation": "../../../.yarn/berry/cache/@hapi-tlds-npm-1.0.1-df05bfe555-9.zip/node_modules/@hapi/tlds/",\
+        "packageDependencies": [\
+          ["@hapi/tlds", "npm:1.0.1"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["@hapi/topo", [\
-      ["npm:3.1.6", {\
-        "packageLocation": "../../../.yarn/berry/cache/@hapi-topo-npm-3.1.6-763c40a944-9.zip/node_modules/@hapi/topo/",\
-        "packageDependencies": [\
-          ["@hapi/topo", "npm:3.1.6"],\
-          ["@hapi/hoek", "npm:8.5.1"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:5.1.0", {\
         "packageLocation": "../../../.yarn/berry/cache/@hapi-topo-npm-5.1.0-5e0b776809-9.zip/node_modules/@hapi/topo/",\
         "packageDependencies": [\
           ["@hapi/topo", "npm:5.1.0"],\
           ["@hapi/hoek", "npm:9.3.0"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:6.0.2", {\
+        "packageLocation": "../../../.yarn/berry/cache/@hapi-topo-npm-6.0.2-2ca029706c-9.zip/node_modules/@hapi/topo/",\
+        "packageDependencies": [\
+          ["@hapi/topo", "npm:6.0.2"],\
+          ["@hapi/hoek", "npm:11.0.2"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -5544,7 +5564,6 @@ const RAW_RUNTIME_STATE =
           ["gatsby-transformer-sharp", "virtual:59e374a04f596a092a4a1dc3057ddf1940e9109017a7b00af8e301e2029be38490ed79d60860364607e609b3343696ab9f842d61a4d8384f2f9a44fd2e14768c#npm:5.9.0"],\
           ["http-proxy-middleware", "virtual:59e374a04f596a092a4a1dc3057ddf1940e9109017a7b00af8e301e2029be38490ed79d60860364607e609b3343696ab9f842d61a4d8384f2f9a44fd2e14768c#npm:2.0.6"],\
           ["husky", "npm:8.0.3"],\
-          ["joi", "npm:17.9.2"],\
           ["lodash", "npm:4.17.21"],\
           ["prettier", "npm:2.8.8"],\
           ["prismjs", "npm:1.29.0"],\
@@ -10467,7 +10486,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["gatsby-plugin-feed", "virtual:59e374a04f596a092a4a1dc3057ddf1940e9109017a7b00af8e301e2029be38490ed79d60860364607e609b3343696ab9f842d61a4d8384f2f9a44fd2e14768c#npm:5.9.0"],\
           ["@babel/runtime", "npm:7.21.0"],\
-          ["@hapi/joi", "npm:15.1.1"],\
+          ["@hapi/joi", "https://github.com/hapijs/joi.git#commit=7ead57a9f8180895e110f010b425ae411451bd08"],\
           ["@types/gatsby", null],\
           ["@types/react", null],\
           ["@types/react-dom", null],\
@@ -10972,7 +10991,7 @@ const RAW_RUNTIME_STATE =
           ["@babel/runtime", "npm:7.21.0"],\
           ["@contentful/rich-text-react-renderer", "virtual:1e411dd15aa262281c508d181f917863a924b911de85778ed67ebc38cdea466b8cff34f04426c2a596c3b12e9c74e09309b933d9c5faf7dae837dd2da6a2753e#npm:15.16.3"],\
           ["@contentful/rich-text-types", "npm:15.15.1"],\
-          ["@hapi/joi", "npm:15.1.1"],\
+          ["@hapi/joi", "https://github.com/hapijs/joi.git#commit=7ead57a9f8180895e110f010b425ae411451bd08"],\
           ["@types/gatsby", null],\
           ["@types/gatsby-plugin-image", null],\
           ["@types/gatsby-plugin-sharp", null],\

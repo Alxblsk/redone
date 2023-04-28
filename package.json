@@ -19,7 +19,6 @@
     "gatsby-source-contentful": "^8.9.1",
     "gatsby-transformer-remark": "^6.9.0",
     "gatsby-transformer-sharp": "^5.9.0",
-    "joi": "^17.9.2",
     "lodash": "^4.17.21",
     "prismjs": "^1.29.0",
     "react": "^18.0.0",
@@ -30,6 +29,7 @@
     "sharp": "^0.32.1"
   },
   "resolutions": {
+    "@hapi/joi": "https://github.com/hapijs/joi",
     "sharp": "^0.32.1",
     "gatsby-plugin-gatsby-cloud": "^5.9.0"
   },
