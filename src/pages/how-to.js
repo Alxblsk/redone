@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import Layout from '../components/layout';
 import ArticlePreview from '../components/article-preview';
 
-import styles from './blog.module.css';
+import { articleList, articleListItem  } from './blog.module.css';
 
 class HowToIndex extends React.Component {
   render() {
@@ -20,9 +20,9 @@ class HowToIndex extends React.Component {
           <meta name="description" content={siteMeta.description} />
           <link rel="canonical" href={howToUrl}></link>
         </Helmet>
-        <ul className={styles.articleList}>
+        <ul className={articleList}>
           {posts.map(({ node }) => (
-            <li className={styles.articleListItem} key={node.slug}>
+            <li className={articleListItem} key={node.slug}>
               <ArticlePreview
                 article={node}
                 directory={siteMeta.howToDirectory}

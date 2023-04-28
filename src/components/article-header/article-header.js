@@ -4,7 +4,7 @@ import get from 'lodash/get'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 
-import styles from './article-header.module.css'
+import { articleHeader, meta, dates, date, highlightDate, tags, tag, heroImage as heroImageClass, title, titleLink, howto, draft } from './article-header.module.css'
 import { kebabCase } from 'lodash'
 
 export const ArticleHeader = ({ article, isDetails, directory }) => {
@@ -16,42 +16,42 @@ export const ArticleHeader = ({ article, isDetails, directory }) => {
   return (
     <div
       className={classNames(
-        styles.articleHeader,
-        isNeverPublished && styles.draft
+        articleHeader,
+        isNeverPublished && draft
       )}
     >
-      <h2 className={`h1 ${styles.title} ${howToSection ? styles.howto : ''}`}>
+      <h2 className={`h1 ${title} ${howToSection ? howto : ''}`}>
         {isDetails ? (
           article.title
         ) : (
-          <Link to={`/${directory}/${article.slug}/`} className={styles.titleLink}>
+          <Link to={`/${directory}/${article.slug}/`} className={titleLink}>
             {article.title}
           </Link>
         )}
       </h2>
-      <p className={styles.meta}>
-        <span className={styles.dates}>
-          <span className={styles.date}>
+      <p className={meta}>
+        <span className={dates}>
+          <span className={date}>
             Published:{' '}
-            <span className={styles.highlightDate}>{article.publishDate}</span>
+            <span className={highlightDate}>{article.publishDate}</span>
           </span>
           {isUpdated && isDetails ? (
-            <span className={styles.date}>
+            <span className={date}>
               ,&nbsp;Updated:{' '}
-              <span className={styles.highlightDate}>{article.updatedAt}</span>
+              <span className={highlightDate}>{article.updatedAt}</span>
             </span>
           ) : null}
         </span>
-        <span className={styles.tags}>
-          {(article.tags || []).map((tag) => (
-            <Link className={styles.tag} key={tag} to={`/tags/${kebabCase(tag)}/`}>
-              {tag}
+        <span className={tags}>
+          {(article.tags || []).map((t) => (
+            <Link className={tag} key={t} to={`/tags/${kebabCase(t)}/`}>
+              {t}
             </Link>
           ))}
         </span>
       </p>
       {heroImage && howToSection && (
-        <div className={styles.heroImage}>
+        <div className={heroImageClass}>
           <Img alt={article.title} title={article.title} fluid={heroImage} />
         </div>
       )}

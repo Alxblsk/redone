@@ -11,7 +11,7 @@ import ArticleHeader from '../components/article-header';
 import { BlogPostSchema, BlogPostMeta } from '../components/seo';
 import Vote from '../components/vote';
 
-import styles from './blog-post.module.css';
+import { article as articleRoot, heroImage } from './blog-post.module.css';
 import './prism-nord-theme.css';
 
 class BlogPostTemplate extends React.Component {
@@ -24,19 +24,18 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <div className={styles.article}>
+        <div className={articleRoot}>
           <ArticleHeader
             article={post}
             directory={siteMeta.blogDirectory}
             isDetails
           />
           {heroImage && (
-            <div className={styles.heroImage}>
+            <div className={heroImage}>
               <Img alt={post.title} title={post.title} fluid={heroImage} />
             </div>
           )}
           <div
-            className={styles.articleContent}
             dangerouslySetInnerHTML={{
               __html: post.body.childMarkdownRemark.html,
             }}

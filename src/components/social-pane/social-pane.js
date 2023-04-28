@@ -1,12 +1,12 @@
 import React from 'react'
-import styles from './social-pane.module.css'
+import { socialPane, socialPaneItemLink } from './social-pane.module.css'
 
 export const SocialPane = () => {
   return (
-    <ul className={styles.socialPane}>
-      <li className={styles.socialPaneItem}>
+    <ul className={socialPane}>
+      <li>
         <a
-          className={styles.socialPaneItemLink}
+          className={socialPaneItemLink}
           href="https://twitter.com/Alxblsk"
           target="_blank"
           rel="noopener noreferrer"
@@ -22,9 +22,9 @@ export const SocialPane = () => {
           &nbsp; Twitter
         </a>
       </li>
-      <li className={styles.socialPaneItem}>
+      <li>
         <a
-          className={styles.socialPaneItemLink}
+          className={socialPaneItemLink}
           href="https://www.linkedin.com/in/abelski/"
           target="_blank"
           rel="noopener noreferrer"
@@ -40,9 +40,9 @@ export const SocialPane = () => {
           &nbsp; LinkedIn
         </a>
       </li>
-      <li className={styles.socialPaneItem}>
+      <li>
         <a
-          className={styles.socialPaneItemLink}
+          className={socialPaneItemLink}
           href="https://github.com/Alxblsk"
           target="_blank"
           rel="noopener noreferrer"

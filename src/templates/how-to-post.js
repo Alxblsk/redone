@@ -7,7 +7,7 @@ import Layout from '../components/layout';
 import ArticleHeader from '../components/article-header';
 import { BlogPostSchema, BlogPostMeta } from '../components/seo';
 
-import styles from './blog-post.module.css';
+import { article } from './blog-post.module.css';
 import './prism-nord-theme.css';
 
 class HowToPostTemplate extends React.Component {
@@ -18,14 +18,13 @@ class HowToPostTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location}>
-        <div className={styles.article}>
+        <div className={article}>
           <ArticleHeader
             article={post}
             directory={siteMeta.howToDirectory}
             isDetails
           />
           <div
-            className={styles.articleContent}
             dangerouslySetInnerHTML={{
               __html: post.body.childMarkdownRemark.html,
             }}

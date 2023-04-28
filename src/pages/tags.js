@@ -6,16 +6,16 @@ import kebabCase from 'lodash/kebabCase';
 import { Helmet } from 'react-helmet';
 import Layout from '../components/layout';
 
-import styles from './tags.module.css';
+import { tagsGroup, tagItem } from './tags.module.css';
 
 const TagsLayout = ({ title, tags, tagsUrl }) => {
   return (
-    <div className={styles.tagsGroup}>
-      <h2 className={`h1 ${styles.title}`}>{title}</h2>
-      <div className={styles.tagsList}>
+    <div className={tagsGroup}>
+      <h2 className={`h1`}>{title}</h2>
+      <div>
         {(tags || []).map((tag) => {
           return (
-            <div className={styles.tagItem} key={tag.fieldValue}>
+            <div className={tagItem} key={tag.fieldValue}>
               <Link to={`/${tagsUrl}/${kebabCase(tag.fieldValue)}/`}>
                 {tag.fieldValue}
               </Link>

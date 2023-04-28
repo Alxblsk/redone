@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Layout from '../components/layout';
 import ArticlePreview from '../components/article-preview';
 
-import styles from './blog.module.css';
+import { articleListItem, articleListItemLangs, articleListLanguageSwitch, activeLang, articleLocalizedGroup, articleList } from './blog.module.css';
 
 const LANGUAGE_MAP = {
   'en-US': 'En',
@@ -31,14 +31,14 @@ function Article({ posts, directory }) {
     locales.includes('en-US') ? 'en-US' : locales[0]
   );
   return (
-    <li className={styles.articleListItem}>
-      <div className={styles.articleListItemLangs}>
+    <li className={articleListItem}>
+      <div className={articleListItemLangs}>
         {locales.map((locale) => (
           <button
             type="button"
             className={classNames(
-              styles.articleListLanguageSwitch,
-              locale === lang && styles.activeLang
+              articleListLanguageSwitch,
+              locale === lang && activeLang
             )}
             key={locale}
             onClick={() => setLang(locale)}
@@ -47,12 +47,11 @@ function Article({ posts, directory }) {
           </button>
         ))}
       </div>
-      <ul className={styles.articleLocalizedGroup} data-selected-lang={lang}>
+      <ul className={articleLocalizedGroup} data-selected-lang={lang}>
         {posts.map((post) => {
           const node = post.node.localized;
           return node ? (
             <li
-              className={styles.articleLocalizedItem}
               key={node.slug}
               lang={node.node_locale}
             >
@@ -79,7 +78,7 @@ class BlogIndex extends React.Component {
           <meta name="description" content={siteMeta.description} />
           <link rel="canonical" href={blogUrl}></link>
         </Helmet>
-        <ul className={styles.articleList}>
+        <ul className={articleList}>
           {groups.map((group) => {
             const posts = group.edges;
             return (

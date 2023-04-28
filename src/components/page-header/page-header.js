@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import classNames from 'classnames';
 import logo from '../../../static/photo.png';
-import styles from './page-header.module.css';
+import { nav, navItem, active, header, headerLogoWrapper, headerLogo, headerTitleWrapper, headerLink, headerTitle, headerDescription } from './page-header.module.css';
 
 const BLOG_URL = '/blog/';
 const HOWTO_URL = '/how-to/';
@@ -15,14 +15,14 @@ const linksMap = {
 
 const PageNav = ({ pathname }) => {
   return (
-    <nav className={styles.nav}>
+    <nav className={nav}>
       {Object.keys(linksMap).map((linkUrl) => (
         <Link
           key={linkUrl}
           to={linkUrl}
           className={classNames(
-            styles.navItem,
-            pathname.startsWith(linkUrl) && styles.active
+            navItem,
+            pathname.startsWith(linkUrl) && active
           )}
         >
           {linksMap[linkUrl]}
@@ -36,21 +36,21 @@ export const PageHeader = ({ location }) => {
   const { pathname } = location;
 
   return (
-    <div className={styles.header}>
-      <div className={styles.headerLogoWrapper}>
+    <div className={header}>
+      <div className={headerLogoWrapper}>
         <Link to="/">
           <img
             src={logo}
-            className={styles.headerLogo}
+            className={headerLogo}
             alt={logoTitle}
             title={logoTitle}
           />
         </Link>
-        <div className={styles.headerTitleWrapper}>
-          <Link to="/" className={styles.headerLink}>
-            <span className={styles.headerTitle}>RE•DONE</span>
+        <div className={headerTitleWrapper}>
+          <Link to="/" className={headerLink}>
+            <span className={headerTitle}>RE•DONE</span>
           </Link>
-          <div className={styles.headerDescription}>
+          <div className={headerDescription}>
             Blog by Aliaksei Belski
           </div>
         </div>
