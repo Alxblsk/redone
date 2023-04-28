@@ -33,12 +33,10 @@
     "sharp": "^0.32.1",
     "gatsby-plugin-gatsby-cloud": "^5.9.0"
   },
-  "alias": {
-    "@hapi/joi": "joi"
-  },
   "engines": {
     "npm": ">=9.0.0",
-    "node": ">=18.0.0"
+    "node": ">=18.0.0",
+    "yarn": ">=3.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
