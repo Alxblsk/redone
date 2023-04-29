@@ -31,7 +31,8 @@
   },
   "resolutions": {
     "@hapi/joi": "https://github.com/hapijs/joi",
-    "sharp": "^0.32.1"
+    "sharp": "^0.32.1",
+    "gatsby": "5.9.0"
   },
   "engines": {
     "npm": ">=9.0.0",
@@ -68,7 +69,7 @@
     }
   },
   "scripts": {
-    "preinstall": "yarn set version 1.22.0 && yarn cache clean && rm -rf node_modules && yarn add gatsby@latest gatsby-cli@latest",
+    "preinstall": "yarn set version 1.22.0 && yarn cache clean",
     "dev": "npm run develop",
     "develop": "gatsby develop -p 4400",
     "clean": "gatsby clean",
