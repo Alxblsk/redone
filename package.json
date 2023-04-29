@@ -68,7 +68,7 @@
     }
   },
   "scripts": {
-    "preinstall": "yarn set version 1.22.0 && yarn cache clean && rm -rf node_modules && npm install -g gatsby-cli",
+    "preinstall": "yarn set version 1.22.0 && yarn cache clean && rm -rf node_modules && yarn add gatsby@latest gatsby-cli@latest",
     "dev": "npm run develop",
     "develop": "gatsby develop -p 4400",
     "clean": "gatsby clean",
