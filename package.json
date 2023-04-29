@@ -61,6 +61,7 @@
     }
   },
   "scripts": {
+    "postinstall": "npm fund",
     "preinstall": "npm config set loglevel verbose",
     "dev": "npm run develop",
     "develop": "gatsby develop -p 4400",
