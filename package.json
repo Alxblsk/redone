@@ -69,7 +69,7 @@
     }
   },
   "scripts": {
-    "preinstall": "yarn set version 1.22.0 && yarn cache clean",
+    "preinstall": "yarn set version 1.22.0 && yarn cache clean && gatsby --version",
     "dev": "npm run develop",
     "develop": "gatsby develop -p 4400",
     "clean": "gatsby clean",
