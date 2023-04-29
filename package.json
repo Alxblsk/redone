@@ -19,13 +19,14 @@
     "gatsby-transformer-sharp": "^5.9.0",
     "lodash": "^4.17.21",
     "prismjs": "^1.29.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-schemaorg": "^2.0.0"
   },
-  "resolutions": {
-    "@hapi/joi": "https://github.com/hapijs/joi"
+  "overrides": {
+    "@hapi/joi": "https://github.com/hapijs/joi",
+    "@typescript-eslint/eslint-plugin": "^5.59.1"
   },
   "engines": {
     "npm": ">=9.0.0",
@@ -38,8 +39,7 @@
     "eslint-plugin-react": "^7.32.2",
     "http-proxy-middleware": "^2.0.6",
     "husky": "^8.0.3",
-    "prettier": "^2.8.8",
-    "yargs-parser": "^21.1.1"
+    "prettier": "^2.8.8"
   },
   "homepage": "https://belski.dev",
   "keywords": [
