@@ -26,18 +26,10 @@
   },
   "overrides": {
     "gatsby": "5.9.0",
-    "@hapi/joi": "https://github.com/hapijs/joi",
-    "@typescript-eslint/eslint-plugin": "^5.59.1"
-  },
-  "engines": {
-    "npm": ">=9.0.0",
-    "node": ">=18.0.0"
+    "@hapi/joi": "https://github.com/hapijs/joi"
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
     "dotenv": "^16.0.3",
-    "eslint": "^8.39.0",
-    "eslint-plugin-react": "^7.32.2",
     "http-proxy-middleware": "^2.0.6",
     "husky": "^8.0.3",
     "prettier": "^2.8.8"
@@ -50,10 +42,9 @@
     "blog"
   ],
   "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Alxblsk/redone.git"
+  "engines": {
+    "npm": ">=9.0.0",
+    "node": ">=18.0.0"
   },
   "husky": {
     "hooks": {
@@ -61,16 +52,13 @@
     }
   },
   "scripts": {
-    "postinstall": "npm fund",
     "preinstall": "npm config set loglevel verbose",
     "dev": "npm run develop",
     "develop": "gatsby develop -p 4400",
     "clean": "gatsby clean",
-    "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'bin/*.js'",
-    "build": "npm run gatsby --version && npm run gatsby build",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix *.js bin/*.js",
+    "build": "npm run gatsby build",
     "start": "npm run develop",
     "netlify-build": "sed -i \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
   }
