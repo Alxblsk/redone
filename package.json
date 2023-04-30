@@ -47,6 +47,7 @@
     }
   },
   "scripts": {
+    "preinstall": "npm prune && rm -rf node_modules/ && rm -rf .yarn/",
     "dev": "npm run develop",
     "develop": "gatsby develop -p 4400",
     "clean": "gatsby clean",
