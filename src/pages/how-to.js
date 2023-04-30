@@ -48,8 +48,8 @@ export const pageQuery = graphql`
       }
     }
     allContentfulHowToPost(
-      sort: { fields: [publishDate], order: DESC }
-      filter: { node_locale: { eq: "en-US" } }
+      sort: {publishDate: DESC}
+      filter: {node_locale: {eq: "en-US"}}
     ) {
       edges {
         node {

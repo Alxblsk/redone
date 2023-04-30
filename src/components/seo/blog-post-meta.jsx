@@ -27,7 +27,6 @@ export const BlogPostMeta = function ({ post, meta, lang, directory }) {
       <meta property="profile:username" content={meta.username} />
 
       <link rel="canonical" href={postUrl}></link>
-      <link rel="preconnect" href="https://cdn.commento.io"></link>
 
       <link
         rel="alternate"

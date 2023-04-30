@@ -1,7 +1,7 @@
 {
-  "name": "alxblsk-redone",
-  "description": "Personal blog",
-  "version": "1.1.0",
+  "name": "blsk-redone",
+  "description": "Technology Explained",
+  "version": "1.1.1",
   "dependencies": {
     "classnames": "^2.3.2",
     "contentful": "^10.1.3",

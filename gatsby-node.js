@@ -90,36 +90,34 @@ exports.createPages = ({ graphql, actions }) => {
       const tagPage = path.resolve('./src/templates/tag-page.js')
       resolve(
         graphql(
-          `
-            {
+          `{            
               howToTags: allContentfulHowToPost {
-                group(field: tags) {
-                    field
-                    fieldValue
-                    nodes {
+                group(field: {tags: SELECT}) {
+                  field
+                  fieldValue
+                  nodes {
                     title
                     slug
                     internal {
-                        type
-                      }
+                      type
                     }
                   }
                 }
-                blogTags: allContentfulBlogPost {
-                  group(field: tags) {
-                    field
-                    fieldValue
-                    nodes {
+              }
+              blogTags: allContentfulBlogPost {
+                group(field: {tags: SELECT}) {
+                  field
+                  fieldValue
+                  nodes {
                     title
                     slug
                     internal {
-                        type
-                      }
+                      type
                     }
                   }
                 }
-            }
-            `
+              }
+            }`
         ).then(result => {
           if (result.errors) {
             console.log(result.errors)

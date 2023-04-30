@@ -108,9 +108,9 @@ export const pageQuery = graphql`
       }
     }
     allContentfulBlogPostGlobal(
-      filter: { localized: { title: { regex: "/^[a-zа-я0-9]/i" } } }
+      filter: {localized: {title: {regex: "/^[a-zа-я0-9]/i"}}}
     ) {
-      group(field: postDate) {
+      group(field: {postDate: SELECT}) {
         fieldValue
         edges {
           node {
