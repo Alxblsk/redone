@@ -1,7 +1,7 @@
 {
   "name": "blsk-redone",
   "description": "Technology Explained",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "dependencies": {
     "classnames": "^2.3.2",
     "contentful": "^10.1.3",
@@ -47,7 +47,6 @@
     }
   },
   "scripts": {
-    "preinstall": "npm prune && rm -rf node_modules/ && rm -rf .yarn/",
     "dev": "npm run develop",
     "develop": "gatsby develop -p 4400",
     "clean": "gatsby clean",
