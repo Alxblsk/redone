@@ -4,3 +4,6 @@
   status = 200
   force = true
   headers = {x-api-key = "BLD_TKN"}
+
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
