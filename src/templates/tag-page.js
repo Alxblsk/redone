@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import get from 'lodash/get';
 
-import { Helmet } from 'react-helmet';
 import Layout from '../components/layout';
 import { getPageDirectory } from '../utils/url';
 
@@ -16,14 +15,9 @@ const Tag = ({ data, pageContext, location }) => {
   const tags = [...blogTags, ...howToTags].filter(
     (tag) => tag.fieldValue === pageContext.tag
   );
-  const tagUrl = `${siteMeta.siteUrl}/${siteMeta.tagsDirectory}/${pageContext.slug}/`;
 
   return (
     <Layout location={location}>
-      <Helmet title={siteMeta.title} htmlAttributes={{ lang: 'en' }}>
-        <meta name="description" content={siteMeta.description} />
-        <link rel="canonical" href={tagUrl}></link>
-      </Helmet>
       <div>
         <h2 className="h1">Articles found by tag "{pageContext.tag}"</h2>
         <ul>
@@ -44,6 +38,21 @@ const Tag = ({ data, pageContext, location }) => {
 };
 
 export default Tag;
+
+export function Head({ data, pageContext }) {
+  const siteMeta = get(data, 'site.siteMetadata');
+  const tagUrl = `${siteMeta.siteUrl}/${siteMeta.tagsDirectory}/${pageContext.slug}/`;
+  
+  return (
+    <>
+      <title>{siteMeta.title}</title>
+      <html lang="en" />
+      <meta name="description" content={siteMeta.description} />
+      <link rel="canonical" href={tagUrl} />
+    </>
+  );
+}
+
 export const pageQuery = graphql`
   query TagQuery {
     site {

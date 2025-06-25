@@ -10,7 +10,6 @@
     "gatsby-plugin-google-gtag": "^5.14.0",
     "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-netlify": "^5.1.1",
-    "gatsby-plugin-react-helmet": "^6.14.0",
     "gatsby-plugin-sharp": "^5.14.0",
     "gatsby-plugin-sitemap": "^6.14.0",
     "gatsby-remark-prismjs": "^7.14.0",
@@ -21,8 +20,8 @@
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
-    "react-schemaorg": "^2.0.0"
+    "react-schemaorg": "^2.0.0",
+    "schema-dts": "^1.1.5"
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
@@ -55,6 +54,6 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'bin/*.js'",
     "build": "gatsby build",
     "start": "npm run develop",
-    "netlify-build": "sed -i \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
+    "netlify-build": "sed -i '' \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
   }
 }

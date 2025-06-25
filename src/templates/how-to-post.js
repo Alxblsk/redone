@@ -5,7 +5,7 @@ import get from 'lodash/get';
 
 import Layout from '../components/layout';
 import ArticleHeader from '../components/article-header';
-import { BlogPostSchema, BlogPostMeta } from '../components/seo';
+import { BlogPostSchema } from '../components/seo';
 
 import { article } from './blog-post.module.css';
 import './prism-nord-theme.css';
@@ -30,14 +30,35 @@ class HowToPostTemplate extends React.Component {
             }}
           />
         </div>
-        <BlogPostMeta post={post} meta={siteMeta} lang={lang} directory={siteMeta.howToDirectory}/>
-        <BlogPostSchema post={post} meta={siteMeta} />
       </Layout>
     );
   }
 }
 
 export default HowToPostTemplate;
+
+export function Head({ data, pageContext }) {
+  const siteMeta = get(data, 'site.siteMetadata');
+  const post = get(data, 'contentfulHowToPost');
+  const lang = get(pageContext, 'lang', post.nodeLocale);
+  const postUrl = `${siteMeta.siteUrl}/${siteMeta.howToDirectory}/${post.slug}/`;
+
+  return (
+    <>
+      <title>{`${post.title} | ${siteMeta.title}`}</title>
+      <html lang={lang} />
+      <meta name="description" content={post.description?.description} />
+      <meta property="og:title" content={post.title} />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={postUrl} />
+      <meta property="og:description" content={post.description?.description} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:creator" content={`@${siteMeta.username}`} />
+      <link rel="canonical" href={postUrl} />
+      <BlogPostSchema post={post} siteMeta={siteMeta} postUrl={postUrl} />
+    </>
+  );
+}
 
 export const pageQuery = graphql`
   query HowToPostBySlug($slug: String!) {

@@ -1,9 +1,9 @@
 [[redirects]]
   from = "/api/v1/*"
-  to = "BLD_HST/prod/api/v1/:splat"
+  to = "http://localhost:3010/prod/api/v1/:splat"
   status = 200
   force = true
-  headers = {x-api-key = "BLD_TKN"}
+  headers = {x-api-key = "secret"}
 
 [[plugins]]
   package = "@netlify/plugin-gatsby"

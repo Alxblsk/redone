@@ -8,8 +8,8 @@ import { getArticleUrl } from '../utils/url';
 
 import Layout from '../components/layout';
 import ArticleHeader from '../components/article-header';
-import { BlogPostSchema, BlogPostMeta } from '../components/seo';
 import Vote from '../components/vote';
+import { BlogPostSchema } from '../components/seo';
 
 import { article as articleRoot, heroImage as heroImageClass } from './blog-post.module.css';
 import './prism-nord-theme.css';
@@ -42,14 +42,35 @@ class BlogPostTemplate extends React.Component {
           />
           <Vote id={postId} url={getArticleUrl(post, siteMeta)} />
         </div>
-        <BlogPostMeta post={post} meta={siteMeta} lang={lang} directory={siteMeta.blogDirectory}  />
-        <BlogPostSchema post={post} meta={siteMeta} />
       </Layout>
     );
   }
 }
 
 export default BlogPostTemplate;
+
+export function Head({ data, pageContext }) {
+  const siteMeta = get(data, 'site.siteMetadata');
+  const post = get(data, 'contentfulBlogPost');
+  const lang = get(pageContext, 'lang', post.nodeLocale);
+  const postUrl = `${siteMeta.siteUrl}/${siteMeta.blogDirectory}/${post.slug}/`;
+
+  return (
+    <>
+      <title>{`${post.title} | ${siteMeta.title}`}</title>
+      <html lang={lang} />
+      <meta name="description" content={post.description?.description} />
+      <meta property="og:title" content={post.title} />
+      <meta property="og:type" content="article" />
+      <meta property="og:url" content={postUrl} />
+      <meta property="og:description" content={post.description?.description} />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:creator" content={`@${siteMeta.username}`} />
+      <link rel="canonical" href={postUrl} />
+      <BlogPostSchema post={post} siteMeta={siteMeta} postUrl={postUrl} />
+    </>
+  );
+}
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import get from 'lodash/get';
-import { Helmet } from 'react-helmet';
 import classNames from 'classnames';
 
 import Layout from '../components/layout';
@@ -67,17 +66,12 @@ function Article({ posts, directory }) {
 class BlogIndex extends React.Component {
   render() {
     const siteMeta = get(this.props, 'data.site.siteMetadata');
-    const blogUrl = `${siteMeta.siteUrl}/${siteMeta.blogDirectory}/`;
     const groups = sortPosts(
       get(this.props, 'data.allContentfulBlogPostGlobal.group', [])
     );
 
     return (
       <Layout location={this.props.location}>
-        <Helmet title={siteMeta.title} htmlAttributes={{ lang: 'en-US' }}>
-          <meta name="description" content={siteMeta.description} />
-          <link rel="canonical" href={blogUrl}></link>
-        </Helmet>
         <ul className={articleList}>
           {groups.map((group) => {
             const posts = group.edges;
@@ -96,6 +90,20 @@ class BlogIndex extends React.Component {
 }
 
 export default BlogIndex;
+
+export function Head({ data }) {
+  const siteMeta = get(data, 'site.siteMetadata');
+  const blogUrl = `${siteMeta.siteUrl}/${siteMeta.blogDirectory}/`;
+  
+  return (
+    <>
+      <title>{siteMeta.title}</title>
+      <html lang="en-US" />
+      <meta name="description" content={siteMeta.description} />
+      <link rel="canonical" href={blogUrl} />
+    </>
+  );
+}
 
 export const pageQuery = graphql`
   query BlogIndexQuery {

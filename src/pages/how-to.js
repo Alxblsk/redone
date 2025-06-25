@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import get from 'lodash/get';
-import { Helmet } from 'react-helmet';
 
 import Layout from '../components/layout';
 import ArticlePreview from '../components/article-preview';
@@ -12,14 +11,9 @@ class HowToIndex extends React.Component {
   render() {
     const siteMeta = get(this.props, 'data.site.siteMetadata');
     const posts = get(this, 'props.data.allContentfulHowToPost.edges');
-    const howToUrl = `${siteMeta.siteUrl}/${siteMeta.howToDirectory}/`;
 
     return (
       <Layout location={this.props.location}>
-        <Helmet title={siteMeta.title} htmlAttributes={{ lang: 'en-US' }}>
-          <meta name="description" content={siteMeta.description} />
-          <link rel="canonical" href={howToUrl}></link>
-        </Helmet>
         <ul className={articleList}>
           {posts.map(({ node }) => (
             <li className={articleListItem} key={node.slug}>
@@ -36,6 +30,20 @@ class HowToIndex extends React.Component {
 }
 
 export default HowToIndex;
+
+export function Head({ data }) {
+  const siteMeta = get(data, 'site.siteMetadata');
+  const howToUrl = `${siteMeta.siteUrl}/${siteMeta.howToDirectory}/`;
+  
+  return (
+    <>
+      <title>{siteMeta.title}</title>
+      <html lang="en-US" />
+      <meta name="description" content={siteMeta.description} />
+      <link rel="canonical" href={howToUrl} />
+    </>
+  );
+}
 
 export const pageQuery = graphql`
   query HowToIndexQuery {

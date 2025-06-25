@@ -1,2 +1,2 @@
-export * from './jsonld'
-export * from './blog-post-meta'
+// No exports needed since we're using Gatsby's built-in head support
+export { BlogPostSchema } from './jsonld';

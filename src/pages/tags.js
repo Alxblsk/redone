@@ -3,7 +3,6 @@ import { graphql, Link } from 'gatsby';
 import get from 'lodash/get';
 import kebabCase from 'lodash/kebabCase';
 
-import { Helmet } from 'react-helmet';
 import Layout from '../components/layout';
 
 import { tagsGroup, tagItem } from './tags.module.css';
@@ -33,14 +32,9 @@ const Tags = (props) => {
   const siteMeta = get(props, 'data.site.siteMetadata');
   const blogTags = get(props, 'data.blogTags.group');
   const howToTags = get(props, 'data.howToTags.group');
-  const tagsUrl = `${siteMeta.siteUrl}/${siteMeta.tagsDirectory}/`;
 
   return (
     <Layout location={props.location}>
-      <Helmet title={siteMeta.title} htmlAttributes={{ lang: 'en-US' }}>
-        <meta name="description" content={siteMeta.description} />
-        <link rel="canonical" href={tagsUrl}></link>
-      </Helmet>
       <TagsLayout
         title="Blog Tags"
         tags={blogTags}
@@ -56,6 +50,21 @@ const Tags = (props) => {
 };
 
 export default Tags;
+
+export function Head({ data }) {
+  const siteMeta = get(data, 'site.siteMetadata');
+  const tagsUrl = `${siteMeta.siteUrl}/${siteMeta.tagsDirectory}/`;
+  
+  return (
+    <>
+      <title>{siteMeta.title}</title>
+      <html lang="en-US" />
+      <meta name="description" content={siteMeta.description} />
+      <link rel="canonical" href={tagsUrl} />
+    </>
+  );
+}
+
 export const pageQuery = graphql`
   query TagsQuery {
     site {
