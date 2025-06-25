@@ -1,22 +1,22 @@
 {
   "name": "blsk-redone",
   "description": "Technology Explained",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "dependencies": {
     "classnames": "^2.3.2",
     "contentful": "^10.1.3",
-    "gatsby": "5.8.1",
-    "gatsby-plugin-feed": "^5.8.0",
-    "gatsby-plugin-google-gtag": "^5.8.0",
-    "gatsby-plugin-image": "^3.8.0",
+    "gatsby": "^5.14.5",
+    "gatsby-plugin-feed": "^5.14.0",
+    "gatsby-plugin-google-gtag": "^5.14.0",
+    "gatsby-plugin-image": "^3.14.0",
     "gatsby-plugin-netlify": "^5.1.1",
-    "gatsby-plugin-react-helmet": "^6.9.0",
-    "gatsby-plugin-sharp": "^5.8.0",
-    "gatsby-plugin-sitemap": "^6.8.0",
-    "gatsby-remark-prismjs": "^7.8.0",
-    "gatsby-source-contentful": "^8.8.0",
-    "gatsby-transformer-remark": "^6.8.0",
-    "gatsby-transformer-sharp": "^5.8.0",
+    "gatsby-plugin-react-helmet": "^6.14.0",
+    "gatsby-plugin-sharp": "^5.14.0",
+    "gatsby-plugin-sitemap": "^6.14.0",
+    "gatsby-remark-prismjs": "^7.14.0",
+    "gatsby-source-contentful": "^8.15.0",
+    "gatsby-transformer-remark": "^6.14.0",
+    "gatsby-transformer-sharp": "^5.14.0",
     "lodash": "^4.17.21",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
@@ -55,6 +55,6 @@
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'bin/*.js'",
     "build": "gatsby build",
     "start": "npm run develop",
-    "netlify-build": "sed -i \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
+    "netlify-build": "sed -i '' \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
   }
 }
