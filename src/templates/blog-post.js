@@ -64,8 +64,8 @@ export function Head({ data, pageContext }) {
       <meta property="og:type" content="article" />
       <meta property="og:url" content={postUrl} />
       <meta property="og:description" content={post.description?.description} />
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:creator" content={`@${siteMeta.username}`} />
+      <meta name="x:card" content="summary" />
+      <meta name="x:creator" content={`@${siteMeta.username}`} />
       <link rel="canonical" href={postUrl} />
       <BlogPostSchema post={post} siteMeta={siteMeta} postUrl={postUrl} />
     </>

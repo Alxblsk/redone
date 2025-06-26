@@ -31,6 +31,7 @@ export function BlogPostSchema({ post, siteMeta, postUrl }) {
                 name: `${siteMeta.firstName} ${siteMeta.lastName}`,
                 url: siteMeta.siteUrl,
                 sameAs: [
+                    `https://x.com/belski_dev`,
                     `https://github.com/${siteMeta.username}`,
                     `https://www.linkedin.com/in/${siteMeta.username}/`
                 ]
