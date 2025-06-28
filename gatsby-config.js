@@ -59,6 +59,7 @@ module.exports = {
   },
   pathPrefix: '/gatsby-contentful-starter',
   plugins: [
+    'gatsby-plugin-typescript',
     'gatsby-plugin-netlify',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

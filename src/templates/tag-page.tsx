@@ -4,8 +4,58 @@ import get from 'lodash/get';
 
 import Layout from '../components/layout';
 import { getPageDirectory } from '../utils/url';
+import { SiteData } from '../types';
 
-const Tag = ({ data, pageContext, location }) => {
+interface TagPageData {
+  site: SiteData;
+  howToTags: {
+    group: Array<{
+      field: string;
+      fieldValue: string;
+      nodes: Array<{
+        title: string;
+        slug: string;
+        internal: {
+          type: string;
+        };
+      }>;
+    }>;
+  };
+  blogTags: {
+    group: Array<{
+      field: string;
+      fieldValue: string;
+      nodes: Array<{
+        title: string;
+        slug: string;
+        internal: {
+          type: string;
+        };
+      }>;
+    }>;
+  };
+}
+
+interface TagPageProps {
+  data: TagPageData;
+  pageContext: {
+    tag: string;
+    slug: string;
+  };
+  location: {
+    pathname: string;
+    search: string;
+    hash: string;
+    href: string;
+    origin: string;
+    protocol: string;
+    host: string;
+    hostname: string;
+    port: string;
+  };
+}
+
+const Tag: React.FC<TagPageProps> = ({ data, pageContext, location }) => {
   const siteMeta = get(data, 'site.siteMetadata');
   const checkType = getPageDirectory(siteMeta);
 
@@ -21,7 +71,7 @@ const Tag = ({ data, pageContext, location }) => {
       <div>
         <h2 className="h1">Articles found by tag "{pageContext.tag}"</h2>
         <ul>
-          {(tags[0].nodes || []).map(article => {
+          {(tags[0]?.nodes || []).map(article => {
             const pageType = checkType(get(article, 'internal.type'));
             return (
               <li key={article.slug}>
@@ -39,8 +89,13 @@ const Tag = ({ data, pageContext, location }) => {
 
 export default Tag;
 
-export function Head({ data, pageContext }) {
+export function Head({ data, pageContext }: { data: TagPageData; pageContext: { slug: string } }) {
   const siteMeta = get(data, 'site.siteMetadata');
+  
+  if (!siteMeta) {
+    return null;
+  }
+  
   const tagUrl = `${siteMeta.siteUrl}/${siteMeta.tagsDirectory}/${pageContext.slug}/`;
 
   return (
@@ -94,4 +149,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`; 

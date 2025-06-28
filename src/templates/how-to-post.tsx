@@ -1,23 +1,34 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-
+import { graphql, HeadProps, PageProps } from 'gatsby';
 import get from 'lodash/get';
 
 import Layout from '../components/layout';
 import ArticleHeader from '../components/article-header';
 import { BlogPostSchema } from '../components/seo';
+import { HowToPostData, SiteData } from '../types';
 
-import { article } from './blog-post.module.css';
+import * as styles from './blog-post.module.css';
 import './prism-nord-theme.css';
 
-const HowToPostTemplate = (props) => {
+interface HowToPostTemplateProps extends PageProps {
+  data: {
+    site: SiteData;
+    contentfulHowToPost: HowToPostData;
+  };
+  pageContext: {
+    slug: string;
+    lang?: string;
+  };
+}
+
+const HowToPostTemplate: React.FC<HowToPostTemplateProps> = (props) => {
   const siteMeta = get(props, 'data.site.siteMetadata');
   const post = get(props, 'data.contentfulHowToPost');
   const lang = get(props, 'pageContext.lang', post.nodeLocale);
 
   return (
     <Layout location={props.location}>
-      <div className={article}>
+      <div className={styles.article}>
         <ArticleHeader
           article={post}
           directory={siteMeta.howToDirectory}
@@ -35,9 +46,14 @@ const HowToPostTemplate = (props) => {
 
 export default HowToPostTemplate;
 
-export function Head({ data, pageContext }) {
+export function Head({ data, pageContext }: { data: { site: SiteData; contentfulHowToPost: HowToPostData }; pageContext: { lang?: string } }) {
   const siteMeta = get(data, 'site.siteMetadata');
   const post = get(data, 'contentfulHowToPost');
+  
+  if (!siteMeta || !post) {
+    return null;
+  }
+  
   const lang = get(pageContext, 'lang', post.nodeLocale);
   const postUrl = `${siteMeta.siteUrl}/${siteMeta.howToDirectory}/${post.slug}/`;
 
@@ -96,4 +112,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`; 

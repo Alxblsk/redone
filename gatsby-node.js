@@ -7,7 +7,7 @@ exports.createPages = ({ graphql, actions }) => {
   return Promise.all([
     // BLOG pages
     new Promise((resolve, reject) => {
-      const blogPost = path.resolve('./src/templates/blog-post.js')
+      const blogPost = path.resolve('./src/templates/blog-post.tsx')
       resolve(
         graphql(
           `
@@ -51,7 +51,7 @@ exports.createPages = ({ graphql, actions }) => {
     }),
     // HOW TO pages
     new Promise((resolve, reject) => {
-      const howToPost = path.resolve('./src/templates/how-to-post.js')
+      const howToPost = path.resolve('./src/templates/how-to-post.tsx')
       resolve(
         graphql(
           `
@@ -87,7 +87,7 @@ exports.createPages = ({ graphql, actions }) => {
     }),
     // TAG page
     new Promise((resolve, reject) => {
-      const tagPage = path.resolve('./src/templates/tag-page.js')
+      const tagPage = path.resolve('./src/templates/tag-page.tsx')
       resolve(
         graphql(
           `{            

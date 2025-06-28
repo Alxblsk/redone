@@ -2,10 +2,21 @@ import React from 'react';
 import get from 'lodash/get';
 import { BlogPosting } from 'schema-dts';
 import { JsonLd } from 'react-schemaorg';
+import { BlogPostData, SiteData } from '../../types';
 
-export function BlogPostSchema({ post, siteMeta, postUrl }) {
+interface BlogPostSchemaProps {
+  post: Partial<BlogPostData>;
+  siteMeta: Partial<SiteData['siteMetadata']>;
+  postUrl: string;
+}
+
+export function BlogPostSchema({ post, siteMeta, postUrl }: BlogPostSchemaProps) {
   const heroImage = get(post, 'heroImage.gatsbyImageData', null);
   const description = get(post, 'description.description');
+
+  if (!post || !siteMeta) {
+    return null;
+  }
 
   const jsonld = (
     <JsonLd<BlogPosting>
@@ -22,8 +33,8 @@ export function BlogPostSchema({ post, siteMeta, postUrl }) {
               height: heroImage.height,
             }
           : undefined,
-        datePublished: post.publishDateUtc,
-        dateModified: post.updatedAtUts,
+        datePublished: post.publishDateUtc || post.publishDate,
+        dateModified: post.updatedAtUts || post.updatedAt,
         url: postUrl,
         mainEntityOfPage: {
           '@type': 'WebPage',
@@ -31,21 +42,21 @@ export function BlogPostSchema({ post, siteMeta, postUrl }) {
         },
         author: {
           '@type': 'Person',
-          name: `${siteMeta.firstName} ${siteMeta.lastName}`,
-          url: siteMeta.siteUrl,
+          name: `${siteMeta.firstName || ''} ${siteMeta.lastName || ''}`.trim(),
+          url: siteMeta.siteUrl || '',
           sameAs: [
             `https://x.com/belski_dev`,
-            `https://github.com/${siteMeta.username}`,
-            `https://www.linkedin.com/in/${siteMeta.username}/`,
+            `https://github.com/${siteMeta.username || 'alxblsk'}`,
+            `https://www.linkedin.com/in/${siteMeta.username || 'alxblsk'}/`,
           ],
         },
         publisher: {
           '@type': 'Organization',
-          name: siteMeta.title,
-          url: siteMeta.siteUrl,
+          name: siteMeta.title || '',
+          url: siteMeta.siteUrl || '',
         },
-        keywords: post.tags,
-        inLanguage: post.nodeLocale,
+        keywords: post.tags || [],
+        inLanguage: post.nodeLocale || 'en-US',
         isFamilyFriendly: true,
       }}
     />
