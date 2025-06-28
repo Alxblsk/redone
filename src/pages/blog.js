@@ -67,31 +67,29 @@ function Article({ posts, directory }) {
   );
 }
 
-class BlogIndex extends React.Component {
-  render() {
-    const siteMeta = get(this.props, 'data.site.siteMetadata');
-    const groups = sortPosts(
-      get(this.props, 'data.allContentfulBlogPostGlobal.group', [])
-    );
+const BlogIndex = (props) => {
+  const siteMeta = get(props, 'data.site.siteMetadata');
+  const groups = sortPosts(
+    get(props, 'data.allContentfulBlogPostGlobal.group', [])
+  );
 
-    return (
-      <Layout location={this.props.location}>
-        <ul className={articleList}>
-          {groups.map(group => {
-            const posts = group.edges;
-            return (
-              <Article
-                posts={posts}
-                directory={siteMeta.blogDirectory}
-                key={group.fieldValue}
-              />
-            );
-          })}
-        </ul>
-      </Layout>
-    );
-  }
-}
+  return (
+    <Layout location={props.location}>
+      <ul className={articleList}>
+        {groups.map(group => {
+          const posts = group.edges;
+          return (
+            <Article
+              posts={posts}
+              directory={siteMeta.blogDirectory}
+              key={group.fieldValue}
+            />
+          );
+        })}
+      </ul>
+    </Layout>
+  );
+};
 
 export default BlogIndex;
 

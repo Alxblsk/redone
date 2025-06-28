@@ -5,18 +5,14 @@ import SocialPane from './social-pane';
 
 import './base.css';
 
-class Template extends React.Component {
-  render() {
-    const { children, location } = this.props;
+const Layout = ({ children, location }) => {
+  return (
+    <div className="wrapper">
+      <PageHeader location={location} />
+      <div className="layout-content">{children}</div>
+      <SocialPane />
+    </div>
+  );
+};
 
-    return (
-      <div className="wrapper">
-        <PageHeader location={location} />
-        <div className="layout-content">{children}</div>
-        <SocialPane />
-      </div>
-    );
-  }
-}
-
-export default Template;
+export default Layout;

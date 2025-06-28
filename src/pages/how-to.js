@@ -7,27 +7,25 @@ import ArticlePreview from '../components/article-preview';
 
 import { articleList, articleListItem } from './blog.module.css';
 
-class HowToIndex extends React.Component {
-  render() {
-    const siteMeta = get(this.props, 'data.site.siteMetadata');
-    const posts = get(this, 'props.data.allContentfulHowToPost.edges');
+const HowToIndex = (props) => {
+  const siteMeta = get(props, 'data.site.siteMetadata');
+  const posts = get(props, 'data.allContentfulHowToPost.edges');
 
-    return (
-      <Layout location={this.props.location}>
-        <ul className={articleList}>
-          {posts.map(({ node }) => (
-            <li className={articleListItem} key={node.slug}>
-              <ArticlePreview
-                article={node}
-                directory={siteMeta.howToDirectory}
-              />
-            </li>
-          ))}
-        </ul>
-      </Layout>
-    );
-  }
-}
+  return (
+    <Layout location={props.location}>
+      <ul className={articleList}>
+        {posts.map(({ node }) => (
+          <li className={articleListItem} key={node.slug}>
+            <ArticlePreview
+              article={node}
+              directory={siteMeta.howToDirectory}
+            />
+          </li>
+        ))}
+      </ul>
+    </Layout>
+  );
+};
 
 export default HowToIndex;
 

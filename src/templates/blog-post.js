@@ -17,42 +17,40 @@ import {
 } from './blog-post.module.css';
 import './prism-nord-theme.css';
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const siteMeta = get(this.props, 'data.site.siteMetadata');
-    const post = get(this.props, 'data.contentfulBlogPost');
-    const heroImage = getImage(get(post, 'heroImage.gatsbyImageData', null));
-    const lang = get(this.props, 'pageContext.lang', post.nodeLocale);
-    const postId = get(post, 'contentful_id', null);
+const BlogPostTemplate = (props) => {
+  const siteMeta = get(props, 'data.site.siteMetadata');
+  const post = get(props, 'data.contentfulBlogPost');
+  const heroImage = getImage(get(post, 'heroImage.gatsbyImageData', null));
+  const lang = get(props, 'pageContext.lang', post.nodeLocale);
+  const postId = get(post, 'contentful_id', null);
 
-    return (
-      <Layout location={this.props.location}>
-        <div className={articleRoot}>
-          <ArticleHeader
-            article={post}
-            directory={siteMeta.blogDirectory}
-            isDetails
-          />
-          {heroImage && (
-            <div className={heroImageClass}>
-              <GatsbyImage
-                alt={post.title}
-                title={post.title}
-                image={heroImage}
-              />
-            </div>
-          )}
-          <div
-            dangerouslySetInnerHTML={{
-              __html: post.body.childMarkdownRemark.html,
-            }}
-          />
-          <Vote id={postId} url={getArticleUrl(post, siteMeta)} />
-        </div>
-      </Layout>
-    );
-  }
-}
+  return (
+    <Layout location={props.location}>
+      <div className={articleRoot}>
+        <ArticleHeader
+          article={post}
+          directory={siteMeta.blogDirectory}
+          isDetails
+        />
+        {heroImage && (
+          <div className={heroImageClass}>
+            <GatsbyImage
+              alt={post.title}
+              title={post.title}
+              image={heroImage}
+            />
+          </div>
+        )}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: post.body.childMarkdownRemark.html,
+          }}
+        />
+        <Vote id={postId} url={getArticleUrl(post, siteMeta)} />
+      </div>
+    </Layout>
+  );
+};
 
 export default BlogPostTemplate;
 

@@ -151,11 +151,20 @@ const exec = util.promisify(child_process.exec);
 exports.onPreBuild = async (gatsbyNodeHelpers) => {
   const { reporter } = gatsbyNodeHelpers;
 
-  const reportOut = (report) => {
-    const { stderr, stdout } = report;
-    if (stderr) reporter.error(stderr);
-    if (stdout) reporter.info(stdout);
-  };
+  // Only run netlify-build if we're in a Netlify environment
+  if (process.env.NETLIFY) {
+    try {
+      const reportOut = (report) => {
+        const { stderr, stdout } = report;
+        if (stderr) reporter.error(stderr);
+        if (stdout) reporter.info(stdout);
+      };
 
-  reportOut(await exec("npm run netlify-build"));
+      reportOut(await exec("npm run netlify-build"));
+    } catch (error) {
+      reporter.warn("Netlify build script failed, continuing with build:", error.message);
+    }
+  } else {
+    reporter.info("Skipping netlify-build script (not in Netlify environment)");
+  }
 };

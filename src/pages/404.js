@@ -5,15 +5,13 @@ import get from 'lodash/get';
 import Layout from '../components/layout';
 import NotFound from '../components/not-found';
 
-class NotFoundPage extends React.Component {
-  render() {
-    return (
-      <Layout location={this.props.location}>
-        <NotFound />
-      </Layout>
-    );
-  }
-}
+const NotFoundPage = (props) => {
+  return (
+    <Layout location={props.location}>
+      <NotFound />
+    </Layout>
+  );
+};
 
 export default NotFoundPage;
 

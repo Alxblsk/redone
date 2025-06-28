@@ -10,30 +10,28 @@ import { BlogPostSchema } from '../components/seo';
 import { article } from './blog-post.module.css';
 import './prism-nord-theme.css';
 
-class HowToPostTemplate extends React.Component {
-  render() {
-    const siteMeta = get(this.props, 'data.site.siteMetadata');
-    const post = get(this.props, 'data.contentfulHowToPost');
-    const lang = get(this.props, 'pageContext.lang', post.nodeLocale);
+const HowToPostTemplate = (props) => {
+  const siteMeta = get(props, 'data.site.siteMetadata');
+  const post = get(props, 'data.contentfulHowToPost');
+  const lang = get(props, 'pageContext.lang', post.nodeLocale);
 
-    return (
-      <Layout location={this.props.location}>
-        <div className={article}>
-          <ArticleHeader
-            article={post}
-            directory={siteMeta.howToDirectory}
-            isDetails
-          />
-          <div
-            dangerouslySetInnerHTML={{
-              __html: post.body.childMarkdownRemark.html,
-            }}
-          />
-        </div>
-      </Layout>
-    );
-  }
-}
+  return (
+    <Layout location={props.location}>
+      <div className={article}>
+        <ArticleHeader
+          article={post}
+          directory={siteMeta.howToDirectory}
+          isDetails
+        />
+        <div
+          dangerouslySetInnerHTML={{
+            __html: post.body.childMarkdownRemark.html,
+          }}
+        />
+      </div>
+    </Layout>
+  );
+};
 
 export default HowToPostTemplate;
 
