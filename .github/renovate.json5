@@ -1,0 +1,66 @@
+{
+  // Extend the base configuration
+  extends: ['config:base'],
+  
+  // Run every weekend
+  schedule: ['every weekend'],
+  
+  // Package-specific rules
+  packageRules: [
+    {
+      // Auto-merge minor and patch updates for stable packages
+      matchUpdateTypes: ['minor', 'patch'],
+      matchCurrentVersion: '!/^0/',
+      automerge: true,
+      automergeType: 'pr',
+      platformAutomerge: true,
+    },
+    {
+      // Disable major Gatsby updates (too risky)
+      matchPackageNames: ['gatsby'],
+      matchUpdateTypes: ['major'],
+      enabled: false,
+    },
+    {
+      // Group React packages together
+      matchPackageNames: ['react', 'react-dom'],
+      groupName: 'React packages',
+      automerge: false,
+    },
+    {
+      // Auto-merge TypeScript type updates
+      matchPackageNames: ['@types/*'],
+      groupName: 'TypeScript types',
+      automerge: true,
+    },
+    {
+      // Group Gatsby plugins together
+      matchPackagePatterns: ['^gatsby-'],
+      groupName: 'Gatsby packages',
+      automerge: false,
+    },
+    {
+      // Be more conservative with development dependencies
+      matchDepTypes: ['devDependencies'],
+      automerge: false,
+    },
+  ],
+  
+  // Strategy settings
+  rangeStrategy: 'bump',
+  bumpVersion: null,
+  
+  // Commit message settings
+  commitMessageAction: 'Update',
+  commitMessageTopic: '{{depName}}',
+  commitMessageExtra: 'to {{newVersion}}',
+  
+  // PR settings
+  prConcurrentLimit: 10,
+  prHourlyLimit: 2,
+  branchConcurrentLimit: 20,
+  branchHourlyLimit: 4,
+  
+  // Repository settings
+  repositories: [],
+} 
