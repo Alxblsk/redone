@@ -46,7 +46,9 @@ ol {
 
 a {
   color: currentColor;
-  transition: text-decoration-color, color 0.2s ease-in-out;
+  transition:
+    text-decoration-color,
+    color 0.2s ease-in-out;
 }
 
 a:hover,

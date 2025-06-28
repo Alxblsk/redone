@@ -5,7 +5,7 @@ import get from 'lodash/get';
 import Layout from '../components/layout';
 import ArticlePreview from '../components/article-preview';
 
-import { articleList, articleListItem  } from './blog.module.css';
+import { articleList, articleListItem } from './blog.module.css';
 
 class HowToIndex extends React.Component {
   render() {
@@ -34,7 +34,7 @@ export default HowToIndex;
 export function Head({ data }) {
   const siteMeta = get(data, 'site.siteMetadata');
   const howToUrl = `${siteMeta.siteUrl}/${siteMeta.howToDirectory}/`;
-  
+
   return (
     <>
       <title>{siteMeta.title}</title>
@@ -56,8 +56,8 @@ export const pageQuery = graphql`
       }
     }
     allContentfulHowToPost(
-      sort: {publishDate: DESC}
-      filter: {node_locale: {eq: "en-US"}}
+      sort: { publishDate: DESC }
+      filter: { node_locale: { eq: "en-US" } }
     ) {
       edges {
         node {

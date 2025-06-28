@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import { notFoundWrapper, p404, subtitle } from './not-found.module.css'
+import { notFoundWrapper, p404, subtitle } from './not-found.module.css';
 
 export const NotFound = () => {
   return (
@@ -10,5 +10,5 @@ export const NotFound = () => {
         Sorry, the page you're looking for is not available
       </h4>
     </div>
-  )
-}
+  );
+};

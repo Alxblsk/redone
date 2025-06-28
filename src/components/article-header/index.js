@@ -1,1 +1,1 @@
-export { ArticleHeader as default } from './article-header'
+export { ArticleHeader as default } from './article-header';

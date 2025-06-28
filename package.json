@@ -27,7 +27,7 @@
     "dotenv": "^16.0.3",
     "http-proxy-middleware": "^2.0.6",
     "husky": "^8.0.3",
-    "prettier": "^2.8.8"
+    "prettier": "^3.6.2"
   },
   "homepage": "https://belski.dev",
   "keywords": [
@@ -51,7 +51,9 @@
     "develop": "gatsby develop -p 4400",
     "clean": "gatsby clean",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'bin/*.js'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,md}'",
+    "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,json,css,md}'",
+    "format:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,md}'",
     "build": "gatsby build",
     "start": "npm run develop",
     "netlify-build": "sed -i \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"

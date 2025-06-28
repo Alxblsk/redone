@@ -1,5 +1,5 @@
-import React from 'react'
-import { socialPane, socialPaneItemLink } from './social-pane.module.css'
+import React from 'react';
+import { socialPane, socialPaneItemLink } from './social-pane.module.css';
 
 export const SocialPane = () => {
   return (
@@ -59,5 +59,5 @@ export const SocialPane = () => {
         </a>
       </li>
     </ul>
-  )
-}
+  );
+};

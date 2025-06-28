@@ -6,7 +6,14 @@ import classNames from 'classnames';
 import Layout from '../components/layout';
 import ArticlePreview from '../components/article-preview';
 
-import { articleListItem, articleListItemLangs, articleListLanguageSwitch, activeLang, articleLocalizedGroup, articleList } from './blog.module.css';
+import {
+  articleListItem,
+  articleListItemLangs,
+  articleListLanguageSwitch,
+  activeLang,
+  articleLocalizedGroup,
+  articleList,
+} from './blog.module.css';
 
 const LANGUAGE_MAP = {
   'en-US': 'En',
@@ -14,7 +21,7 @@ const LANGUAGE_MAP = {
 };
 
 function getAvailableLocales(posts) {
-  return posts.map((post) => post.node.localized.node_locale);
+  return posts.map(post => post.node.localized.node_locale);
 }
 
 function sortPosts(groups) {
@@ -32,7 +39,7 @@ function Article({ posts, directory }) {
   return (
     <li className={articleListItem}>
       <div className={articleListItemLangs}>
-        {locales.map((locale) => (
+        {locales.map(locale => (
           <button
             type="button"
             className={classNames(
@@ -47,13 +54,10 @@ function Article({ posts, directory }) {
         ))}
       </div>
       <ul className={articleLocalizedGroup} data-selected-lang={lang}>
-        {posts.map((post) => {
+        {posts.map(post => {
           const node = post.node.localized;
           return node ? (
-            <li
-              key={node.slug}
-              lang={node.node_locale}
-            >
+            <li key={node.slug} lang={node.node_locale}>
               <ArticlePreview article={node} directory={directory} />
             </li>
           ) : null;
@@ -73,7 +77,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location}>
         <ul className={articleList}>
-          {groups.map((group) => {
+          {groups.map(group => {
             const posts = group.edges;
             return (
               <Article
@@ -94,7 +98,7 @@ export default BlogIndex;
 export function Head({ data }) {
   const siteMeta = get(data, 'site.siteMetadata');
   const blogUrl = `${siteMeta.siteUrl}/${siteMeta.blogDirectory}/`;
-  
+
   return (
     <>
       <title>{siteMeta.title}</title>
@@ -116,9 +120,9 @@ export const pageQuery = graphql`
       }
     }
     allContentfulBlogPostGlobal(
-      filter: {localized: {title: {regex: "/^[a-zа-я0-9]/i"}}}
+      filter: { localized: { title: { regex: "/^[a-zа-я0-9]/i" } } }
     ) {
-      group(field: {postDate: SELECT}) {
+      group(field: { postDate: SELECT }) {
         fieldValue
         edges {
           node {

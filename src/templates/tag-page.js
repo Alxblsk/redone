@@ -13,7 +13,7 @@ const Tag = ({ data, pageContext, location }) => {
   const howToTags = get(data, 'howToTags.group');
 
   const tags = [...blogTags, ...howToTags].filter(
-    (tag) => tag.fieldValue === pageContext.tag
+    tag => tag.fieldValue === pageContext.tag
   );
 
   return (
@@ -21,7 +21,7 @@ const Tag = ({ data, pageContext, location }) => {
       <div>
         <h2 className="h1">Articles found by tag "{pageContext.tag}"</h2>
         <ul>
-          {(tags[0].nodes || []).map((article) => {
+          {(tags[0].nodes || []).map(article => {
             const pageType = checkType(get(article, 'internal.type'));
             return (
               <li key={article.slug}>
@@ -42,7 +42,7 @@ export default Tag;
 export function Head({ data, pageContext }) {
   const siteMeta = get(data, 'site.siteMetadata');
   const tagUrl = `${siteMeta.siteUrl}/${siteMeta.tagsDirectory}/${pageContext.slug}/`;
-  
+
   return (
     <>
       <title>{siteMeta.title}</title>
@@ -65,8 +65,10 @@ export const pageQuery = graphql`
         tagsDirectory
       }
     }
-    howToTags: allContentfulHowToPost(filter: {node_locale: {eq: "en-US"}}) {
-      group(field: {tags: SELECT}) {
+    howToTags: allContentfulHowToPost(
+      filter: { node_locale: { eq: "en-US" } }
+    ) {
+      group(field: { tags: SELECT }) {
         field
         fieldValue
         nodes {
@@ -78,8 +80,8 @@ export const pageQuery = graphql`
         }
       }
     }
-    blogTags: allContentfulBlogPost(filter: {node_locale: {eq: "en-US"}}) {
-      group(field: {tags: SELECT}) {
+    blogTags: allContentfulBlogPost(filter: { node_locale: { eq: "en-US" } }) {
+      group(field: { tags: SELECT }) {
         field
         fieldValue
         nodes {

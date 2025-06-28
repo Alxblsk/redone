@@ -1,25 +1,34 @@
-import React from 'react'
-import classNames from 'classnames'
-import get from 'lodash/get'
-import { Link } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import React from 'react';
+import classNames from 'classnames';
+import get from 'lodash/get';
+import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
-import { articleHeader, meta, dates, date, highlightDate, tags, tag, heroImage as heroImageClass, title, titleLink, howto, draft } from './article-header.module.css'
-import { kebabCase } from 'lodash'
+import {
+  articleHeader,
+  meta,
+  dates,
+  date,
+  highlightDate,
+  tags,
+  tag,
+  heroImage as heroImageClass,
+  title,
+  titleLink,
+  howto,
+  draft,
+} from './article-header.module.css';
+import { kebabCase } from 'lodash';
 
 export const ArticleHeader = ({ article, isDetails, directory }) => {
-  const isNeverPublished = !get(article, 'sys.revision', 0)
-  const isUpdated = article.updatedAt && article.publishDate !== article.updatedAt
-  const heroImage = get(article, 'heroImage.gatsbyImageData', null)
+  const isNeverPublished = !get(article, 'sys.revision', 0);
+  const isUpdated =
+    article.updatedAt && article.publishDate !== article.updatedAt;
+  const heroImage = get(article, 'heroImage.gatsbyImageData', null);
   const howToSection = directory === 'how-to';
 
   return (
-    <div
-      className={classNames(
-        articleHeader,
-        isNeverPublished && draft
-      )}
-    >
+    <div className={classNames(articleHeader, isNeverPublished && draft)}>
       <h2 className={`h1 ${title} ${howToSection ? howto : ''}`}>
         {isDetails ? (
           article.title
@@ -43,7 +52,7 @@ export const ArticleHeader = ({ article, isDetails, directory }) => {
           ) : null}
         </span>
         <span className={tags}>
-          {(article.tags || []).map((t) => (
+          {(article.tags || []).map(t => (
             <Link className={tag} key={t} to={`/tags/${kebabCase(t)}/`}>
               {t}
             </Link>
@@ -52,9 +61,13 @@ export const ArticleHeader = ({ article, isDetails, directory }) => {
       </p>
       {heroImage && howToSection && (
         <div className={heroImageClass}>
-          <GatsbyImage alt={article.title} title={article.title} image={heroImage} />
+          <GatsbyImage
+            alt={article.title}
+            title={article.title}
+            image={heroImage}
+          />
         </div>
       )}
     </div>
-  )
-}
+  );
+};

@@ -12,7 +12,7 @@ const TagsLayout = ({ title, tags, tagsUrl }) => {
     <div className={tagsGroup}>
       <h2 className={`h1`}>{title}</h2>
       <div>
-        {(tags || []).map((tag) => {
+        {(tags || []).map(tag => {
           return (
             <div className={tagItem} key={tag.fieldValue}>
               <Link to={`/${tagsUrl}/${kebabCase(tag.fieldValue)}/`}>
@@ -28,7 +28,7 @@ const TagsLayout = ({ title, tags, tagsUrl }) => {
   );
 };
 
-const Tags = (props) => {
+const Tags = props => {
   const siteMeta = get(props, 'data.site.siteMetadata');
   const blogTags = get(props, 'data.blogTags.group');
   const howToTags = get(props, 'data.howToTags.group');
@@ -54,7 +54,7 @@ export default Tags;
 export function Head({ data }) {
   const siteMeta = get(data, 'site.siteMetadata');
   const tagsUrl = `${siteMeta.siteUrl}/${siteMeta.tagsDirectory}/`;
-  
+
   return (
     <>
       <title>{siteMeta.title}</title>
@@ -75,14 +75,16 @@ export const pageQuery = graphql`
         tagsDirectory
       }
     }
-    howToTags: allContentfulHowToPost(filter: {node_locale: {eq: "en-US"}}) {
-      group(field: {tags: SELECT}) {
+    howToTags: allContentfulHowToPost(
+      filter: { node_locale: { eq: "en-US" } }
+    ) {
+      group(field: { tags: SELECT }) {
         totalCount
         fieldValue
       }
     }
-    blogTags: allContentfulBlogPost(filter: {node_locale: {eq: "en-US"}}) {
-      group(field: {tags: SELECT}) {
+    blogTags: allContentfulBlogPost(filter: { node_locale: { eq: "en-US" } }) {
+      group(field: { tags: SELECT }) {
         totalCount
         fieldValue
       }

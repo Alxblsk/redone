@@ -41,7 +41,9 @@
 .headerLink:active {
   color: currentColor;
   letter-spacing: 2px;
-  text-shadow: 2px 0 0 #2cdef188, -2px 0 0 #d0037e88;
+  text-shadow:
+    2px 0 0 #2cdef188,
+    -2px 0 0 #d0037e88;
 }
 
 .headerDescription {
@@ -76,7 +78,7 @@
 .navItem.active,
 .navItem:hover,
 .navItem:active {
-  color: #FFF;
+  color: #fff;
   background-color: #373f49;
   text-decoration: none;
 }

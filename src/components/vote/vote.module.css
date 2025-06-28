@@ -1,129 +1,129 @@
 .vote {
-    display: flex;
-    justify-content: space-between;
-    height: 40px;
-    margin: 30px 0 0;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  margin: 30px 0 0;
 }
 
 .buttonCopy {
-    display: block;
-    padding-left: 8px;
+  display: block;
+  padding-left: 8px;
 }
 
 .voteLike,
 .voteDislike,
 .voteShare {
-    display: inline-flex;
-    align-items: center;
-    height: 100%;
-    padding: 7px 8px;
-    vertical-align: top;
-    background-color: #F4F4F4;
-    border: 0 none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all .2s ease-in-out;
-    font-size: 12px;
-    color: #333;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding: 7px 8px;
+  vertical-align: top;
+  background-color: #f4f4f4;
+  border: 0 none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-size: 12px;
+  color: #333;
 }
 
 .voteLike[disabled],
 .voteDislike[disabled],
 .voteShare[disabled] {
-    color: #BBB;
+  color: #bbb;
 }
 
 /* LIKE */
 
 .voteLike {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
 .voteLike:not([disabled]).voted {
-    background-color: #ffc8e983;   
+  background-color: #ffc8e983;
 }
 
 .voteLike:not([disabled]):hover,
 .voteLike:not([disabled]):hover.voted {
-    background-color: #FFC8E9;
+  background-color: #ffc8e9;
 }
 
 .voteLike:not([disabled]):hover .voteIcon,
 .voteLike.voted .voteIcon {
-    fill: #9C23A7;
-    stroke: #9C23A7;
+  fill: #9c23a7;
+  stroke: #9c23a7;
 }
 
 /* Dislike */
 
 .voteDislike {
-    margin-right: 8px;
+  margin-right: 8px;
 }
 
 .voteDislike:not([disabled]).voted {
-    background-color: #ffe9c885;
+  background-color: #ffe9c885;
 }
 
 .voteDislike:not([disabled]):hover,
-.voteDislike:not([disabled]):hover.voted  {
-    background-color: #FFE9C8;
+.voteDislike:not([disabled]):hover.voted {
+  background-color: #ffe9c8;
 }
 
 .voteDislike:not([disabled]):hover .voteIcon,
 .voteDislike.voted .voteIcon {
-    fill: #A75B23;
+  fill: #a75b23;
 }
 
 /* Share */
 
 .voteShare .buttonCopy {
-    visibility: hidden;
-    opacity: 0;
-    width: 0;
-    padding: 0;
-    white-space: nowrap;
-    overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  width: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .voteShare:hover .buttonCopy {
-    visibility: visible;
-    opacity: 1;
-    width: 56px;
-    text-align: left;
-    padding-left: 8px;
-    transition: width .1s ease-in-out;
+  visibility: visible;
+  opacity: 1;
+  width: 56px;
+  text-align: left;
+  padding-left: 8px;
+  transition: width 0.1s ease-in-out;
 }
 
 .voteShare.voted {
-    background-color: #e0ffc88f;
-} 
+  background-color: #e0ffc88f;
+}
 
 .voteShare:hover,
 .voteShare:hover.voted {
-    background-color: #E0FFC8;
-} 
+  background-color: #e0ffc8;
+}
 
 .voteShare:hover .voteIcon,
 .voteShare.voted .voteIcon {
-    fill: #34BA05;
-} 
+  fill: #34ba05;
+}
 
 /* Common */
 
 .voteLike:not([disabled]):hover .voteIcon,
 .voteDislike:not([disabled]):hover .voteIcon,
 .voteShare:not([disabled]):hover .voteIcon {
-    fill-opacity: 1;
-    transition: all .1s ease-in-out;
+  fill-opacity: 1;
+  transition: all 0.1s ease-in-out;
 }
 
 .voteLike[disabled],
 .voteDislike[disabled] {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 .voteLike[disabled] .voteIcon,
 .voteDislike[disabled] .voteIcon {
-    opacity: 0.2;
-    transition: all .2s ease-in-out;
+  opacity: 0.2;
+  transition: all 0.2s ease-in-out;
 }

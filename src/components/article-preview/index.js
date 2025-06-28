@@ -1,1 +1,1 @@
-export { ArticlePreview as default } from './article-preview'
+export { ArticlePreview as default } from './article-preview';

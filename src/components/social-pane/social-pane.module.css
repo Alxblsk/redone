@@ -1,21 +1,21 @@
 .socialPane {
-    display: inline-flex;
-    margin: 0 0 0 -10px;
-    padding: 30px 0 15px;
-    list-style-type: none;
+  display: inline-flex;
+  margin: 0 0 0 -10px;
+  padding: 30px 0 15px;
+  list-style-type: none;
 }
 
 .socialPaneItemLink {
-    padding: 5px 10px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    transition: background-color .2s ease-in-out;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .socialPaneItemLink:hover,
 .socialPaneItemLink:active {
-    color: currentColor;
-    background-color: #ffc8e9;
-    border-radius: 4px;
-} 
+  color: currentColor;
+  background-color: #ffc8e9;
+  border-radius: 4px;
+}

@@ -1,7 +1,7 @@
 const BLOG_POST_TYPE = 'ContentfulBlogPost';
 const HOW_TO_POST_TYPE = 'ContentfulHowToPost';
 
-export const getPageDirectory = (metadata) => (contentfulPageType) => {
+export const getPageDirectory = metadata => contentfulPageType => {
   switch (contentfulPageType) {
     case BLOG_POST_TYPE:
       return metadata.blogDirectory;
@@ -14,4 +14,4 @@ export const getPageDirectory = (metadata) => (contentfulPageType) => {
 
 export const getArticleUrl = (page, meta) => {
   return `${meta.siteUrl}/${meta.blogDirectory}/${page.slug}/`;
-}
+};

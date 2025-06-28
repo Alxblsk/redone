@@ -19,7 +19,7 @@ export default NotFoundPage;
 
 export function Head({ data }) {
   const siteTitle = `404 | ${get(data, 'site.siteMetadata.title')}`;
-  
+
   return (
     <>
       <title>{siteTitle}</title>
