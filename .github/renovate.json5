@@ -58,9 +58,4 @@
   // PR settings
   prConcurrentLimit: 10,
   prHourlyLimit: 2,
-  branchConcurrentLimit: 20,
-  branchHourlyLimit: 4,
-  
-  // Repository settings
-  repositories: [],
 } 
