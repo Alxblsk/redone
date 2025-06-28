@@ -42,8 +42,8 @@
   ],
   "license": "MIT",
   "engines": {
-    "npm": ">=10.9.3",
-    "node": ">=22.0.0"
+    "npm": ">=11.4.2",
+    "node": ">=24.0.0"
   },
   "husky": {
     "hooks": {
