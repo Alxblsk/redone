@@ -24,7 +24,7 @@
     "schema-dts": "^1.1.5"
   },
   "devDependencies": {
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.6.1",
     "http-proxy-middleware": "^2.0.9",
     "husky": "^8.0.3",
     "prettier": "^3.6.2"
