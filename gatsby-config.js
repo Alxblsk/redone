@@ -29,6 +29,19 @@ module.exports = {
         target: process.env.REDONE_VOTE_HOST + process.env.REDONE_VOTE_PREFIX,
         headers: {
           'x-api-key': process.env.API_WRITE_KEY
+        },
+        changeOrigin: true,
+        secure: false,
+        onProxyReq: (proxyReq, req, res) => {
+          proxyReq.removeHeader('origin');
+          proxyReq.removeHeader('referer');
+        },
+        onError: (err, req, res) => {
+          console.error('Proxy error:', err);
+          res.writeHead(500, {
+            'Content-Type': 'text/plain',
+          });
+          res.end('Proxy error: ' + err.message);
         }
       })
     )

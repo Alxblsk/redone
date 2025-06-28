@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
-    "http-proxy-middleware": "^2.0.6",
+    "http-proxy-middleware": "^2.0.9",
     "husky": "^8.0.3",
     "prettier": "^3.6.2"
   },
@@ -51,7 +51,6 @@
     "develop": "gatsby develop -p 4400",
     "clean": "gatsby clean",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,md}'",
     "format:check": "prettier --check 'src/**/*.{js,jsx,ts,tsx,json,css,md}'",
     "format:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,md}'",
     "build": "gatsby build",
