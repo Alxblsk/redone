@@ -12,7 +12,7 @@ import { BlogPostSchema } from '../components/seo';
 import * as styles from './blog-post.module.css';
 import './prism-nord-theme.css';
 
-const BlogPostTemplate: React.FC<BlogPostTemplateProps> = (props) => {
+const BlogPostTemplate: React.FC<BlogPostTemplateProps> = props => {
   const siteMeta = props.data.site.siteMetadata;
   const post = props.data.contentfulBlogPost;
   const heroImage = getImage(post.heroImage?.gatsbyImageData || null);
@@ -40,11 +40,7 @@ const BlogPostTemplate: React.FC<BlogPostTemplateProps> = (props) => {
         />
         <Vote id={post.slug} url={postUrl} />
       </article>
-      <BlogPostSchema
-        post={post}
-        siteMeta={siteMeta}
-        postUrl={postUrl}
-      />
+      <BlogPostSchema post={post} siteMeta={siteMeta} postUrl={postUrl} />
     </Layout>
   );
 };
@@ -85,4 +81,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`; 
+`;

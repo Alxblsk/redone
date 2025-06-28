@@ -29,7 +29,7 @@
     "@types/react-dom": "^19.1.6",
     "dotenv": "^17.0.0",
     "http-proxy-middleware": "^2.0.9",
-    "husky": "^8.0.3",
+    "husky": "^9.1.7",
     "prettier": "^3.6.2",
     "typescript": "^5.8.3"
   },
@@ -45,11 +45,6 @@
     "npm": ">=11.4.2",
     "node": ">=24.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  },
   "scripts": {
     "dev": "npm run develop",
     "develop": "gatsby develop -p 4400",
@@ -59,6 +54,7 @@
     "format:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,md}'",
     "build": "gatsby build",
     "start": "npm run develop",
+    "prepare": "husky",
     "netlify-build": "sed -i \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
   }
 }

@@ -292,4 +292,4 @@ export interface BlogPostData {
       html: string;
     };
   };
-} 
+}

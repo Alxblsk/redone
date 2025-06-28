@@ -89,13 +89,19 @@ const Tag: React.FC<TagPageProps> = ({ data, pageContext, location }) => {
 
 export default Tag;
 
-export function Head({ data, pageContext }: { data: TagPageData; pageContext: { slug: string } }) {
+export function Head({
+  data,
+  pageContext,
+}: {
+  data: TagPageData;
+  pageContext: { slug: string };
+}) {
   const siteMeta = get(data, 'site.siteMetadata');
-  
+
   if (!siteMeta) {
     return null;
   }
-  
+
   const tagUrl = `${siteMeta.siteUrl}/${siteMeta.tagsDirectory}/${pageContext.slug}/`;
 
   return (
@@ -149,4 +155,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`; 
+`;

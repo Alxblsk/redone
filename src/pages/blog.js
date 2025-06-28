@@ -67,7 +67,7 @@ function Article({ posts, directory }) {
   );
 }
 
-const BlogIndex = (props) => {
+const BlogIndex = props => {
   const siteMeta = get(props, 'data.site.siteMetadata');
   const groups = sortPosts(
     get(props, 'data.allContentfulBlogPostGlobal.group', [])

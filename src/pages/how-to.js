@@ -7,7 +7,7 @@ import ArticlePreview from '../components/article-preview';
 
 import { articleList, articleListItem } from './blog.module.css';
 
-const HowToIndex = (props) => {
+const HowToIndex = props => {
   const siteMeta = get(props, 'data.site.siteMetadata');
   const posts = get(props, 'data.allContentfulHowToPost.edges');
 

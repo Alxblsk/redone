@@ -60,4 +60,4 @@ const PageHeader: React.FC<PageHeaderProps> = ({ location }) => {
   );
 };
 
-export default PageHeader; 
+export default PageHeader;

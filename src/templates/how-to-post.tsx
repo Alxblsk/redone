@@ -21,7 +21,7 @@ interface HowToPostTemplateProps extends PageProps {
   };
 }
 
-const HowToPostTemplate: React.FC<HowToPostTemplateProps> = (props) => {
+const HowToPostTemplate: React.FC<HowToPostTemplateProps> = props => {
   const siteMeta = get(props, 'data.site.siteMetadata');
   const post = get(props, 'data.contentfulHowToPost');
   const lang = get(props, 'pageContext.lang', post.nodeLocale);
@@ -46,14 +46,20 @@ const HowToPostTemplate: React.FC<HowToPostTemplateProps> = (props) => {
 
 export default HowToPostTemplate;
 
-export function Head({ data, pageContext }: { data: { site: SiteData; contentfulHowToPost: HowToPostData }; pageContext: { lang?: string } }) {
+export function Head({
+  data,
+  pageContext,
+}: {
+  data: { site: SiteData; contentfulHowToPost: HowToPostData };
+  pageContext: { lang?: string };
+}) {
   const siteMeta = get(data, 'site.siteMetadata');
   const post = get(data, 'contentfulHowToPost');
-  
+
   if (!siteMeta || !post) {
     return null;
   }
-  
+
   const lang = get(pageContext, 'lang', post.nodeLocale);
   const postUrl = `${siteMeta.siteUrl}/${siteMeta.howToDirectory}/${post.slug}/`;
 
@@ -112,4 +118,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`; 
+`;

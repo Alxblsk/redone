@@ -5,7 +5,7 @@ import get from 'lodash/get';
 import Layout from '../components/layout';
 import NotFound from '../components/not-found';
 
-const NotFoundPage = (props) => {
+const NotFoundPage = props => {
   return (
     <Layout location={props.location}>
       <NotFound />

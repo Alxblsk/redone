@@ -26,4 +26,4 @@ declare module '*.svg' {
 declare module '*.gif' {
   const src: string;
   export default src;
-} 
+}

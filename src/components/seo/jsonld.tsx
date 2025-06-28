@@ -10,7 +10,11 @@ interface BlogPostSchemaProps {
   postUrl: string;
 }
 
-export function BlogPostSchema({ post, siteMeta, postUrl }: BlogPostSchemaProps) {
+export function BlogPostSchema({
+  post,
+  siteMeta,
+  postUrl,
+}: BlogPostSchemaProps) {
   const heroImage = get(post, 'heroImage.gatsbyImageData', null);
   const description = get(post, 'description.description');
 
