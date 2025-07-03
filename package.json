@@ -54,5 +54,9 @@
     "start": "npm run develop",
     "prepare": "husky",
     "netlify-build": "sed -i \"s|BLD_TKN|${API_WRITE_KEY}|g; s|BLD_HST|${REDONE_VOTE_HOST}|g; s|BLD_PRFX|${REDONE_VOTE_PREFIX}|g\" static/netlify.toml"
+  },
+  "overrides": {
+    "path-to-regexp": "0.1.12",
+    "cookie": "0.7.1"
   }
 }
