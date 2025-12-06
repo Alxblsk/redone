@@ -28,7 +28,7 @@
     "dotenv": "^17.2.3",
     "http-proxy-middleware": "^2.0.9",
     "husky": "^9.1.7",
-    "prettier": "^3.7.3",
+    "prettier": "^3.7.4",
     "typescript": "^5.9.3"
   },
   "homepage": "https://belski.dev",
