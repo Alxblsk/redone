@@ -1,0 +1,19 @@
+.maintenance {
+  margin-top: 60px;
+  margin-left: 25px;
+}
+
+.status {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+  color: #6f6f6f;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.note {
+  color: #6f6f6f;
+}

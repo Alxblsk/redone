@@ -1,44 +1,16 @@
-import { graphql } from 'gatsby';
-import Home from './blog';
+import React from 'react';
+import * as styles from './index.module.css';
 
-export default Home;
-export const pageQuery = graphql`
-  query HomeQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        siteUrl
-        blogDirectory
-      }
-    }
-    allContentfulBlogPostGlobal(
-      filter: { localized: { title: { regex: "/^[a-zа-я0-9]/i" } } }
-    ) {
-      group(field: { postDate: SELECT }) {
-        fieldValue
-        edges {
-          node {
-            id
-            localized {
-              title
-              slug
-              tags
-              sys {
-                revision
-              }
-              publishDate(formatString: "MMMM Do, YYYY")
-              updatedAt(formatString: "MMMM Do, YYYY")
-              description {
-                childMarkdownRemark {
-                  html
-                }
-              }
-              node_locale
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+export function Head() {
+  return <meta name="robots" content="noindex, nofollow" />;
+}
+
+export default function IndexPage() {
+  return (
+    <div className={styles.maintenance}>
+      <p className={styles.status}>// status: offline</p>
+      <h1 className={styles.title}>We'll be back soon.</h1>
+      <p className={styles.note}>The blog is being redone. Again.</p>
+    </div>
+  );
+}
