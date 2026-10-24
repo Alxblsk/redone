@@ -41,7 +41,7 @@
   "license": "MIT",
   "engines": {
     "npm": ">=12.2.0",
-    "node": ">=24.22.0"
+    "node": ">=24.22.1"
   },
   "scripts": {
     "dev": "npm run develop",
